@@ -1,6 +1,8 @@
 import Cartcart from "../layout/Cartcart";
 import Footer from "../layout/Footer";
 import Navbar from "../layout/Navbar";
+import NavPanel from "../layout/NavPanel";
+import SiteLinks from "../layout/SiteLinks";
 
 const Home = () => {
   return (
@@ -30,15 +32,18 @@ const Home = () => {
         {/* content */}
       </div>
 
-      <br />
-
       {/* main body */}
       <div className="container">
         {/* content */}
         <div className="container-fluid">
           {/* content */}
-          <h1>Home is working!</h1>
-          <h1>Home is working!</h1>
+          <div className="panel">
+            {/* panel nav */}
+            <div className="panel-nav">
+              <NavPanel />
+            </div>
+            {/* panel nav */}
+          </div>
           {/* content */}
         </div>
         {/* content */}
@@ -48,6 +53,10 @@ const Home = () => {
       <div className="footer-container">
         {/* content */}
         <div className="container">
+          {/* other */}
+          <SiteLinks />
+          {/* other */}
+          <br />
           {/* footer */}
           <Footer />
           {/* footer */}

@@ -2,8 +2,8 @@ const Cartcart = () => {
   return (
     <div className="cartcart container-fluid">
       <div className="cartcart-container">
-        <div class="card">
-          <div class="card-header">
+        <div className="card">
+          <div className="card-header">
             <div className="top-cart">
               <div className="top-links">
                 <a href="" className="cart-btn btn btn-outline-dark">
@@ -16,13 +16,13 @@ const Cartcart = () => {
               <div className="top-name">
                 <p className="fs-6">
                   <span className="text-dark">Cart</span>{" "}
-                  <i class="bi bi-bag-check-fill text-primary"></i>
+                  <i className="bi bi-bag-check-fill text-primary"></i>
                 </p>
               </div>
             </div>
           </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">
+          <ul className="list-group list-group-flush">
+            <li className="list-group-item">
               <div className="cart-item">
                 <div>
                   <strong>
@@ -34,7 +34,7 @@ const Cartcart = () => {
                 </div>
               </div>
             </li>
-            <li class="list-group-item">
+            <li className="list-group-item">
               <div className="cart-item">
                 <div>
                   <strong>Total:</strong>
@@ -47,7 +47,7 @@ const Cartcart = () => {
               </div>
             </li>
           </ul>
-          <div class="card-footer">
+          <div className="card-footer">
             <div className="bot-cart">
               <a href="" className="cart-btn btn btn-outline-primary">
                 View cart
