@@ -8,9 +8,9 @@ const Cartcart = () => {
           <div className="card-header">
             <div className="top-cart">
               <div className="top-links">
-                <a href="" className="cart-btn btn btn-outline-dark">
+                <Link to={"/login"} className="cart-btn btn btn-outline-dark">
                   Log in
-                </a>
+                </Link>
               </div>
               <div className="top-name">
                 <p className="fs-6">
@@ -29,7 +29,9 @@ const Cartcart = () => {
                   </strong>
                 </div>
                 <div>
-                  <p className="update">5</p>
+                  <p>
+                    <span className="update">5</span> Items
+                  </p>
                 </div>
               </div>
             </li>
@@ -54,7 +56,7 @@ const Cartcart = () => {
               <a href="" className="cart-btn btn btn-outline-secondary">
                 Empty cart
               </a>
-              <a href="" className="cart-btn btn btn-outline-secondary">
+              <a href="" className="cart-btn btn btn-outline-success">
                 Checkout
               </a>
             </div>

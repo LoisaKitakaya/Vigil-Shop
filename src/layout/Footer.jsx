@@ -1,11 +1,13 @@
+import { Link } from "react-router-dom";
+
 const Footer = () => {
   return (
     <div className="footer">
       <nav className="navbar navbar-expand-lg">
         <div className="container-fluid">
-          <a className="navbar-brand fs-3" href="#">
+          <Link to={"/"} className="navbar-brand fs-3">
             Vigil Surveillance
-          </a>
+          </Link>
           <div className="d-flex to-hide navbar-nav">
             <a href="#" className="nav-link">
               Created by Freedom Loisa

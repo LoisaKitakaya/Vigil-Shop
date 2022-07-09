@@ -12,7 +12,6 @@ const NavPanel = () => {
 
           <Dropdown.Menu>
             <Dropdown.Item href="#/action-1">Dashboard</Dropdown.Item>
-            <Dropdown.Item href="#/action-2">Profile</Dropdown.Item>
             <Dropdown.Item href="#/action-3">Help center</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>

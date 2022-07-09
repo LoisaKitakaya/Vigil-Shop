@@ -1,4 +1,5 @@
 import { gql, useMutation } from "@apollo/client";
+import { Link } from "react-router-dom";
 
 import Cartcart from "../layout/Cartcart";
 import Footer from "../layout/Footer";
@@ -66,9 +67,9 @@ const SignUp = () => {
           {/* content */}
           <div className="panel">
             {/* panel nav */}
-            <div className="panel-nav">
+            {/* <div className="panel-nav">
               <NavPanel />
-            </div>
+            </div> */}
             <br />
             <div className="panel-content">
               <h3 className="text-center">Sign up</h3>
@@ -86,7 +87,7 @@ const SignUp = () => {
                       password2: e.target.password2.value,
                     },
                   });
-                  
+
                   localStorage.setItem("token", data.register.token);
                 }}
               >
@@ -146,6 +147,10 @@ const SignUp = () => {
                   Submit
                 </button>
               </form>
+              <hr />
+              <p className="text-center">
+                Already have an account? Sign in <Link to={"/login"}>here</Link>.
+              </p>
             </div>
             {/* panel nav */}
           </div>

@@ -102,9 +102,14 @@
   flex-wrap: wrap;
 }
 
-.product-container .card {
+.product-container .home-card {
   margin: 1rem;
   width: 30%;
+}
+
+.product-container .product-card {
+  width: 100%;
+  margin: auto;
 }
 
 /* media queries section */
@@ -163,6 +168,10 @@
 
   .product-container .card {
     margin: 1rem auto;
+    width: auto;
+  }
+
+  .product-card form {
     width: auto;
   }
 }

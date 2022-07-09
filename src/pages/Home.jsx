@@ -1,12 +1,11 @@
 import { useQuery, gql } from "@apollo/client";
+import { Link } from "react-router-dom";
 
 import Cartcart from "../layout/Cartcart";
 import Footer from "../layout/Footer";
 import Navbar from "../layout/Navbar";
 import NavPanel from "../layout/NavPanel";
 import SiteLinks from "../layout/SiteLinks";
-
-import testpic from "../assets/text.png";
 
 const GET_PRODUCTS = gql`
   query GET_PRODUCTS {
@@ -70,7 +69,7 @@ const Home = () => {
                 {data.allProducts.map((product) => {
                   const list = (
                     <>
-                      <div className="card" key={product.id}>
+                      <div className="card home-card" key={product.id}>
                         <img
                           src={product.image}
                           className="card-img-top"
@@ -80,24 +79,29 @@ const Home = () => {
                           <h5 className="card-title">{product.name}</h5>
                           <p className="card-text">{product.description}</p>
                           <p className="card-text">
-                            <form className="d-flex">
-                              <input
-                                type="number"
-                                name="quantity"
-                                className="form-control me-2"
-                                defaultValue="1"
-                                min="1"
-                              />
-                              <button className="btn btn-danger" type="submit">
-                                Add
-                              </button>
-                            </form>
-                          </p>
-                          <p className="card-text">
-                            <small className="text-muted">
-                              {product.price}
+                            <small>
+                              <strong>Price: </strong> {product.price} Ksh
                             </small>
                           </p>
+                          <form className="d-flex">
+                            <input
+                              type="number"
+                              name="quantity"
+                              className="form-control me-2"
+                              defaultValue="1"
+                              min="1"
+                            />
+                            <button className="btn btn-danger" type="submit">
+                              Add
+                            </button>
+                          </form>
+                          <br />
+                          <Link
+                            to={`/product/${product.slug}`}
+                            className="card-text btn btn-outline-danger container-fluid"
+                          >
+                            View product
+                          </Link>
                         </div>
                       </div>
                     </>
@@ -106,6 +110,7 @@ const Home = () => {
                   return list;
                 })}
               </div>
+              <br />
             </div>
             {/* panel nav */}
           </div>
