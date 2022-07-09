@@ -13,7 +13,7 @@ const Navbar = () => {
               name="search"
               placeholder="Search"
             />
-            <button className="btn btn-warning" type="submit">
+            <button className="btn btn-outline-dark" type="submit">
               Search
             </button>
           </form>

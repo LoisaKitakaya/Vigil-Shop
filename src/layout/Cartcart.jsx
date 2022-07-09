@@ -11,9 +11,6 @@ const Cartcart = () => {
                 <a href="" className="cart-btn btn btn-outline-dark">
                   Log in
                 </a>
-                <Link to={"/signup"} className="cart-btn btn btn-outline-dark">
-                  Sign up
-                </Link>
               </div>
               <div className="top-name">
                 <p className="fs-6">
@@ -51,13 +48,13 @@ const Cartcart = () => {
           </ul>
           <div className="card-footer">
             <div className="bot-cart">
-              <a href="" className="cart-btn btn btn-outline-primary">
+              <a href="" className="cart-btn btn btn-outline-secondary">
                 View cart
               </a>
-              <a href="" className="cart-btn btn btn-outline-danger">
+              <a href="" className="cart-btn btn btn-outline-secondary">
                 Empty cart
               </a>
-              <a href="" className="cart-btn btn btn-outline-success">
+              <a href="" className="cart-btn btn btn-outline-secondary">
                 Checkout
               </a>
             </div>

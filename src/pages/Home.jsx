@@ -88,7 +88,7 @@ const Home = () => {
                                 defaultValue="1"
                                 min="1"
                               />
-                              <button className="btn btn-warning" type="submit">
+                              <button className="btn btn-danger" type="submit">
                                 Add
                               </button>
                             </form>

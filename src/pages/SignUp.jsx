@@ -86,7 +86,7 @@ const SignUp = () => {
                       password2: e.target.password2.value,
                     },
                   });
-
+                  
                   localStorage.setItem("token", data.register.token);
                 }}
               >

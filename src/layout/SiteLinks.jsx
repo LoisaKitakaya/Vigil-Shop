@@ -3,14 +3,27 @@ const SiteLinks = () => {
     <div className="site-links">
       <div className="container-fluid">
         <div className="site-links-container">
-          <div className="link-category some-left">
-            <h4>Support</h4>
+          <div className="link-category">
+            <h4>Vigil</h4>
             <a href="#" className="nav-link">
-              Help Center
+              About Us
             </a>
             <a href="#" className="nav-link ">
               Contact Us
             </a>
+            <a href="#" className="nav-link">
+              Blog
+            </a>
+            <a href="#" className="nav-link ">
+              Privacy Policy
+            </a>
+            <a href="#" className="nav-link ">
+              Terms {"&"} Conditions
+            </a>
+          </div>
+
+          <div className="link-category some-left">
+            <h4>Support</h4>
             <a href="#" className="nav-link ">
               Logistics {"&"} Delivery
             </a>
@@ -28,21 +41,6 @@ const SiteLinks = () => {
             </a>
           </div>
           <div className="link-category">
-            <h4>Vigil</h4>
-            <a href="#" className="nav-link">
-              About Us
-            </a>
-            <a href="#" className="nav-link">
-              Blog
-            </a>
-            <a href="#" className="nav-link ">
-              Privacy Policy
-            </a>
-            <a href="#" className="nav-link ">
-              Terms {"&"} Conditions
-            </a>
-          </div>
-          <div className="link-category">
             <h4>Career</h4>
             <a href="#" className="nav-link">
               Vigil Careers
@@ -54,7 +52,6 @@ const SiteLinks = () => {
               Become a Logistics service Provider
             </a>
           </div>
-
           <div className="link-category">
             <h4>Newsletter</h4>
             <p>Subscribe to our newsletter for more information</p>
@@ -64,7 +61,7 @@ const SiteLinks = () => {
                 type="search"
                 placeholder="your email"
               />
-              <button className="btn btn-warning" type="submit">
+              <button className="btn btn-outline-dark" type="submit">
                 Subscribe
               </button>
             </form>
