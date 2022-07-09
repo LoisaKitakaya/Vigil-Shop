@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Cartcart = () => {
   return (
     <div className="cartcart container-fluid">
@@ -9,9 +11,9 @@ const Cartcart = () => {
                 <a href="" className="cart-btn btn btn-outline-dark">
                   Log in
                 </a>
-                <a href="" className="cart-btn btn btn-outline-dark">
+                <Link to={"/signup"} className="cart-btn btn btn-outline-dark">
                   Sign up
-                </a>
+                </Link>
               </div>
               <div className="top-name">
                 <p className="fs-6">

@@ -79,8 +79,8 @@
   padding: 0 0.75rem;
 }
 
-.panel {
-  min-height: 100vh;
+.form-card {
+  padding: 2rem;
 }
 
 .site-links-container {
@@ -94,6 +94,17 @@
 
 .some-left {
   margin-left: 1.5rem;
+}
+
+.product-container {
+  display: flex;
+  justify-content: first baseline;
+  flex-wrap: wrap;
+}
+
+.product-container .card {
+  margin: 1rem;
+  width: 30%;
 }
 
 /* media queries section */
@@ -144,5 +155,14 @@
 
   .panel-nav {
     display: none;
+  }
+
+  .product-container {
+    flex-direction: column;
+  }
+
+  .product-container .card {
+    margin: 1rem auto;
+    width: auto;
   }
 }

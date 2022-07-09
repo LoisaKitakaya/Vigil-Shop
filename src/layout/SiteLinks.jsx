@@ -23,11 +23,17 @@ const SiteLinks = () => {
             <a href="#" className="nav-link ">
               Report a Product
             </a>
+            <a href="#" className="nav-link ">
+              Payment
+            </a>
           </div>
           <div className="link-category">
             <h4>Vigil</h4>
             <a href="#" className="nav-link">
               About Us
+            </a>
+            <a href="#" className="nav-link">
+              Blog
             </a>
             <a href="#" className="nav-link ">
               Privacy Policy
@@ -52,13 +58,13 @@ const SiteLinks = () => {
           <div className="link-category">
             <h4>Newsletter</h4>
             <p>Subscribe to our newsletter for more information</p>
-            <form class="d-flex">
+            <form className="d-flex">
               <input
-                class="form-control me-2"
+                className="form-control me-2"
                 type="search"
                 placeholder="your email"
               />
-              <button class="btn btn-warning" type="submit">
+              <button className="btn btn-warning" type="submit">
                 Subscribe
               </button>
             </form>

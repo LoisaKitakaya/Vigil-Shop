@@ -11,8 +11,8 @@ const NavPanel = () => {
 
           <Dropdown.Menu>
             <Dropdown.Item href="#/action-1">Dashboard</Dropdown.Item>
-            <Dropdown.Item href="#/action-2">Report an issue</Dropdown.Item>
-            <Dropdown.Item href="#/action-3">Talk to someone</Dropdown.Item>
+            <Dropdown.Item href="#/action-2">Profile</Dropdown.Item>
+            <Dropdown.Item href="#/action-3">Help center</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
         <Dropdown className="nav-link">
@@ -37,20 +37,9 @@ const NavPanel = () => {
             <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
-        <Dropdown className="nav-link">
-          <Dropdown.Toggle variant="outline-dark" id="dropdown-basic">
-            View brands
-          </Dropdown.Toggle>
-
-          <Dropdown.Menu>
-            <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
       </nav>
     </div>
   );
 };
 
-export default NavPanel
+export default NavPanel;

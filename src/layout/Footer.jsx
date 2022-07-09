@@ -10,7 +10,6 @@ const Footer = () => {
             <a href="#" className="nav-link">
               Created by Freedom Loisa
             </a>
-            <a className="nav-link text-dark">|</a>
             <a className="nav-link text-dark">© 2022 • vigilsurvaillance.com</a>
           </div>
           <div className="navbar-nav menu-toggle">
