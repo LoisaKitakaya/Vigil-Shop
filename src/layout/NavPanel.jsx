@@ -11,7 +11,6 @@ const NavPanel = ({ quantity }) => {
           </Dropdown.Toggle>
 
           <Dropdown.Menu>
-            <Dropdown.Item href="#/action-1">Home</Dropdown.Item>
             <Dropdown.Item href="#/action-1">Dashboard</Dropdown.Item>
             <Dropdown.Item href="#/action-3">Help center</Dropdown.Item>
           </Dropdown.Menu>

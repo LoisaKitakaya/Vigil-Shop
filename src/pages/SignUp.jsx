@@ -1,10 +1,8 @@
 import { gql, useMutation } from "@apollo/client";
 import { Link } from "react-router-dom";
 
-import Cartcart from "../layout/Cartcart";
 import Footer from "../layout/Footer";
 import Navbar from "../layout/Navbar";
-import NavPanel from "../layout/NavPanel";
 import SiteLinks from "../layout/SiteLinks";
 
 const REGISTER_USER = gql`
@@ -44,18 +42,6 @@ const SignUp = () => {
           {/* navbar */}
           <Navbar />
           {/* navbar */}
-
-          <br />
-
-          <div className="set-container">
-            {/* cartcart */}
-            <Cartcart />
-            {/* cartcart */} {/* other */}
-            <div className="other">
-              <h3>Vigil surveillance, your kind of surveillance</h3>
-            </div>
-            {/* other */}
-          </div>
         </div>
         {/* content */}
       </div>
@@ -66,10 +52,6 @@ const SignUp = () => {
         <div className="container-fluid">
           {/* content */}
           <div className="panel">
-            {/* panel nav */}
-            {/* <div className="panel-nav">
-              <NavPanel />
-            </div> */}
             <br />
             <div className="panel-content">
               <h3 className="text-center">Sign up</h3>

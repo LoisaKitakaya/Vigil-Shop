@@ -5,15 +5,29 @@ const Navbar = () => {
     <div className="navigation">
       <nav className="navbar navbar-expand-lg">
         <div className="container-fluid">
-          <Link
-            to={"/"}
+          <a
+            href="https://vigilsurveillance.netlify.app/"
             className="navbar-brand fs-3 btn"
             data-bs-toggle="tooltip"
             data-bs-placement="right"
             title="Go to company site"
           >
             Vigil Surveillance
-          </Link>
+          </a>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <Link to={"/"} class="nav-link">
+                  Home
+                </Link>
+              </li>
+              <li class="nav-item">
+                <Link to={"/login"} class="nav-link">
+                  Sign in
+                </Link>
+              </li>
+            </ul>
+          </div>
           <form className="d-flex nav-search">
             <input
               className="form-control me-2"
