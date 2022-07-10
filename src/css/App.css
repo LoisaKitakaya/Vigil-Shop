@@ -112,6 +112,21 @@
   margin: auto;
 }
 
+/* .cart-btn {
+  position: fixed;
+  top: 2 !important;
+  right: 2 !important;
+} */
+
+.navbar-brand:hover {
+  -webkit-box-shadow: 0px 10px 13px -7px #000000,
+    5px 5px 15px 5px rgba(0, 0, 0, 0);
+  box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+  transform: translateY(-1px);
+  transition-duration: 275ms;
+  transition-timing-function: ease-in-out;
+}
+
 /* media queries section */
 
 @media screen and (max-width: 600px) {

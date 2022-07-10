@@ -1,7 +1,9 @@
 import { useQuery, gql } from "@apollo/client";
 import { Link, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 
-import Cartcart from "../layout/Cartcart";
+import ProductCard from "../components/productcard";
+
 import Footer from "../layout/Footer";
 import Navbar from "../layout/Navbar";
 import NavPanel from "../layout/NavPanel";
@@ -27,7 +29,16 @@ const GET_PRODUCT = gql`
   }
 `;
 
+// const initialCount = JSON.parse(localStorage.getItem("cart"));
+
 const Product = () => {
+  const [quantity, setQuantity] = useState(0);
+
+  useEffect(() => {
+    const initialCount = JSON.parse(localStorage.getItem("cart"));
+    setQuantity(initialCount.length);
+  }, []);
+
   const slug = useParams();
 
   const { loading, error, data } = useQuery(GET_PRODUCT, {
@@ -38,6 +49,39 @@ const Product = () => {
   if (loading) return <p>Loading...</p>;
   if (error) return `Error! ${error}`;
 
+  let itemsArray = localStorage.getItem("cart")
+    ? JSON.parse(localStorage.getItem("cart"))
+    : [];
+
+  localStorage.setItem("cart", JSON.stringify(itemsArray));
+  console.log(itemsArray);
+
+  const adjustCart = (product) => {
+    itemsArray.push(product);
+    localStorage.setItem("cart", JSON.stringify(itemsArray));
+  };
+
+  const cartCheck = (id, product) => {
+    const count = JSON.parse(localStorage.getItem("cart"));
+    const checkIndex = count.findIndex((item) => item.id === id);
+
+    if (checkIndex !== -1) {
+      console.log("Item exists");
+    } else {
+      adjustCart(product);
+    }
+  };
+
+  const handleAdd = (product) => {
+    const id = product.id;
+
+    cartCheck(id, product);
+
+    const count = JSON.parse(localStorage.getItem("cart"));
+    setQuantity(count.length);
+    console.log(itemsArray);
+  };
+
   return (
     <div className="products">
       {/* body */}
@@ -47,18 +91,6 @@ const Product = () => {
           {/* navbar */}
           <Navbar />
           {/* navbar */}
-
-          <br />
-
-          <div className="set-container">
-            {/* cartcart */}
-            <Cartcart />
-            {/* cartcart */} {/* other */}
-            <div className="other">
-              <h3>Vigil surveillance, your kind of surveillance</h3>
-            </div>
-            {/* other */}
-          </div>
         </div>
         {/* content */}
       </div>
@@ -71,55 +103,11 @@ const Product = () => {
           <div className="panel">
             {/* panel nav */}
             <div className="panel-nav">
-              <NavPanel />
+              <NavPanel quantity={quantity} />
             </div>
             <div className="panel-content">
               <div className="product-container">
-                <div class="card product-card mb-3">
-                  <img
-                    src={data.singleProduct.image}
-                    class="card-img-top"
-                    alt="..."
-                  />
-                  <div class="card-body">
-                    <h5 class="card-title">{data.singleProduct.name}</h5>
-                    <br />
-                    <p class="card-text">
-                      <strong>Description: </strong>{" "}
-                      {data.singleProduct.description}
-                    </p>
-                    <p className="card-text">
-                      <strong>Category: </strong>{" "}
-                      <Link
-                        to={`/category/${data.singleProduct.category.slug}`}
-                      >
-                        {data.singleProduct.category.name}
-                      </Link>{" "}
-                      | <strong>Collection: </strong>{" "}
-                      <Link
-                        to={`/collection/${data.singleProduct.collection.slug}`}
-                      >
-                        {data.singleProduct.collection.name}
-                      </Link>
-                    </p>
-                    <p className="card-text">
-                      <strong>Price: </strong> {data.singleProduct.price} Ksh
-                    </p>
-                    <form className="d-flex">
-                      <input
-                        type="number"
-                        name="quantity"
-                        className="form-control me-2"
-                        defaultValue="1"
-                        min="1"
-                      />
-                      <button className="btn btn-danger" type="submit">
-                        Add to cart
-                      </button>
-                    </form>
-                    <br />
-                  </div>
-                </div>
+                <ProductCard data={data} handleAdd={handleAdd} />
               </div>
               <br />
             </div>

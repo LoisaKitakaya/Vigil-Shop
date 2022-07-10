@@ -5,7 +5,13 @@ const Navbar = () => {
     <div className="navigation">
       <nav className="navbar navbar-expand-lg">
         <div className="container-fluid">
-          <Link to={"/"} className="navbar-brand fs-3">
+          <Link
+            to={"/"}
+            className="navbar-brand fs-3 btn"
+            data-bs-toggle="tooltip"
+            data-bs-placement="right"
+            title="Go to company site"
+          >
             Vigil Surveillance
           </Link>
           <form className="d-flex nav-search">

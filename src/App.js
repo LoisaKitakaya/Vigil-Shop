@@ -17,6 +17,7 @@ function App() {
         <Route path="/product/:slug" element={<Product />} />
       </Routes>
       {/* Routes */}
+      
     </div>
   );
 }
