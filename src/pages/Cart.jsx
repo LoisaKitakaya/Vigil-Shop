@@ -1,27 +1,13 @@
-import { useQuery, gql } from "@apollo/client";
 import { useEffect, useState } from "react";
 
-import Card from "../components/homecard";
+import CartContainer from "../components/cartContainer";
 
 import Footer from "../layout/Footer";
 import Navbar from "../layout/Navbar";
 import NavPanel from "../layout/NavPanel";
 import SiteLinks from "../layout/SiteLinks";
 
-const GET_PRODUCTS = gql`
-  query GET_PRODUCTS {
-    allProducts {
-      id
-      name
-      slug
-      image
-      description
-      price
-    }
-  }
-`;
-
-const Home = () => {
+const Cart = () => {
   const [quantity, setQuantity] = useState(0);
 
   useEffect(() => {
@@ -29,47 +15,29 @@ const Home = () => {
     setQuantity(initialCount.length);
   }, []);
 
-  const { loading, error, data } = useQuery(GET_PRODUCTS);
-  console.log(data);
-
-  if (loading) return <p>Loading...</p>;
-  if (error) return `Error! ${error}`;
-
   let itemsArray = localStorage.getItem("cart")
     ? JSON.parse(localStorage.getItem("cart"))
     : [];
 
   localStorage.setItem("cart", JSON.stringify(itemsArray));
+  const data = JSON.parse(localStorage.getItem("cart"));
   console.log(itemsArray);
 
-  const adjustCart = (product) => {
-    itemsArray.push(product);
+  const handleClear = (product) => {
+    localStorage.clear();
+
+    setQuantity(0);
+
+    itemsArray = localStorage.getItem("cart")
+      ? JSON.parse(localStorage.getItem("cart"))
+      : [];
+
     localStorage.setItem("cart", JSON.stringify(itemsArray));
-  };
-
-  const cartCheck = (id, product) => {
-    const count = JSON.parse(localStorage.getItem("cart"));
-    const checkIndex = count.findIndex((item) => item.id === id);
-
-    if (checkIndex !== -1) {
-      console.log("Item exists");
-    } else {
-      adjustCart(product);
-    }
-  };
-
-  const handleAdd = (product) => {
-    const id = product.id;
-
-    cartCheck(id, product);
-
-    const count = JSON.parse(localStorage.getItem("cart"));
-    setQuantity(count.length);
     console.log(itemsArray);
   };
 
   return (
-    <div className="home">
+    <div className="cart-parent">
       {/* body */}
       <div className="navigation-container">
         {/* content */}
@@ -93,15 +61,25 @@ const Home = () => {
             </div>
             <div className="panel-content">
               <div className="product-container">
-                {data.allProducts.map((product) => {
-                  return (
-                    <Card
-                      key={product.id}
-                      product={product}
-                      handleAdd={handleAdd}
-                    />
-                  );
-                })}
+                <table className="table table-hover table-responsive table-borderless table-warning">
+                  <thead className="table-dark">
+                    <tr>
+                      <th scope="col" className="text-center">
+                        Product
+                      </th>
+                      <th scope="col" className="text-center">
+                        Quantity
+                      </th>
+                      <th scope="col" className="text-center">
+                        Total item price
+                      </th>
+                      <th scope="col" className="text-center">
+                        Remove
+                      </th>
+                    </tr>
+                  </thead>
+                  <CartContainer data={data} handleClear={handleClear} />
+                </table>
               </div>
               <br />
             </div>
@@ -131,4 +109,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Cart;

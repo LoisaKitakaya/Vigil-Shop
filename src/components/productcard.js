@@ -26,7 +26,7 @@ const ProductCard = ({ data, handleAdd }) => {
         <button
           className="card-text btn btn-outline-danger container-fluid"
           onClick={() => {
-            handleAdd(data);
+            handleAdd(data.singleProduct);
           }}
         >
           Add to cart <i className="bi bi-bag-check-fill"></i>

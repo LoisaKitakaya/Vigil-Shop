@@ -14,16 +14,16 @@ const Navbar = () => {
           >
             Vigil Surveillance
           </a>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <Link to={"/"} class="nav-link">
-                  Home
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+              <li className="nav-item">
+                <Link to={"/"} className="nav-link">
+                  <strong>Home</strong>
                 </Link>
               </li>
-              <li class="nav-item">
-                <Link to={"/login"} class="nav-link">
-                  Sign in
+              <li className="nav-item">
+                <Link to={"/login"} className="nav-link">
+                  <strong>Sign in</strong>
                 </Link>
               </li>
             </ul>

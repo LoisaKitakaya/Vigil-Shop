@@ -136,11 +136,31 @@
   border-bottom: 1px solid whitesmoke;
 }
 
-/* .footer .container-fluid {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: first baseline !important;
-} */
+.cart-parent .panel-content {
+  min-height: 50vh;
+}
+
+.this-card {
+  width: 50%;
+}
+
+.td div {
+  margin-top: 3rem;
+}
+
+.td input {
+  width: 20%;
+}
+
+.qty-register:hover {
+  cursor: pointer;
+}
+
+.message {
+  position: absolute !important;
+  left: 34.25rem !important;
+  padding-top: 2rem;
+}
 
 /* media queries section */
 

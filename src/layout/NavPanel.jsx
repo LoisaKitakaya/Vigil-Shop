@@ -63,7 +63,7 @@ const NavPanel = ({ quantity }) => {
           </Dropdown.Toggle>
 
           <Dropdown.Menu>
-            <Dropdown.Item href="#/action-1">
+            <Dropdown.Item href="/cart">
               View cart <i className="bi bi-bag-check-fill"></i>
             </Dropdown.Item>
             <Dropdown.Item href="#/action-2">

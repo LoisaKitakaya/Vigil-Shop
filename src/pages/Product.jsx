@@ -1,5 +1,5 @@
 import { useQuery, gql } from "@apollo/client";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 import ProductCard from "../components/productcard";
@@ -17,6 +17,7 @@ const GET_PRODUCT = gql`
       image
       description
       price
+      slug
       category {
         name
         slug
