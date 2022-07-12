@@ -130,6 +130,7 @@
   border-bottom: 1px solid black;
   transition-duration: 200ms;
   transition-timing-function: linear;
+  font-family: 'Cormorant SC', serif !important;
 }
 
 .navigation .nav-item:hover {
@@ -148,8 +149,18 @@
   margin-top: 3rem;
 }
 
-.td input {
+.this-td input {
   width: 20%;
+}
+
+.other-td input {
+  width: 35%;
+}
+
+.other-td input,
+.this-td input {
+  border-radius: 0.25rem;
+  border: 1px solid black;
 }
 
 .qty-register:hover {
@@ -160,6 +171,15 @@
   position: absolute !important;
   left: 34.25rem !important;
   padding-top: 2rem;
+}
+
+.total-container {
+  display: flex;
+  padding: 2rem auto;
+  margin-top: 1rem;
+  align-items: center;
+  border-radius: 0.3rem;
+  width: 100%;
 }
 
 /* media queries section */

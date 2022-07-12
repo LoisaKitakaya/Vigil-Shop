@@ -1,6 +1,24 @@
 import { Dropdown } from "react-bootstrap";
 
 const NavPanel = ({ quantity }) => {
+  let itemsArray = localStorage.getItem("cart")
+    ? JSON.parse(localStorage.getItem("cart"))
+    : [];
+
+  const handleClear = (product) => {
+    localStorage.clear();
+
+    quantity = 0;
+
+    itemsArray = localStorage.getItem("cart")
+      ? JSON.parse(localStorage.getItem("cart"))
+      : [];
+
+    localStorage.setItem("cart", JSON.stringify(itemsArray));
+    console.log(itemsArray);
+
+    window.location.reload(true);
+  };
   return (
     <div className="nav-panel">
       <br />
@@ -63,11 +81,9 @@ const NavPanel = ({ quantity }) => {
           </Dropdown.Toggle>
 
           <Dropdown.Menu>
-            <Dropdown.Item href="/cart">
-              View cart <i className="bi bi-bag-check-fill"></i>
-            </Dropdown.Item>
-            <Dropdown.Item href="#/action-2">
-              Checkout <i className="bi bi-door-open-fill"></i>
+            <Dropdown.Item href="/cart">View cart</Dropdown.Item>
+            <Dropdown.Item href="#" onClick={handleClear}>
+              Clear cart
             </Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>

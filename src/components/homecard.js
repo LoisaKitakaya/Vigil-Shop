@@ -9,7 +9,7 @@ const Card = ({ product, handleAdd }) => {
         <p className="card-text">{product.description}</p>
         <p className="card-text">
           <small>
-            <strong>Price: </strong> {product.price} Ksh
+            <strong>Price: {product.price} Ksh</strong>
           </small>
         </p>
         <Link

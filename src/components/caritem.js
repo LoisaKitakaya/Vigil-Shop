@@ -15,16 +15,21 @@ const CartItem = ({ item }) => {
       setItemQty(1);
     }
   };
+
   return (
     <tr key={item.id}>
       <td className="this-card">
-        <div class="card mb-2">
-          <div class="row g-0">
-            <div class="col-md-4">
-              <img src={item.image} class="img-fluid rounded-start" alt="..." />
+        <div className="card mb-2">
+          <div className="row g-0">
+            <div className="col-md-4">
+              <img
+                src={item.image}
+                className="img-fluid rounded-start"
+                alt="..."
+              />
             </div>
-            <div class="col-md-8">
-              <div class="card-body">
+            <div className="col-md-8">
+              <div className="card-body">
                 <p className="card-text text-center">{item.name}</p>
                 <Link
                   to={`/product/${item.slug}`}
@@ -42,7 +47,7 @@ const CartItem = ({ item }) => {
           <p>
             <span>
               <i
-                class="bi bi-dash-square-fill text-danger qty-register"
+                className="bi bi-dash-square-fill text-danger qty-register"
                 onClick={remove}
               ></i>
             </span>{" "}
@@ -51,22 +56,29 @@ const CartItem = ({ item }) => {
               name="cart-qty"
               value={itemQty}
               className="text-center"
+              readOnly
             />{" "}
             <span>
               <i
-                class="bi bi-plus-square-fill text-danger qty-register"
+                className="bi bi-plus-square-fill text-danger qty-register"
                 onClick={add}
               ></i>
             </span>
           </p>
         </div>
       </td>
-      <td className="text-center td">
-        <div>{itemQty * item.price} Ksh</div>
-      </td>
-      <td className="text-center td">
+      <td className="text-center td other-td">
         <div>
-          <i class="bi bi-trash-fill text-secondary qty-register fs-5"></i>
+          <input
+            type="text"
+            name="carttotal"
+            id="cart-total"
+            value={itemQty * item.price}
+            className="text-center"
+            readOnly
+            // onInput={handleTotal(itemQty * item.price)}
+          />{" "}
+          <span>Ksh</span>
         </div>
       </td>
     </tr>

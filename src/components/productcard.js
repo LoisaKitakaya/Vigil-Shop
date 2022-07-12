@@ -21,7 +21,7 @@ const ProductCard = ({ data, handleAdd }) => {
           </Link>
         </p>
         <p className="card-text">
-          <strong>Price: </strong> {data.singleProduct.price} Ksh
+          <strong>Price: {data.singleProduct.price} Ksh</strong>
         </p>
         <button
           className="card-text btn btn-outline-danger container-fluid"

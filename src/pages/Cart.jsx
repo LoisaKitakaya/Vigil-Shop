@@ -23,19 +23,6 @@ const Cart = () => {
   const data = JSON.parse(localStorage.getItem("cart"));
   console.log(itemsArray);
 
-  const handleClear = (product) => {
-    localStorage.clear();
-
-    setQuantity(0);
-
-    itemsArray = localStorage.getItem("cart")
-      ? JSON.parse(localStorage.getItem("cart"))
-      : [];
-
-    localStorage.setItem("cart", JSON.stringify(itemsArray));
-    console.log(itemsArray);
-  };
-
   return (
     <div className="cart-parent">
       {/* body */}
@@ -73,12 +60,9 @@ const Cart = () => {
                       <th scope="col" className="text-center">
                         Total item price
                       </th>
-                      <th scope="col" className="text-center">
-                        Remove
-                      </th>
                     </tr>
                   </thead>
-                  <CartContainer data={data} handleClear={handleClear} />
+                  <CartContainer data={data} />
                 </table>
               </div>
               <br />
