@@ -1,13 +1,9 @@
 import { useQuery, gql } from "@apollo/client";
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
 
-import ProductCard from "../components/productcard";
-
-import Footer from "../layout/Footer";
-import Navbar from "../layout/Navbar";
-import NavPanel from "../layout/NavPanel";
-import SiteLinks from "../layout/SiteLinks";
+import ProductCard from "../components/productCard";
+import DescriptionCard from "../components/descriptionCard";
+import pageTitle from "../components/PageTitle";
 
 const GET_PRODUCT = gql`
   query GET_PRODUCT($slug: String!) {
@@ -32,13 +28,8 @@ const GET_PRODUCT = gql`
 
 // const initialCount = JSON.parse(localStorage.getItem("cart"));
 
-const Product = () => {
-  const [quantity, setQuantity] = useState(0);
-
-  useEffect(() => {
-    const initialCount = JSON.parse(localStorage.getItem("cart"));
-    setQuantity(initialCount.length);
-  }, []);
+const Product = ({ handleAdd }) => {
+  pageTitle("vigil | Products");
 
   const slug = useParams();
 
@@ -50,90 +41,26 @@ const Product = () => {
   if (loading) return <p>Loading...</p>;
   if (error) return `Error! ${error}`;
 
-  let itemsArray = localStorage.getItem("cart")
-    ? JSON.parse(localStorage.getItem("cart"))
-    : [];
-
-  localStorage.setItem("cart", JSON.stringify(itemsArray));
-  console.log(itemsArray);
-
-  const adjustCart = (product) => {
-    itemsArray.push(product);
-    localStorage.setItem("cart", JSON.stringify(itemsArray));
-  };
-
-  const cartCheck = (id, product) => {
-    const count = JSON.parse(localStorage.getItem("cart"));
-    const checkIndex = count.findIndex((item) => item.id === id);
-
-    if (checkIndex !== -1) {
-      console.log("Item exists");
-    } else {
-      adjustCart(product);
-    }
-  };
-
-  const handleAdd = (product) => {
-    const id = product.id;
-
-    cartCheck(id, product);
-
-    const count = JSON.parse(localStorage.getItem("cart"));
-    setQuantity(count.length);
-    console.log(itemsArray);
-  };
-
   return (
     <div className="products">
-      {/* body */}
-      <div className="navigation-container">
-        {/* content */}
-        <div className="container">
-          {/* navbar */}
-          <Navbar />
-          {/* navbar */}
-        </div>
-        {/* content */}
-      </div>
-
       {/* main body */}
-      <div className="container">
+      <div className="container-fluid">
         {/* content */}
-        <div className="container-not-fluid">
-          {/* content */}
-          <div className="panel">
-            {/* panel nav */}
-            <div className="panel-nav">
-              <NavPanel quantity={quantity} />
+        <div className="panel">
+          {/* panel nav */}
+          <div className="panel-nav"></div>
+          <div className="panel-content">
+            <div className="single-product-container">
+              <DescriptionCard data={data.singleProduct} />
+              <ProductCard data={data.singleProduct} handleAdd={handleAdd} />
             </div>
-            <div className="panel-content">
-              <div className="product-container">
-                <ProductCard data={data} handleAdd={handleAdd} />
-              </div>
-              <br />
-            </div>
-            {/* panel nav */}
+            <br />
           </div>
-          {/* content */}
+          {/* panel nav */}
         </div>
         {/* content */}
       </div>
       {/* main body */}
-
-      <div className="footer-container">
-        {/* content */}
-        <div className="container">
-          {/* other */}
-          <SiteLinks />
-          {/* other */}
-          <br />
-          {/* footer */}
-          <Footer />
-          {/* footer */}
-        </div>
-        {/* content */}
-      </div>
-      {/* body */}
     </div>
   );
 };

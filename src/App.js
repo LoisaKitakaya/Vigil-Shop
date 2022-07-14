@@ -1,24 +1,100 @@
+import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
-import "./css/App.css";
+import Footer from "./layout/Footer";
+import NavbarComponent from "./layout/Navbar";
+
 import Cart from "./pages/Cart";
 import Home from "./pages/Home";
 import LogIn from "./pages/LogIn";
 import Product from "./pages/Product";
 import SignUp from "./pages/SignUp";
 
+import "./css/App.css";
+
 function App() {
+  const [cartItems, setCartItems] = useState([]);
+
+  const handleAdd = (product) => {
+    const productExist = cartItems.find((item) => item.id === product.id);
+
+    if (productExist) {
+      setCartItems(
+        cartItems.map((item) =>
+          item.id === product.id
+            ? { ...productExist, quantity: productExist.quantity + 1 }
+            : item
+        )
+      );
+    } else {
+      setCartItems([...cartItems, { ...product, quantity: 1 }]);
+    }
+
+    console.log(cartItems);
+  };
+
+  const handleRemove = (product) => {
+    const productExist = cartItems.find((item) => item.id === product.id);
+
+    if (productExist.quantity === 1) {
+      setCartItems(cartItems.filter((item) => item.id !== product.id));
+    } else {
+      setCartItems(
+        cartItems.map((item) =>
+          item.id === product.id
+            ? { ...productExist, quantity: productExist.quantity - 1 }
+            : item
+        )
+      );
+    }
+
+    console.log(cartItems);
+  };
+
+  const handleClear = () => {
+    setCartItems([]);
+  };
+
+  const calculateTotal = cartItems.reduce(
+    (price, item) => price + item.quantity * item.price,
+    0
+  );
+
   return (
     <div className="App">
+      {/* Navigation */}
+      <NavbarComponent CartItems={cartItems} />
+      {/* Navigation */}
+
+      <br />
+
       {/* Routes */}
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home handleAdd={handleAdd} />} />
+        <Route
+          path="/product/:slug"
+          element={<Product handleAdd={handleAdd} />}
+        />
+        <Route
+          path="/cart"
+          element={
+            <Cart
+              handleAdd={handleAdd}
+              handleRemove={handleRemove}
+              handleClear={handleClear}
+            />
+          }
+        />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<LogIn />} />
-        <Route path="/product/:slug" element={<Product />} />
-        <Route path="/cart" element={<Cart />} />
       </Routes>
       {/* Routes */}
+
+      <br />
+
+      {/* Footer */}
+      <Footer />
+      {/* Footer */}
     </div>
   );
 }
