@@ -1,4 +1,5 @@
-body {
+body,
+html {
   background-color: whitesmoke !important;
   scroll-behavior: smooth !important;
   padding: 0;
