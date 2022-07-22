@@ -25,7 +25,7 @@ const GET_PRODUCT = gql`
 `;
 
 const Product = ({ handleAdd }) => {
-  pageTitle("vigil | Products");
+  pageTitle("Vigil Shop | Products");
 
   const slug = useParams();
 

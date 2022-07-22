@@ -25,7 +25,7 @@ const REGISTER_USER = gql`
 `;
 
 const SignUp = () => {
-  pageTitle("vigil | Sign in");
+  pageTitle("Vigil Shop | Sign in");
 
   const [register, { data, loading, error }] = useMutation(REGISTER_USER);
   console.log(data);

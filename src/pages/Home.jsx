@@ -5,18 +5,16 @@ import pageTitle from "../components/PageTitle";
 const GET_PRODUCTS = gql`
   query GET_PRODUCTS {
     allProducts {
-      id
       name
       slug
-      image
-      description
       price
+      thumbnail
     }
   }
 `;
 
 const Home = ({ handleAdd }) => {
-  pageTitle("Vigil | Home");
+  pageTitle("Vigil Shop | Home");
 
   const { loading, error, data } = useQuery(GET_PRODUCTS);
   console.log(data);
