@@ -1,9 +1,7 @@
 import { gql, useMutation } from "@apollo/client";
 import { Link } from "react-router-dom";
 
-import Footer from "../layout/Footer";
-import Navbar from "../layout/Navbar";
-import SiteLinks from "../layout/SiteLinks";
+import pageTitle from "../components/PageTitle";
 
 const REGISTER_USER = gql`
   mutation RegisterUser(
@@ -27,138 +25,15 @@ const REGISTER_USER = gql`
 `;
 
 const SignUp = () => {
+  pageTitle("vigil | Sign in");
+
   const [register, { data, loading, error }] = useMutation(REGISTER_USER);
   console.log(data);
 
   if (loading) return "Submitting...";
   if (error) return `Submission error! ${error.message}`;
 
-  return (
-    <div className="sign-up">
-      {/* body */}
-      <div className="navigation-container">
-        {/* content */}
-        <div className="container">
-          {/* navbar */}
-          <Navbar />
-          {/* navbar */}
-        </div>
-        {/* content */}
-      </div>
-
-      {/* main body */}
-      <div className="container">
-        {/* content */}
-        <div className="container-fluid">
-          {/* content */}
-          <div className="panel">
-            <br />
-            <div className="panel-content">
-              <h3 className="text-center">Sign up</h3>
-              <br />
-              <form
-                className="card form-card"
-                onSubmit={(e) => {
-                  e.preventDefault();
-
-                  register({
-                    variables: {
-                      email: e.target.email.value,
-                      username: e.target.username.value,
-                      password1: e.target.password1.value,
-                      password2: e.target.password2.value,
-                    },
-                  });
-
-                  localStorage.setItem("token", data.register.token);
-                }}
-              >
-                <div className="mb-3">
-                  <label htmlFor="email" className="form-label">
-                    Email address
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    className="form-control"
-                    placeholder="your email address"
-                  />
-                </div>
-                <div className="mb-3">
-                  <label htmlFor="username" className="form-label">
-                    Username
-                  </label>
-                  <input
-                    type="email"
-                    name="username"
-                    className="form-control"
-                    placeholder="your email address"
-                    aria-describedby="usernamehelp"
-                  />
-                  <div id="usernamehelp" className="form-text">
-                    Your username and email should be the same.
-                  </div>
-                </div>
-                <div className="mb-3">
-                  <label htmlFor="password1" className="form-label">
-                    Password
-                  </label>
-                  <input
-                    type="password"
-                    name="password1"
-                    className="form-control"
-                    placeholder="***********"
-                  />
-                </div>
-                <div className="mb-3">
-                  <label htmlFor="password2" className="form-label">
-                    Confirm password
-                  </label>
-                  <input
-                    type="password"
-                    name="password2"
-                    className="form-control"
-                    placeholder="***********"
-                    aria-describedby="privacy-s"
-                  />
-                  <div id="privacy-s" className="form-text">
-                    We'll never share your information with anyone else.
-                  </div>
-                </div>
-                <button type="submit" className="btn btn-primary">
-                  Submit
-                </button>
-              </form>
-              <hr />
-              <p className="text-center">
-                Already have an account? Sign in <Link to={"/login"}>here</Link>.
-              </p>
-            </div>
-            {/* panel nav */}
-          </div>
-          <br />
-          {/* content */}
-        </div>
-        {/* content */}
-      </div>
-      {/* main body */}
-
-      <div className="footer-container">
-        {/* content */}
-        <div className="container">
-          {/* other */}
-          <SiteLinks />
-          {/* other */}
-          <br />
-          {/* footer */}
-          <Footer />
-          {/* footer */}
-        </div>
-        {/* content */}
-      </div>
-      {/* body */}
-    </div>
-  );
+  return <h1>Sign in</h1>;
 };
 
 export default SignUp;

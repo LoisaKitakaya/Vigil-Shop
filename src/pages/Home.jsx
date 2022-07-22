@@ -1,6 +1,5 @@
 import { useQuery, gql } from "@apollo/client";
 
-import Card from "../components/homeCard";
 import pageTitle from "../components/PageTitle";
 
 const GET_PRODUCTS = gql`
@@ -25,35 +24,7 @@ const Home = ({ handleAdd }) => {
   if (loading) return <p>Loading...</p>;
   if (error) return `Error! ${error}`;
 
-  return (
-    <div className="home">
-      {/* main body */}
-      <div className="container-fluid">
-        {/* content */}
-        <div className="panel">
-          {/* panel nav */}
-          <div className="panel-nav"></div>
-          <div className="panel-content">
-            <div className="product-container">
-              {data.allProducts.map((product) => {
-                return (
-                  <Card
-                    key={product.id}
-                    product={product}
-                    handleAdd={handleAdd}
-                  />
-                );
-              })}
-            </div>
-            <br />
-          </div>
-          {/* panel nav */}
-        </div>
-        {/* content */}
-      </div>
-      {/* main body */}
-    </div>
-  );
+  return <h1>Home</h1>;
 };
 
 export default Home;

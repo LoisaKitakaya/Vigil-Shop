@@ -1,8 +1,6 @@
 import { useQuery, gql } from "@apollo/client";
 import { useParams } from "react-router-dom";
 
-import ProductCard from "../components/productCard";
-import DescriptionCard from "../components/descriptionCard";
 import pageTitle from "../components/PageTitle";
 
 const GET_PRODUCT = gql`
@@ -26,8 +24,6 @@ const GET_PRODUCT = gql`
   }
 `;
 
-// const initialCount = JSON.parse(localStorage.getItem("cart"));
-
 const Product = ({ handleAdd }) => {
   pageTitle("vigil | Products");
 
@@ -41,28 +37,7 @@ const Product = ({ handleAdd }) => {
   if (loading) return <p>Loading...</p>;
   if (error) return `Error! ${error}`;
 
-  return (
-    <div className="products">
-      {/* main body */}
-      <div className="container-fluid">
-        {/* content */}
-        <div className="panel">
-          {/* panel nav */}
-          <div className="panel-nav"></div>
-          <div className="panel-content">
-            <div className="single-product-container">
-              <DescriptionCard data={data.singleProduct} />
-              <ProductCard data={data.singleProduct} handleAdd={handleAdd} />
-            </div>
-            <br />
-          </div>
-          {/* panel nav */}
-        </div>
-        {/* content */}
-      </div>
-      {/* main body */}
-    </div>
-  );
+  return <h1>Product</h1>;
 };
 
 export default Product;
