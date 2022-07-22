@@ -63,28 +63,16 @@ function App() {
   return (
     <div className="App">
       {/* Navigation */}
-      <NavbarComponent CartItems={cartItems} />
+      <NavbarComponent />
       {/* Navigation */}
 
       <br />
 
       {/* Routes */}
       <Routes>
-        <Route path="/" element={<Home handleAdd={handleAdd} />} />
-        <Route
-          path="/product/:slug"
-          element={<Product handleAdd={handleAdd} />}
-        />
-        <Route
-          path="/cart"
-          element={
-            <Cart
-              handleAdd={handleAdd}
-              handleRemove={handleRemove}
-              handleClear={handleClear}
-            />
-          }
-        />
+        <Route path="/" element={<Home />} />
+        <Route path="/product/:slug" element={<Product />} />
+        <Route path="/cart" element={<Cart />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<LogIn />} />
       </Routes>
