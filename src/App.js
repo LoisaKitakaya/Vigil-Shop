@@ -66,8 +66,6 @@ function App() {
       <NavbarComponent cartItems={cartItems} />
       {/* Navigation */}
 
-      <br />
-
       {/* Routes */}
       <Routes>
         <Route path="/" element={<Home />} />
@@ -77,8 +75,6 @@ function App() {
         <Route path="/login" element={<LogIn />} />
       </Routes>
       {/* Routes */}
-
-      <br />
 
       {/* Footer */}
       <Footer />

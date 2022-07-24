@@ -3,17 +3,21 @@ import "../css/layout.css";
 const NavbarComponent = ({ cartItems }) => {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg bg-light">
+      <nav className="navbar navbar-expand-lg bg-secondary">
         <div className="container contact-links">
           <div className="contact-link">
             <div className="top-links">
               <small>
-                <i class="bi bi-telephone-fill"></i> +254 725 131 828
+                <i class="bi bi-telephone-fill m-right"></i> +254 725 131 828
               </small>
             </div>
             <div className="top-links">
+              |
+            </div>
+            <div className="top-links">
               <small>
-                <i class="bi bi-envelope-fill"></i> kitakayaloisa@gmail.com
+                <i class="bi bi-envelope-fill m-right"></i>{" "}
+                kitakayaloisa@gmail.com
               </small>
             </div>
           </div>
@@ -22,7 +26,7 @@ const NavbarComponent = ({ cartItems }) => {
               href="https://twitter.com/FreedomLoisa"
               className="contact-icons top-links"
             >
-              <i class="bi bi-twitter fs-6 text-dark"></i>
+              <i class="bi bi-twitter fs-6 text-info"></i>
             </a>
             <a
               href="https://github.com/LoisaKitakaya/Vigil-Shop"
@@ -40,7 +44,7 @@ const NavbarComponent = ({ cartItems }) => {
         </div>
       </nav>
       {/* separator */}
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav className="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
         <div className="container">
           <a class="navbar-brand" href="#">
             Vigil Shop
@@ -105,7 +109,7 @@ const NavbarComponent = ({ cartItems }) => {
               <li className="nav-item">
                 <a className="nav-link" href="#">
                   <i class="bi bi-cart3"></i> Cart{" "}
-                  <span class="badge text-bg-secondary">{cartItems.length}</span>
+                  <span class="badge text-bg-danger">{cartItems.length}</span>
                 </a>
               </li>
             </ul>
@@ -117,6 +121,7 @@ const NavbarComponent = ({ cartItems }) => {
                   type="search"
                   placeholder="Search item or category"
                   aria-label="Search"
+                  required
                 />
                 <button class="btn btn-success" type="submit">
                   <i class="bi bi-search"></i>

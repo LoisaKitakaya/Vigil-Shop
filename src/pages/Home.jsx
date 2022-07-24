@@ -13,7 +13,7 @@ const GET_PRODUCTS = gql`
   }
 `;
 
-const Home = ({ handleAdd }) => {
+const Home = () => {
   pageTitle("Vigil Shop | Home");
 
   const { loading, error, data } = useQuery(GET_PRODUCTS);
@@ -22,7 +22,13 @@ const Home = ({ handleAdd }) => {
   if (loading) return <p>Loading...</p>;
   if (error) return `Error! ${error}`;
 
-  return <h1>Home</h1>;
+  return (
+    <div className="App-sub-container">
+      <div className="container">
+        <p>Home</p>
+      </div>
+    </div>
+  );
 };
 
 export default Home;
