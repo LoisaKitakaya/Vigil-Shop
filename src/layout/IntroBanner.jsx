@@ -12,7 +12,7 @@ const IntroBanner = () => {
         </p>
         <br />
         <a href="#" className="btn btn-success">
-          Learn more
+          Purchase
         </a>
         <a href="" className="btn btn-primary">
           Go to main site

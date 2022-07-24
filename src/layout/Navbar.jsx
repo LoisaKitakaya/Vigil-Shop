@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import "../css/layout.css";
 
 const NavbarComponent = ({ cartItems }) => {
@@ -44,9 +46,9 @@ const NavbarComponent = ({ cartItems }) => {
       {/* separator */}
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container">
-          <a class="navbar-brand" href="#">
+          <Link to={"/"} class="navbar-brand">
             Vigil Shop
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"

@@ -5,8 +5,8 @@ import pageTitle from "../components/PageTitle";
 import IntroBanner from "../layout/IntroBanner";
 
 const GET_PRODUCTS = gql`
-  query GET_PRODUCTS {
-    allProducts {
+  query GET_NEW_PRODUCTS {
+    homeProducts(limit: 6) {
       name
       slug
       price
@@ -32,7 +32,7 @@ const Home = () => {
       <div className="this-container">
         <h3 className="home-title">New Products</h3>
         <div className="display-container">
-          {data.allProducts.map((item, index) => {
+          {data.homeProducts.map((item, index) => {
             const list = (
               <>
                 <div class="card bg-light" key={index}>
@@ -47,10 +47,15 @@ const Home = () => {
                     </p>
                     <Link
                       to={`/product/${item.slug}`}
-                      class="card-text btn btn-outline-dark container-fluid"
+                      class="btn btn-outline-dark container-fluid"
                     >
-                      Add to cart <i class="bi bi-cart-plus"></i>
+                      View product
                     </Link>
+                    <br />
+                    <br />
+                    <button className="btn btn-outline-success container-fluid">
+                      Add to cart <i class="bi bi-cart-plus"></i>
+                    </button>
                   </div>
                 </div>
               </>

@@ -9,7 +9,7 @@
 }
 
 .home-title {
-  margin: 3rem 1rem;
+  padding: 3rem 1rem;
 }
 
 .display-container {
@@ -25,4 +25,30 @@
 
 .this-container {
   margin: 0 6rem;
+}
+
+.display-container-2 {
+  display: flex;
+  justify-content: space-around;
+}
+
+.display-container-2 .card {
+  width: 50%;
+  margin: auto;
+  margin: 1rem;
+  border: 2px solid darkgray !important;
+}
+
+.display-container-2 .product-description {
+  margin: 1rem;
+}
+
+.product-description {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-details {
+    margin: 1rem;
 }
