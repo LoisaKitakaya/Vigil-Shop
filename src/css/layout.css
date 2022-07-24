@@ -33,7 +33,7 @@
 }
 
 .intro-banner {
-  background-image: url("../assets/banner10.jpg");
+  background-image: url("../assets/banner9.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: scroll;
@@ -41,17 +41,17 @@
 }
 
 .banner-title {
-    font-size: 60px !important;
+  font-size: 60px !important;
 }
 
 .banner-title {
-    width: 50% !important;
+  width: 50% !important;
 }
 
 .banner-container {
-    padding: 6rem 0 0 0 !important;
+  padding: 6rem 0 0 0 !important;
 }
 
 .banner-container .btn {
-    margin-right: 2rem;
+  margin-right: 2rem;
 }

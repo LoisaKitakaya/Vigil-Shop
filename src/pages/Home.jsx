@@ -1,4 +1,5 @@
 import { useQuery, gql } from "@apollo/client";
+import { Link } from "react-router-dom";
 
 import pageTitle from "../components/PageTitle";
 import IntroBanner from "../layout/IntroBanner";
@@ -28,9 +29,39 @@ const Home = () => {
       {/* component */}
       <IntroBanner />
       {/* component */}
-      <div className="container">
-        <h1>Home</h1>
+      <div className="this-container">
+        <h3 className="home-title">New Products</h3>
+        <div className="display-container">
+          {data.allProducts.map((item, index) => {
+            const list = (
+              <>
+                <div class="card bg-light" key={index}>
+                  <img src={item.thumbnail} class="card-img-top" alt="..." />
+                  <div class="card-body">
+                    <h5 class="card-title">{item.name}</h5>
+                    <hr />
+                    <p class="card-text">
+                      <strong>
+                        Price: <em>{item.price} $</em>
+                      </strong>
+                    </p>
+                    <Link
+                      to={`/product/${item.slug}`}
+                      class="card-text btn btn-outline-dark container-fluid"
+                    >
+                      Add to cart <i class="bi bi-cart-plus"></i>
+                    </Link>
+                  </div>
+                </div>
+              </>
+            );
+
+            return list;
+          })}
+        </div>
       </div>
+      <br />
+      <br />
     </div>
   );
 };
