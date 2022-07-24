@@ -1,6 +1,7 @@
 import { useQuery, gql } from "@apollo/client";
 
 import pageTitle from "../components/PageTitle";
+import IntroBanner from "../layout/IntroBanner";
 
 const GET_PRODUCTS = gql`
   query GET_PRODUCTS {
@@ -24,8 +25,11 @@ const Home = () => {
 
   return (
     <div className="App-sub-container">
+      {/* component */}
+      <IntroBanner />
+      {/* component */}
       <div className="container">
-        <p>Home</p>
+        <h1>Home</h1>
       </div>
     </div>
   );

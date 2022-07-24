@@ -11,9 +11,7 @@ const NavbarComponent = ({ cartItems }) => {
                 <i class="bi bi-telephone-fill m-right"></i> +254 725 131 828
               </small>
             </div>
-            <div className="top-links">
-              |
-            </div>
+            <div className="top-links">|</div>
             <div className="top-links">
               <small>
                 <i class="bi bi-envelope-fill m-right"></i>{" "}
@@ -44,7 +42,7 @@ const NavbarComponent = ({ cartItems }) => {
         </div>
       </nav>
       {/* separator */}
-      <nav className="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container">
           <a class="navbar-brand" href="#">
             Vigil Shop

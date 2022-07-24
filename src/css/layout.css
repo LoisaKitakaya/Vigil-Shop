@@ -31,3 +31,27 @@
   margin: auto !important;
   padding: 2rem 0;
 }
+
+.intro-banner {
+  background-image: url("../assets/banner10.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  min-height: 70vh;
+}
+
+.banner-title {
+    font-size: 60px !important;
+}
+
+.banner-title {
+    width: 50% !important;
+}
+
+.banner-container {
+    padding: 6rem 0 0 0 !important;
+}
+
+.banner-container .btn {
+    margin-right: 2rem;
+}
