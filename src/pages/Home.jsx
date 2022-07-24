@@ -7,6 +7,7 @@ import IntroBanner from "../layout/IntroBanner";
 const GET_PRODUCTS = gql`
   query GET_NEW_PRODUCTS {
     homeProducts(limit: 6) {
+      id
       name
       slug
       price
@@ -15,7 +16,7 @@ const GET_PRODUCTS = gql`
   }
 `;
 
-const Home = () => {
+const Home = ({ addToCart }) => {
   pageTitle("Vigil Shop | Home");
 
   const { loading, error, data } = useQuery(GET_PRODUCTS);
@@ -32,29 +33,36 @@ const Home = () => {
       <div className="this-container">
         <h3 className="home-title">New Products</h3>
         <div className="display-container">
-          {data.homeProducts.map((item, index) => {
+          {data.homeProducts.map((item) => {
             const list = (
               <>
-                <div class="card bg-light" key={index}>
-                  <img src={item.thumbnail} class="card-img-top" alt="..." />
-                  <div class="card-body">
-                    <h5 class="card-title">{item.name}</h5>
+                <div className="card bg-light" key={item.id}>
+                  <img
+                    src={item.thumbnail}
+                    className="card-img-top"
+                    alt="..."
+                  />
+                  <div className="card-body">
+                    <h5 className="card-title">{item.name}</h5>
                     <hr />
-                    <p class="card-text">
+                    <p className="card-text">
                       <strong>
                         Price: <em>{item.price} $</em>
                       </strong>
                     </p>
                     <Link
                       to={`/product/${item.slug}`}
-                      class="btn btn-outline-dark container-fluid"
+                      className="btn btn-outline-dark container-fluid"
                     >
                       View product
                     </Link>
                     <br />
                     <br />
-                    <button className="btn btn-outline-success container-fluid">
-                      Add to cart <i class="bi bi-cart-plus"></i>
+                    <button
+                      className="btn btn-outline-success container-fluid"
+                      onClick={() => addToCart(item)}
+                    >
+                      Add to cart <i className="bi bi-cart-plus"></i>
                     </button>
                   </div>
                 </div>

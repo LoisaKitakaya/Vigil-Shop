@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import Footer from "./layout/Footer";
-import NavbarComponent from "./layout/Navbar"
+import NavbarComponent from "./layout/Navbar";
 
 import Cart from "./pages/Cart";
 import Home from "./pages/Home";
@@ -68,9 +68,12 @@ function App() {
 
       {/* Routes */}
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/product/:slug" element={<Product />} />
-        <Route path="/cart" element={<Cart />} />
+        <Route path="/" element={<Home addToCart={handleAdd} />} />
+        <Route
+          path="/product/:slug"
+          element={<Product addToCart={handleAdd} />}
+        />
+        <Route path="/cart" element={<Cart cartItems={cartItems} />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<LogIn />} />
       </Routes>

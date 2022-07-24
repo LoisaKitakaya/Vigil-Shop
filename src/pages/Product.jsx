@@ -26,7 +26,7 @@ const GET_PRODUCT = gql`
   }
 `;
 
-const Product = () => {
+const Product = ({ addToCart }) => {
   pageTitle("Vigil Shop | Products");
 
   const slug = useParams();
@@ -44,7 +44,7 @@ const Product = () => {
       <div className="this-container">
         <h3 className="home-title">{data.singleProduct.name}</h3>
         <div className="display-container-2">
-          <div class="card bg-light">
+          <div className="card bg-light">
             <Carousel variant="dark">
               <Carousel.Item interval={1000}>
                 <img
@@ -78,7 +78,7 @@ const Product = () => {
           </div>
           <div className="product-description">
             <div>
-              <h5 class="card-title">{data.singleProduct.name}</h5>
+              <h5 className="card-title">{data.singleProduct.name}</h5>
               <hr />
               <p className="card-text text-success">
                 <small>
@@ -91,7 +91,7 @@ const Product = () => {
                 </small>
               </p>
               <hr />
-              <p class="card-text">
+              <p className="card-text">
                 <strong>
                   Category:{" "}
                   <em>
@@ -104,7 +104,7 @@ const Product = () => {
                   </em>
                 </strong>
               </p>
-              <p class="card-text">
+              <p className="card-text">
                 <strong>
                   Price: <em>{data.singleProduct.price} $</em>
                 </strong>
@@ -112,33 +112,36 @@ const Product = () => {
               <hr />
             </div>
             <div>
-              <button className="btn btn-outline-success container-fluid">
-                Add to cart <i class="bi bi-cart-plus"></i>
+              <button
+                className="btn btn-outline-success container-fluid"
+                onClick={() => addToCart(data.singleProduct)}
+              >
+                Add to cart <i className="bi bi-cart-plus"></i>
               </button>
             </div>
           </div>
         </div>
         <div className="product-details">
-          <div class="card border-secondary">
-            <div class="card-header">
-              <ul class="nav justify-content-center">
-                <li class="nav-item">
-                  <a class="nav-link" href="#">
+          <div className="card border-secondary">
+            <div className="card-header">
+              <ul className="nav justify-content-center">
+                <li className="nav-item">
+                  <a className="nav-link" href="#">
                     Description
                   </a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">
+                <li className="nav-item">
+                  <a className="nav-link" href="#">
                     Specifications
                   </a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">
+                <li className="nav-item">
+                  <a className="nav-link" href="#">
                     See Reviews
                   </a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">
+                <li className="nav-item">
+                  <a className="nav-link" href="#">
                     Write review
                   </a>
                 </li>

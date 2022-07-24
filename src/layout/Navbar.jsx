@@ -10,13 +10,14 @@ const NavbarComponent = ({ cartItems }) => {
           <div className="contact-link">
             <div className="top-links">
               <small>
-                <i class="bi bi-telephone-fill m-right"></i> +254 725 131 828
+                <i className="bi bi-telephone-fill m-right"></i> +254 725 131
+                828
               </small>
             </div>
             <div className="top-links">|</div>
             <div className="top-links">
               <small>
-                <i class="bi bi-envelope-fill m-right"></i>{" "}
+                <i className="bi bi-envelope-fill m-right"></i>{" "}
                 kitakayaloisa@gmail.com
               </small>
             </div>
@@ -26,19 +27,19 @@ const NavbarComponent = ({ cartItems }) => {
               href="https://twitter.com/FreedomLoisa"
               className="contact-icons top-links"
             >
-              <i class="bi bi-twitter fs-6 text-info"></i>
+              <i className="bi bi-twitter fs-6 text-info"></i>
             </a>
             <a
               href="https://github.com/LoisaKitakaya/Vigil-Shop"
               className="contact-icons"
             >
-              <i class="bi bi-github fs-6 text-dark"></i>
+              <i className="bi bi-github fs-6 text-dark"></i>
             </a>
             {/* <a href="#" className="contact-icons top-links">
-              <i class="bi bi-discord fs-6 text-dark"></i>
+              <i className="bi bi-discord fs-6 text-dark"></i>
             </a>
             <a href="#" className="contact-icons">
-              <i class="bi bi-instagram fs-6 text-dark"></i>
+              <i className="bi bi-instagram fs-6 text-dark"></i>
             </a> */}
           </div>
         </div>
@@ -46,7 +47,7 @@ const NavbarComponent = ({ cartItems }) => {
       {/* separator */}
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container">
-          <Link to={"/"} class="navbar-brand">
+          <Link to={"/"} className="navbar-brand">
             Vigil Shop
           </Link>
           <button
@@ -67,64 +68,66 @@ const NavbarComponent = ({ cartItems }) => {
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <a className="nav-link" href="#">
-                  <i class="bi bi-person"></i> Account
+                  <i className="bi bi-person"></i> Account
                 </a>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#">
-                  <i class="bi bi-box-arrow-in-right"></i> Sign in
+                  <i className="bi bi-box-arrow-in-right"></i> Sign in
                 </a>
               </li>
-              <li class="nav-item dropdown">
+              <li className="nav-item dropdown">
                 <a
-                  class="nav-link dropdown-toggle"
+                  className="nav-link dropdown-toggle"
                   href="#"
                   role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  <i class="bi bi-list-stars"></i> Categories
+                  <i className="bi bi-list-stars"></i> Categories
                 </a>
-                <ul class="dropdown-menu">
+                <ul className="dropdown-menu">
                   <li>
-                    <a class="dropdown-item" href="#">
+                    <a className="dropdown-item" href="#">
                       Action
                     </a>
                   </li>
                   <li>
-                    <a class="dropdown-item" href="#">
+                    <a className="dropdown-item" href="#">
                       Another action
                     </a>
                   </li>
                   <li>
-                    <hr class="dropdown-divider" />
+                    <hr className="dropdown-divider" />
                   </li>
                   <li>
-                    <a class="dropdown-item" href="#">
+                    <a className="dropdown-item" href="#">
                       Something else here
                     </a>
                   </li>
                 </ul>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
-                  <i class="bi bi-cart3"></i> Cart{" "}
-                  <span class="badge text-bg-danger">{cartItems.length}</span>
-                </a>
+                <Link to={"/cart"} className="nav-link">
+                  <i className="bi bi-cart3"></i> Cart{" "}
+                  <span className="badge text-bg-danger">
+                    {cartItems.length}
+                  </span>
+                </Link>
               </li>
             </ul>
-            <form class="d-flex" role="search">
+            <form className="d-flex" role="search">
               <div className="input-group">
                 <input
-                  class="form-control"
+                  className="form-control"
                   name="search"
                   type="search"
                   placeholder="Search item or category"
                   aria-label="Search"
                   required
                 />
-                <button class="btn btn-success" type="submit">
-                  <i class="bi bi-search"></i>
+                <button className="btn btn-success" type="submit">
+                  <i className="bi bi-search"></i>
                 </button>
               </div>
             </form>
