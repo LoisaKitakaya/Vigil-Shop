@@ -63,7 +63,7 @@ function App() {
   return (
     <div className="App">
       {/* Navigation */}
-      <NavbarComponent />
+      <NavbarComponent cartItems={cartItems} />
       {/* Navigation */}
 
       <br />

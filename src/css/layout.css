@@ -1,0 +1,23 @@
+.top-nav-arrangement {
+  display: flex !important;
+  justify-content: space-between !important;
+}
+
+.top-links {
+  margin-right: 1rem !important;
+}
+
+.top-nav-arrangement form {
+  width: 500px;
+}
+
+.contact-links,
+.contact-link {
+  display: flex !important;
+  align-items: center !important;
+  height: fit-content !important;
+}
+
+.text-purple {
+  color: #c176af !important;
+}
