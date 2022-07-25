@@ -56,14 +56,6 @@ const Home = ({ addToCart }) => {
                     >
                       View product
                     </Link>
-                    <br />
-                    <br />
-                    <button
-                      className="btn btn-outline-success container-fluid"
-                      onClick={() => addToCart(item)}
-                    >
-                      Add to cart <i className="bi bi-cart-plus"></i>
-                    </button>
                   </div>
                 </div>
               </>

@@ -55,11 +55,6 @@ function App() {
     setCartItems([]);
   };
 
-  const calculateTotal = cartItems.reduce(
-    (price, item) => price + item.quantity * item.price,
-    0
-  );
-
   return (
     <div className="App">
       {/* Navigation */}
@@ -73,7 +68,10 @@ function App() {
           path="/product/:slug"
           element={<Product addToCart={handleAdd} />}
         />
-        <Route path="/cart" element={<Cart cartItems={cartItems} />} />
+        <Route
+          path="/cart"
+          element={<Cart cartItems={cartItems} clear={handleClear} />}
+        />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<LogIn />} />
       </Routes>
