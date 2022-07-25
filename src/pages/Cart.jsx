@@ -1,5 +1,6 @@
-import pageTitle from "../components/PageTitle";
 import { Link } from "react-router-dom";
+
+import pageTitle from "../components/PageTitle";
 
 const Cart = ({ cartItems, clear }) => {
   pageTitle("Vigil Shop | Cart");

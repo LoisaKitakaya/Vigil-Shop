@@ -1,12 +1,16 @@
 import { useQuery, gql } from "@apollo/client";
 import { Link, useParams } from "react-router-dom";
+
 import Carousel from "react-bootstrap/Carousel";
+import Tab from "react-bootstrap/Tab";
+import Tabs from "react-bootstrap/Tabs";
 
 import pageTitle from "../components/PageTitle";
 
 const GET_PRODUCT = gql`
   query GET_PRODUCT($slug: String!) {
     singleProduct(slug: $slug) {
+      id
       name
       slug
       price
@@ -121,39 +125,42 @@ const Product = ({ addToCart }) => {
             </div>
           </div>
         </div>
+        <br />
+        <br />
         <div className="product-details">
-          <div className="card border-secondary">
-            <div className="card-header">
-              <ul className="nav justify-content-center">
-                <li className="nav-item">
-                  <a className="nav-link" href="#">
-                    Description
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#">
-                    Specifications
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#">
-                    See Reviews
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#">
-                    Write review
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div
-              className="card-body text-secondary"
-              dangerouslySetInnerHTML={{
-                __html: data.singleProduct.description,
-              }}
-            />
-          </div>
+          <Tabs
+            defaultActiveKey="desc"
+            id="justify-tab-example"
+            className="mb-3"
+            justify
+          >
+            <Tab eventKey="desc" title="Description">
+              <div
+                className="content"
+                dangerouslySetInnerHTML={{
+                  __html: data.singleProduct.description,
+                }}
+              />
+            </Tab>
+            <Tab eventKey="specs" title="Specifications">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ducimus
+              omnis, nobis magni recusandae neque quae incidunt iure placeat
+              soluta accusamus quidem provident. Quia eos consectetur voluptatem
+              temporibus reiciendis explicabo similique.
+            </Tab>
+            <Tab eventKey="review" title="See reviews">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad porro
+              doloribus distinctio totam quod eaque, id ut dolores in animi
+              facilis consequuntur impedit tenetur tempore maiores vero placeat
+              quos non!
+            </Tab>
+            <Tab eventKey="form" title="Write review">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
+              earum itaque temporibus corrupti repellat eius provident?
+              Laboriosam blanditiis aut corporis mollitia asperiores animi,
+              velit, rerum accusantium saepe ad, commodi a.
+            </Tab>
+          </Tabs>
         </div>
       </div>
       <br />

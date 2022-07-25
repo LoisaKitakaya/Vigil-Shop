@@ -12,7 +12,7 @@ import SignUp from "./pages/SignUp";
 
 import "./css/App.css";
 
-function App() {
+const App = () => {
   const [cartItems, setCartItems] = useState([]);
 
   const handleAdd = (product) => {
