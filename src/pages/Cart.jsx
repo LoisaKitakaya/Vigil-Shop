@@ -29,7 +29,7 @@ const Cart = ({ cartItems, clear }) => {
       <div className="this-container">
         <h3 className="home-title">Cart</h3>
         <div className="cart-container">
-          <table class="table table-light table-hover">
+          <table className="table table-light table-hover">
             <caption>
               <h1>Total: {calculateTotal} $</h1>
             </caption>
@@ -52,18 +52,18 @@ const Cart = ({ cartItems, clear }) => {
                   <>
                     <tr>
                       <td className="this-td">
-                        <div class="card">
-                          <div class="row g-0">
-                            <div class="col-md-4">
+                        <div className="card">
+                          <div className="row g-0">
+                            <div className="col-md-4">
                               <img
                                 src={item.thumbnail}
-                                class="img-fluid rounded-start"
+                                className="img-fluid rounded-start"
                                 alt="..."
                               />
                             </div>
-                            <div class="col-md-8">
-                              <div class="card-body">
-                                <h5 class="card-title text-center">
+                            <div className="col-md-8">
+                              <div className="card-body">
+                                <h5 className="card-title text-center">
                                   {item.name}
                                 </h5>
                                 <br />
