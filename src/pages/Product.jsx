@@ -19,12 +19,20 @@ const GET_PRODUCT = gql`
       slideTwo
       slideThree
       description
+      specifications
       productCategory {
         name
         slug
       }
       productinventorySet {
         quantity
+      }
+      productReview {
+        user {
+          username
+        }
+        name
+        rating
       }
     }
   }
@@ -47,31 +55,32 @@ const Product = ({ addToCart }) => {
     <div className="App-sub-container">
       <div className="this-container">
         <h3 className="home-title">{data.singleProduct.name}</h3>
+        <hr />
         <div className="display-container-2">
           <div className="card bg-light">
             <Carousel variant="dark">
-              <Carousel.Item interval={1000}>
+              <Carousel.Item interval={2000}>
                 <img
                   className="d-block w-100"
                   src={data.singleProduct.thumbnail}
                   alt="First slide"
                 />
               </Carousel.Item>
-              <Carousel.Item interval={1000}>
+              <Carousel.Item interval={2000}>
                 <img
                   className="d-block w-100"
                   src={data.singleProduct.slideOne}
                   alt="Second slide"
                 />
               </Carousel.Item>
-              <Carousel.Item interval={1000}>
+              <Carousel.Item interval={2000}>
                 <img
                   className="d-block w-100"
                   src={data.singleProduct.slideTwo}
                   alt="Third slide"
                 />
               </Carousel.Item>
-              <Carousel.Item interval={1000}>
+              <Carousel.Item interval={2000}>
                 <img
                   className="d-block w-100"
                   src={data.singleProduct.slideThree}
@@ -81,7 +90,7 @@ const Product = ({ addToCart }) => {
             </Carousel>
           </div>
           <div className="product-description">
-            <div>
+            <div className="container-fluid">
               <h5 className="card-title">{data.singleProduct.name}</h5>
               <hr />
               <p className="card-text text-success">
@@ -143,10 +152,12 @@ const Product = ({ addToCart }) => {
               />
             </Tab>
             <Tab eventKey="specs" title="Specifications">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ducimus
-              omnis, nobis magni recusandae neque quae incidunt iure placeat
-              soluta accusamus quidem provident. Quia eos consectetur voluptatem
-              temporibus reiciendis explicabo similique.
+              <div
+                className="content"
+                dangerouslySetInnerHTML={{
+                  __html: data.singleProduct.specifications,
+                }}
+              />
             </Tab>
             <Tab eventKey="review" title="See reviews">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad porro

@@ -37,7 +37,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: scroll;
-  min-height: 70vh;
+  min-height: 90vh;
 }
 
 .banner-title {
@@ -49,7 +49,7 @@
 }
 
 .banner-container {
-  padding: 6rem 0 0 0 !important;
+  padding: 10rem 0 0 0 !important;
 }
 
 .banner-container .btn {

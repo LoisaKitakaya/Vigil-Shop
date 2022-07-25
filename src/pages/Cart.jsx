@@ -50,7 +50,7 @@ const Cart = ({ cartItems, clear }) => {
               {cartItems.map((item) => {
                 const list = (
                   <>
-                    <tr>
+                    <tr key={item.id}>
                       <td className="this-td">
                         <div className="card">
                           <div className="row g-0">
@@ -66,7 +66,6 @@ const Cart = ({ cartItems, clear }) => {
                                 <h5 className="card-title text-center">
                                   {item.name}
                                 </h5>
-                                <br />
                                 <Link
                                   to={`/product/${item.slug}`}
                                   className="btn btn-outline-dark container-fluid"
