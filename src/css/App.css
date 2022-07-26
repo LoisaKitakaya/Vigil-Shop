@@ -20,6 +20,13 @@
 .display-container .card {
   width: 30%;
   margin: 1rem;
+  box-shadow: 5px 5px 15px 5px #000000;
+  transition-duration: 200ms;
+  transition-timing-function: ease-in-out;
+}
+
+.display-container .card:hover {
+  transform: scale(1.015);
 }
 
 .this-container {
@@ -36,6 +43,7 @@
 .display-container-2 .card {
   width: 50%;
   margin: 1rem;
+  box-shadow: 5px 5px 15px 5px #000000;
 }
 
 .display-container-2 .card img {
