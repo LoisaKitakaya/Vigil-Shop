@@ -14,6 +14,7 @@ const GET_PRODUCT = gql`
     singleProduct(slug: $slug) {
       id
       name
+      fullName
       slug
       price
       thumbnail
@@ -26,6 +27,10 @@ const GET_PRODUCT = gql`
         name
         slug
       }
+      productBrand {
+        name
+        slug
+      }
       productinventorySet {
         quantity
       }
@@ -35,8 +40,8 @@ const GET_PRODUCT = gql`
           username
         }
         name
-        rating
         review
+        rating
       }
     }
   }
@@ -97,7 +102,7 @@ const Product = ({ addToCart }) => {
           </div>
           <div className="product-description">
             <div className="container-fluid">
-              <h5 className="card-title">{data.singleProduct.name}</h5>
+              <h5 className="card-title">{data.singleProduct.fullName}</h5>
               <hr className="divider" />
               <p className="card-text text-success">
                 <small>
@@ -119,6 +124,19 @@ const Product = ({ addToCart }) => {
                       to={`/category/${data.singleProduct.productCategory.slug}`}
                     >
                       {data.singleProduct.productCategory.name}
+                    </Link>
+                  </em>
+                </strong>
+              </p>
+              <p className="card-text">
+                <strong>
+                  Brand:{" "}
+                  <em>
+                    <Link
+                      className="text-dark"
+                      to={`/brand/${data.singleProduct.productBrand.slug}`}
+                    >
+                      {data.singleProduct.productBrand.name}
                     </Link>
                   </em>
                 </strong>
