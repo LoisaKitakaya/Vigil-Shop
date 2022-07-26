@@ -34,7 +34,13 @@ const Cart = ({ cartItems, clear, addItem, removeItem }) => {
           <table className="table table-warning table-hover">
             <caption>
               <h1>
-                <strong>Total: {calculateTotal} $</strong>
+                <strong>
+                  Total:{" "}
+                  {calculateTotal.toLocaleString("en-IN", {
+                    maximumSignificantDigits: 2,
+                  })}{" "}
+                  $
+                </strong>
               </h1>
             </caption>
             <caption>
