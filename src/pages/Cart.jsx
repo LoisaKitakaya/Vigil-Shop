@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 import pageTitle from "../components/PageTitle";
 
-const Cart = ({ cartItems, clear }) => {
+const Cart = ({ cartItems, clear, addItem, removeItem }) => {
   pageTitle("Vigil Shop | Cart");
 
   const calculateTotal = cartItems.reduce(
@@ -15,6 +15,7 @@ const Cart = ({ cartItems, clear }) => {
       <div className="App-sub-container">
         <div className="this-container">
           <h3 className="home-title">Cart</h3>
+          <hr className="divider" />
           <div className="cart-container">
             <h1 className="text-center">Cart is empty!</h1>
           </div>
@@ -28,10 +29,13 @@ const Cart = ({ cartItems, clear }) => {
     <div className="App-sub-container">
       <div className="this-container">
         <h3 className="home-title">Cart</h3>
+        <hr className="divider" />
         <div className="cart-container">
-          <table className="table table-light table-hover">
+          <table className="table table-warning table-hover">
             <caption>
-              <h1>Total: {calculateTotal} $</h1>
+              <h1>
+                <strong>Total: {calculateTotal} $</strong>
+              </h1>
             </caption>
             <caption>
               <button className="btn btn-danger" onClick={() => clear()}>
@@ -42,8 +46,8 @@ const Cart = ({ cartItems, clear }) => {
               <tr className="text-center">
                 <th scope="col">Product</th>
                 <th scope="col">quantity</th>
-                <th scope="col">price</th>
-                <th scope="col">Total</th>
+                <th scope="col">price ($)</th>
+                <th scope="col">Total ($)</th>
               </tr>
             </thead>
             <tbody className="table-group-divider">
@@ -77,10 +81,36 @@ const Cart = ({ cartItems, clear }) => {
                           </div>
                         </div>
                       </td>
-                      <td className="text-center">{item.quantity}</td>
-                      <td className="text-center">{item.price}</td>
                       <td className="text-center">
-                        {item.price * item.quantity}
+                        <div className="other-td">
+                          <span
+                            className="qty-control"
+                            onClick={() => removeItem(item)}
+                          >
+                            <i className="bi bi-dash-square-fill text-dark"></i>
+                          </span>
+                          <input
+                            type="number"
+                            name="quantity"
+                            className="qty-container text-center"
+                            value={item.quantity}
+                            readOnly
+                          />
+                          <span
+                            className="qty-control"
+                            onClick={() => addItem(item)}
+                          >
+                            <i className="bi bi-plus-square-fill text-dark"></i>
+                          </span>{" "}
+                        </div>
+                      </td>
+                      <td className="text-center">
+                        <div className="other-td">{item.price}</div>
+                      </td>
+                      <td className="text-center">
+                        <div className="other-td">
+                          {item.price * item.quantity}
+                        </div>
                       </td>
                     </tr>
                   </>

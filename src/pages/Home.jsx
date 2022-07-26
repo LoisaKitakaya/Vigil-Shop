@@ -32,12 +32,12 @@ const Home = ({ addToCart }) => {
       {/* component */}
       <div className="this-container">
         <h3 className="home-title">New Products</h3>
-        <hr />
+        <hr className="divider" />
         <div className="display-container">
           {data.homeProducts.map((item) => {
             const list = (
               <>
-                <div className="card bg-light" key={item.id}>
+                <div className="card" key={item.id}>
                   <img
                     src={item.thumbnail}
                     className="card-img-top"
@@ -45,7 +45,7 @@ const Home = ({ addToCart }) => {
                   />
                   <div className="card-body">
                     <h5 className="card-title">{item.name}</h5>
-                    <hr />
+                    <hr className="divider" />
                     <p className="card-text">
                       <strong>
                         Price: <em>{item.price} $</em>

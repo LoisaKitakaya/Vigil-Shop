@@ -70,7 +70,14 @@ const App = () => {
         />
         <Route
           path="/cart"
-          element={<Cart cartItems={cartItems} clear={handleClear} />}
+          element={
+            <Cart
+              cartItems={cartItems}
+              clear={handleClear}
+              addItem={handleAdd}
+              removeItem={handleRemove}
+            />
+          }
         />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<LogIn />} />
@@ -82,6 +89,6 @@ const App = () => {
       {/* Footer */}
     </div>
   );
-}
+};
 
 export default App;

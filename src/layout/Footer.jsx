@@ -1,6 +1,43 @@
 const Footer = () => {
   return (
     <div>
+      <nav className="navbar navbar-expand-lg bg-secondary text-light">
+        <div className="container contact-links">
+          <div className="contact-link">
+            <div className="top-links">
+              <small>
+                <i className="bi bi-telephone-fill m-right"></i> +254 725 131
+                828
+              </small>
+            </div>
+            <div className="top-links">|</div>
+            <div className="top-links">
+              <small>
+                <i className="bi bi-envelope-fill m-right"></i>{" "}
+                kitakayaloisa@gmail.com
+              </small>
+            </div>
+          </div>
+          <div className="contact-link">
+            <a
+              href="https://twitter.com/FreedomLoisa"
+              className="contact-icons top-links"
+            >
+              <i className="bi bi-twitter fs-6 text-light"></i>
+            </a>
+            <a href="#" className="contact-icons top-links">
+              <i className="bi bi-slack fs-6 text-light"></i>
+            </a>
+            <a
+              href="https://github.com/LoisaKitakaya/Vigil-Shop"
+              className="contact-icons"
+            >
+              <i className="bi bi-linkedin fs-6 text-light"></i>
+            </a>
+          </div>
+        </div>
+      </nav>
+      {/* separator */}
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container row text-light footer">
           <div className="col-auto">
@@ -69,7 +106,7 @@ const Footer = () => {
                   aria-label="Subscribe"
                   required
                 />
-                <button className="btn btn-success" type="submit">
+                <button className="btn btn-warning" type="submit">
                   Subscribe
                 </button>
               </div>
@@ -78,7 +115,7 @@ const Footer = () => {
         </div>
       </nav>
       {/* separator */}
-      <nav className="navbar navbar-expand-lg bg-secondary">
+      <nav className="navbar navbar-expand-lg bg-secondary top-sub-footer text-light">
         <div className="container footer-links">
           <div>
             <small>
@@ -98,13 +135,17 @@ const Footer = () => {
           <div>
             <small>
               Developed by{" "}
-              <a href="https://freedomloisa.netlify.app/" className="text-dark">
+              <a
+                href="https://freedomloisa.netlify.app/"
+                className="text-light"
+              >
                 Freedom Loisa
               </a>
             </small>
           </div>
         </div>
       </nav>
+      {/* separator */}
     </div>
   );
 };
