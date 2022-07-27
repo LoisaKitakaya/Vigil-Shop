@@ -1,11 +1,11 @@
 import { useQuery, gql } from "@apollo/client";
 import { Link, useParams } from "react-router-dom";
-import { useState } from "react";
 
 import Carousel from "react-bootstrap/Carousel";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 
+import Review from "../components/Review";
 import pageTitle from "../components/PageTitle";
 import ReviewsContainer from "../components/ReviewsContainer";
 
@@ -48,8 +48,6 @@ const GET_PRODUCT = gql`
 `;
 
 const Product = ({ addToCart, setPageName, loader }) => {
-  const [rating, setRating] = useState(1);
-
   pageTitle("Vigil Shop | Product");
 
   const slug = useParams();
@@ -296,47 +294,7 @@ const Product = ({ addToCart, setPageName, loader }) => {
               <ReviewsContainer reviews={data.singleProduct.productReview} />
             </Tab>
             <Tab eventKey="form" title="Write review">
-              <form className="card review-form">
-                <div className="mb-3">
-                  <input
-                    type="text"
-                    name="productname"
-                    className="form-control"
-                    placeholder="product name"
-                    value={data.singleProduct.name}
-                    readOnly
-                  />
-                </div>
-                <input
-                  type="range"
-                  className="form-range"
-                  name="productrating"
-                  defaultValue={1}
-                  min="1"
-                  max="5"
-                  onChange={(e) => {
-                    e.preventDefault();
-                    setRating(e.target.value);
-                  }}
-                />
-                <p className="card-text">
-                  <i className="bi bi-star-fill text-warning fs-5"></i> {rating}{" "}
-                  stars
-                </p>
-                <br />
-                <div className="form-floating">
-                  <textarea
-                    className="form-control floating-textarea"
-                    name="productreview"
-                    placeholder="Leave a comment here"
-                  ></textarea>
-                  <label htmlhtmlFor="floatingTextarea">Comments</label>
-                </div>
-                <br />
-                <button type="submit" className="btn btn-secondary">
-                  Submit
-                </button>
-              </form>
+              <Review loader={loader} productName={data.singleProduct.name} />
             </Tab>
           </Tabs>
         </div>
