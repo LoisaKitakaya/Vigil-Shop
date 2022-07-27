@@ -47,7 +47,7 @@ const GET_PRODUCT = gql`
   }
 `;
 
-const Product = ({ addToCart }) => {
+const Product = ({ addToCart, setPageName }) => {
   const [rating, setRating] = useState(1);
 
   pageTitle("Vigil Shop | Products");
@@ -79,7 +79,71 @@ const Product = ({ addToCart }) => {
           </ol>
         </nav>
         <hr className="divider" />
-        <h3 className="home-title">{data.singleProduct.name}</h3>
+        <div className="prod-navigation">
+          <h3 className="home-title">{data.singleProduct.name}</h3>
+          <div className="prod-nav-container">
+            <div class="dropdown dropdown-center">
+              <button
+                class="btn btn-sm btn-outline-secondary dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Categories
+              </button>
+              <ul class="dropdown-menu text-center">
+                <li>
+                  <a class="dropdown-item" href="#">
+                    Another action
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">
+                    Something else here
+                  </a>
+                </li>
+                <li>
+                  <hr class="dropdown-divider" />
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">
+                    Separated link
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="dropdown dropdown-center">
+              <button
+                class="btn btn-sm btn-outline-secondary dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Brands
+              </button>
+              <ul class="dropdown-menu text-center">
+                <li>
+                  <a class="dropdown-item" href="#">
+                    Another action
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">
+                    Something else here
+                  </a>
+                </li>
+                <li>
+                  <hr class="dropdown-divider" />
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">
+                    Separated link
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
         <hr className="divider" />
         <div className="display-container-2">
           <div className="card">
@@ -136,6 +200,9 @@ const Product = ({ addToCart }) => {
                     <Link
                       className="text-dark"
                       to={`/category/${data.singleProduct.productCategory.slug}`}
+                      onClick={() =>
+                        setPageName(data.singleProduct.productCategory.name)
+                      }
                     >
                       {data.singleProduct.productCategory.name}
                     </Link>
@@ -149,6 +216,9 @@ const Product = ({ addToCart }) => {
                     <Link
                       className="text-dark"
                       to={`/brand/${data.singleProduct.productBrand.slug}`}
+                      onClick={() =>
+                        setPageName(data.singleProduct.productBrand.name)
+                      }
                     >
                       {data.singleProduct.productBrand.name}
                     </Link>

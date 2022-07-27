@@ -3,17 +3,18 @@ import { Routes, Route } from "react-router-dom";
 
 import Footer from "./layout/Footer";
 import NavbarComponent from "./layout/Navbar";
-
 import Cart from "./pages/Cart";
 import Home from "./pages/Home";
-import LogIn from "./pages/LogIn";
 import Product from "./pages/Product";
-import SignUp from "./pages/SignUp";
+import AllProducts from "./pages/AllProducts";
+import Categories from "./pages/Categories";
+import Brands from "./pages/Brands";
 
 import "./css/App.css";
 
 const App = () => {
   const [cartItems, setCartItems] = useState([]);
+  const [pageName, setPageName] = useState("");
 
   const handleAdd = (product) => {
     const productExist = cartItems.find((item) => item.id === product.id);
@@ -55,6 +56,10 @@ const App = () => {
     setCartItems([]);
   };
 
+  const handlePageName = (name) => {
+    setPageName(name);
+  };
+
   return (
     <div className="App">
       {/* Navigation */}
@@ -63,10 +68,12 @@ const App = () => {
 
       {/* Routes */}
       <Routes>
-        <Route path="/" element={<Home addToCart={handleAdd} />} />
+        <Route path="/" element={<Home />} />
         <Route
           path="/product/:slug"
-          element={<Product addToCart={handleAdd} />}
+          element={
+            <Product addToCart={handleAdd} setPageName={handlePageName} />
+          }
         />
         <Route
           path="/cart"
@@ -79,8 +86,12 @@ const App = () => {
             />
           }
         />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/login" element={<LogIn />} />
+        <Route path="/allproducts" element={<AllProducts />} />
+        <Route
+          path="/category/:slug"
+          element={<Categories pageName={pageName} />}
+        />
+        <Route path="/brand/:slug" element={<Brands pageName={pageName} />} />
       </Routes>
       {/* Routes */}
 

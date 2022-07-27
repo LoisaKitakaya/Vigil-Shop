@@ -1,25 +1,31 @@
 import { useQuery, gql } from "@apollo/client";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import pageTitle from "../components/PageTitle";
-import IntroBanner from "../layout/IntroBanner";
 
-const GET_PRODUCTS = gql`
-  query GET_NEW_PRODUCTS {
-    homeProducts(limit: 6) {
+const GET_PRODUCTS_BY_CATEGORY = gql`
+  query GET_PRODUCTS_BY_CATEGORY($slug: String!) {
+    singleCategory(slug: $slug) {
       id
       name
       slug
       price
       thumbnail
+      productCategory {
+        name
+      }
     }
   }
 `;
 
-const Home = () => {
-  pageTitle("Vigil Shop | Home");
+const Categories = ({pageName}) => {
+  pageTitle("Vigil Shop | Categories");
 
-  const { loading, error, data } = useQuery(GET_PRODUCTS);
+  const slug = useParams();
+
+  const { loading, error, data } = useQuery(GET_PRODUCTS_BY_CATEGORY, {
+    variables: { slug: slug.slug },
+  });
   console.log(data);
 
   if (loading) return <p>Loading...</p>;
@@ -27,20 +33,24 @@ const Home = () => {
 
   return (
     <div className="App-sub-container">
-      {/* component */}
-      <IntroBanner />
-      {/* component */}
       <div className="this-container">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <Link to={"/"}>Home</Link>
+            </li>
+            <li class="breadcrumb-item">
+              <Link to={"/allproducts"}>All products</Link>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+              {pageName}
+            </li>
+          </ol>
+        </nav>
         <hr className="divider" />
         <div className="prod-navigation">
-          <h3 className="home-title">New Products</h3>
+          <h3 className="home-title">{pageName}</h3>
           <div className="prod-nav-container">
-            <Link
-              to={"/allproducts"}
-              className="btn btn-sm btn-outline-secondary"
-            >
-              All products
-            </Link>
             <div class="dropdown dropdown-center">
               <button
                 class="btn btn-sm btn-outline-secondary dropdown-toggle"
@@ -105,7 +115,7 @@ const Home = () => {
         </div>
         <hr className="divider" />
         <div className="display-container">
-          {data.homeProducts.map((item) => {
+          {data.singleCategory.map((item) => {
             const list = (
               <>
                 <div className="card" key={item.id}>
@@ -117,6 +127,11 @@ const Home = () => {
                   <div className="card-body">
                     <h5 className="card-title">{item.name}</h5>
                     <hr className="divider" />
+                    <p className="card-text text-success">
+                      <strong>
+                        <em>Category: {item.productCategory.name}</em>
+                      </strong>
+                    </p>
                     <p className="card-text">
                       <strong>
                         Price:{" "}
@@ -149,4 +164,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Categories;

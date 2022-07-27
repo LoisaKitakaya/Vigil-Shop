@@ -2,11 +2,10 @@ import { useQuery, gql } from "@apollo/client";
 import { Link } from "react-router-dom";
 
 import pageTitle from "../components/PageTitle";
-import IntroBanner from "../layout/IntroBanner";
 
 const GET_PRODUCTS = gql`
-  query GET_NEW_PRODUCTS {
-    homeProducts(limit: 6) {
+  query GET_ALL_PRODUCTS {
+    allProducts {
       id
       name
       slug
@@ -16,8 +15,8 @@ const GET_PRODUCTS = gql`
   }
 `;
 
-const Home = () => {
-  pageTitle("Vigil Shop | Home");
+const AllProducts = () => {
+  pageTitle("Vigil Shop | All products");
 
   const { loading, error, data } = useQuery(GET_PRODUCTS);
   console.log(data);
@@ -27,20 +26,21 @@ const Home = () => {
 
   return (
     <div className="App-sub-container">
-      {/* component */}
-      <IntroBanner />
-      {/* component */}
       <div className="this-container">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <Link to={"/"}>Home</Link>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+              All products
+            </li>
+          </ol>
+        </nav>
         <hr className="divider" />
         <div className="prod-navigation">
-          <h3 className="home-title">New Products</h3>
+          <h3 className="home-title">All products</h3>
           <div className="prod-nav-container">
-            <Link
-              to={"/allproducts"}
-              className="btn btn-sm btn-outline-secondary"
-            >
-              All products
-            </Link>
             <div class="dropdown dropdown-center">
               <button
                 class="btn btn-sm btn-outline-secondary dropdown-toggle"
@@ -105,7 +105,7 @@ const Home = () => {
         </div>
         <hr className="divider" />
         <div className="display-container">
-          {data.homeProducts.map((item) => {
+          {data.allProducts.map((item) => {
             const list = (
               <>
                 <div className="card" key={item.id}>
@@ -149,4 +149,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default AllProducts;

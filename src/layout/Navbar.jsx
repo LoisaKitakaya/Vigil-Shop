@@ -33,8 +33,8 @@ const NavbarComponent = ({ cartItems }) => {
               </a>
             </li>
             <li className="nav-item">
-              <Link to={"/cart"} className="nav-link">
-                <i class="bi bi-cart-check text-warning"></i>{" "}
+              <Link to={"/cart"} className="nav-link text-warning">
+                Cart <i class="bi bi-cart-check text-warning"></i>{" "}
                 <span className="badge text-bg-warning">
                   {cartItems.length}
                 </span>

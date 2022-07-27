@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "../css/layout.css";
 
 const IntroBanner = () => {
@@ -11,11 +12,14 @@ const IntroBanner = () => {
           Legit Products, Factory Prices, Excellent Service
         </p>
         <br />
-        <a href="#" className="btn btn-success">
-          Purchase
-        </a>
-        <a href="" className="btn btn-primary">
-          Go to main site
+        <Link to={"/allproducts"} className="btn btn-dark">
+          Go to products <i class="bi bi-cart"></i>
+        </Link>
+        <a
+          href="https://vigilsurveillance.netlify.app/"
+          className="btn btn-dark"
+        >
+          Go to main site <i class="bi bi-door-open"></i>
         </a>
       </div>
     </div>

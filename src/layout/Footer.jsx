@@ -28,10 +28,7 @@ const Footer = () => {
             <a href="#" className="contact-icons top-links">
               <i className="bi bi-slack fs-6 text-light"></i>
             </a>
-            <a
-              href="https://github.com/LoisaKitakaya/Vigil-Shop"
-              className="contact-icons"
-            >
+            <a href="#" className="contact-icons top-links">
               <i className="bi bi-linkedin fs-6 text-light"></i>
             </a>
           </div>

@@ -14,10 +14,34 @@ const Cart = ({ cartItems, clear, addItem, removeItem }) => {
     return (
       <div className="App-sub-container">
         <div className="this-container">
-          <h3 className="home-title">Cart</h3>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <Link to={"/"}>Home</Link>
+              </li>
+              <li class="breadcrumb-item">
+                <Link to={"/allproducts"}>All products</Link>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">
+                Cart
+              </li>
+            </ol>
+          </nav>
+          <hr className="divider" />
+          <div className="prod-navigation">
+            <h3 className="home-title">Cart</h3>
+            <div className="prod-nav-container">
+              <button className="btn btn-sm btn-success disabled">
+                Checkout <i class="bi bi-calculator"></i>
+              </button>
+            </div>
+          </div>
           <hr className="divider" />
           <div className="cart-container">
-            <h1 className="text-center">Cart is empty!</h1>
+            <h1 className="text-center">
+              <i class="bi bi-cart-x text-danger"></i> Cart is empty!{" "}
+              <i class="bi bi-cart-x text-danger"></i>
+            </h1>
           </div>
         </div>
         <br />
@@ -28,7 +52,28 @@ const Cart = ({ cartItems, clear, addItem, removeItem }) => {
   return (
     <div className="App-sub-container">
       <div className="this-container">
-        <h3 className="home-title">Cart</h3>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <Link to={"/"}>Home</Link>
+            </li>
+            <li class="breadcrumb-item">
+              <Link to={"/allproducts"}>All products</Link>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+              Cart
+            </li>
+          </ol>
+        </nav>
+        <hr className="divider" />
+        <div className="prod-navigation">
+          <h3 className="home-title">Cart</h3>
+          <div className="prod-nav-container">
+            <button className="btn btn-sm btn-success">
+              Checkout <i class="bi bi-calculator"></i>
+            </button>
+          </div>
+        </div>
         <hr className="divider" />
         <div className="cart-container">
           <table className="table table-warning table-hover">
@@ -45,7 +90,7 @@ const Cart = ({ cartItems, clear, addItem, removeItem }) => {
             </caption>
             <caption>
               <button className="btn btn-danger" onClick={() => clear()}>
-                Clear cart
+                Clear cart <i class="bi bi-cart-x"></i>
               </button>
             </caption>
             <thead className="table-dark">
@@ -61,30 +106,29 @@ const Cart = ({ cartItems, clear, addItem, removeItem }) => {
                   <>
                     <tr key={item.id}>
                       <td className="this-td">
-                        <div className="card">
-                          <div className="row g-0">
-                            <div className="col-md-4">
-                              <img
-                                src={item.thumbnail}
-                                className="img-fluid rounded-start"
-                                alt="..."
-                              />
-                            </div>
-                            <div className="col-md-8">
-                              <div className="card-body">
-                                <h5 className="card-title text-center">
-                                  {item.name}
-                                </h5>
-                                <Link
-                                  to={`/product/${item.slug}`}
-                                  className="btn btn-outline-dark container-fluid"
-                                >
-                                  View product
-                                </Link>
+                        <Link
+                          to={`/product/${item.slug}`}
+                          className="text-dark card-item-link"
+                        >
+                          <div className="card">
+                            <div className="row g-0">
+                              <div className="col-md-4">
+                                <img
+                                  src={item.thumbnail}
+                                  className="img-fluid rounded-start"
+                                  alt="..."
+                                />
+                              </div>
+                              <div className="col-md-8">
+                                <div className="card-body">
+                                  <h5 className="card-title text-center">
+                                    {item.fullName}
+                                  </h5>
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
+                        </Link>
                       </td>
                       <td className="text-center">
                         <div className="other-td">
