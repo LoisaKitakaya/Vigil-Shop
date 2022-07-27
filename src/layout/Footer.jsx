@@ -134,7 +134,7 @@ const Footer = () => {
               Developed by{" "}
               <a
                 href="https://freedomloisa.netlify.app/"
-                className="text-light"
+                className="text-light top-links"
               >
                 Freedom Loisa
               </a>

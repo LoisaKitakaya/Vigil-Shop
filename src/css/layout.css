@@ -59,6 +59,7 @@
 .load-and-error {
   height: 95vh;
   display: flex;
+  align-items: center;
 }
 
 .load-and-error img,
