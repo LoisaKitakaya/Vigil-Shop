@@ -7,7 +7,7 @@ const ReviewsContainer = ({ reviews }) => {
             <div className="card review-card" key={item.id}>
               <div className="card-body">
                 <p className="card-text">
-                  <i class="bi bi-star-fill text-warning fs-5"></i>{" "}
+                  <i className="bi bi-star-fill text-warning fs-5"></i>{" "}
                   {item.rating} stars
                 </p>
                 <p className="card-text">{item.review}</p>

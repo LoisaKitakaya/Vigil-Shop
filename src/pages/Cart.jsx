@@ -15,14 +15,14 @@ const Cart = ({ cartItems, clear, addItem, removeItem }) => {
       <div className="App-sub-container">
         <div className="this-container">
           <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item">
+            <ol className="breadcrumb">
+              <li className="breadcrumb-item">
                 <Link to={"/"}>Home</Link>
               </li>
-              <li class="breadcrumb-item">
+              <li className="breadcrumb-item">
                 <Link to={"/allproducts"}>All products</Link>
               </li>
-              <li class="breadcrumb-item active" aria-current="page">
+              <li className="breadcrumb-item active" aria-current="page">
                 Cart
               </li>
             </ol>
@@ -32,15 +32,15 @@ const Cart = ({ cartItems, clear, addItem, removeItem }) => {
             <h3 className="home-title">Cart</h3>
             <div className="prod-nav-container">
               <button className="btn btn-sm btn-success disabled">
-                Checkout <i class="bi bi-calculator"></i>
+                Checkout <i className="bi bi-calculator"></i>
               </button>
             </div>
           </div>
           <hr className="divider" />
           <div className="cart-container">
             <h1 className="text-center">
-              <i class="bi bi-cart-x text-danger"></i> Cart is empty!{" "}
-              <i class="bi bi-cart-x text-danger"></i>
+              <i className="bi bi-cart-x text-danger"></i> Cart is empty!{" "}
+              <i className="bi bi-cart-x text-danger"></i>
             </h1>
           </div>
         </div>
@@ -53,14 +53,14 @@ const Cart = ({ cartItems, clear, addItem, removeItem }) => {
     <div className="App-sub-container">
       <div className="this-container">
         <nav aria-label="breadcrumb">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item">
+          <ol className="breadcrumb">
+            <li className="breadcrumb-item">
               <Link to={"/"}>Home</Link>
             </li>
-            <li class="breadcrumb-item">
+            <li className="breadcrumb-item">
               <Link to={"/allproducts"}>All products</Link>
             </li>
-            <li class="breadcrumb-item active" aria-current="page">
+            <li className="breadcrumb-item active" aria-current="page">
               Cart
             </li>
           </ol>
@@ -70,7 +70,7 @@ const Cart = ({ cartItems, clear, addItem, removeItem }) => {
           <h3 className="home-title">Cart</h3>
           <div className="prod-nav-container">
             <button className="btn btn-sm btn-success">
-              Checkout <i class="bi bi-calculator"></i>
+              Checkout <i className="bi bi-calculator"></i>
             </button>
           </div>
         </div>
@@ -90,7 +90,7 @@ const Cart = ({ cartItems, clear, addItem, removeItem }) => {
             </caption>
             <caption>
               <button className="btn btn-danger" onClick={() => clear()}>
-                Clear cart <i class="bi bi-cart-x"></i>
+                Clear cart <i className="bi bi-cart-x"></i>
               </button>
             </caption>
             <thead className="table-dark">

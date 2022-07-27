@@ -85,14 +85,14 @@ const Product = ({ addToCart, setPageName, loader }) => {
     <div className="App-sub-container">
       <div className="this-container">
         <nav aria-label="breadcrumb">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item">
+          <ol className="breadcrumb">
+            <li className="breadcrumb-item">
               <Link to={"/"}>Home</Link>
             </li>
-            <li class="breadcrumb-item">
+            <li className="breadcrumb-item">
               <Link to={"/allproducts"}>All products</Link>
             </li>
-            <li class="breadcrumb-item active" aria-current="page">
+            <li className="breadcrumb-item active" aria-current="page">
               {data.singleProduct.name}
             </li>
           </ol>
@@ -101,61 +101,61 @@ const Product = ({ addToCart, setPageName, loader }) => {
         <div className="prod-navigation">
           <h3 className="home-title">{data.singleProduct.name}</h3>
           <div className="prod-nav-container">
-            <div class="dropdown dropdown-center">
+            <div className="dropdown dropdown-center">
               <button
-                class="btn btn-sm btn-outline-secondary dropdown-toggle"
+                className="btn btn-sm btn-outline-secondary dropdown-toggle"
                 type="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
                 Categories
               </button>
-              <ul class="dropdown-menu text-center">
+              <ul className="dropdown-menu text-center">
                 <li>
-                  <a class="dropdown-item" href="#">
+                  <a className="dropdown-item" href="#">
                     Another action
                   </a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#">
+                  <a className="dropdown-item" href="#">
                     Something else here
                   </a>
                 </li>
                 <li>
-                  <hr class="dropdown-divider" />
+                  <hr className="dropdown-divider" />
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#">
+                  <a className="dropdown-item" href="#">
                     Separated link
                   </a>
                 </li>
               </ul>
             </div>
-            <div class="dropdown dropdown-center">
+            <div className="dropdown dropdown-center">
               <button
-                class="btn btn-sm btn-outline-secondary dropdown-toggle"
+                className="btn btn-sm btn-outline-secondary dropdown-toggle"
                 type="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
                 Brands
               </button>
-              <ul class="dropdown-menu text-center">
+              <ul className="dropdown-menu text-center">
                 <li>
-                  <a class="dropdown-item" href="#">
+                  <a className="dropdown-item" href="#">
                     Another action
                   </a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#">
+                  <a className="dropdown-item" href="#">
                     Something else here
                   </a>
                 </li>
                 <li>
-                  <hr class="dropdown-divider" />
+                  <hr className="dropdown-divider" />
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#">
+                  <a className="dropdown-item" href="#">
                     Separated link
                   </a>
                 </li>
@@ -199,7 +199,11 @@ const Product = ({ addToCart, setPageName, loader }) => {
           </div>
           <div className="product-description">
             <div className="container-fluid">
-              <h5 className="card-title">{data.singleProduct.fullName}</h5>
+              <h5 className="card-title">
+                <strong>
+                  Full name: <em>{data.singleProduct.fullName}</em>
+                </strong>
+              </h5>
               <hr className="divider" />
               <p className="card-text text-success">
                 <small>
@@ -271,12 +275,7 @@ const Product = ({ addToCart, setPageName, loader }) => {
         <br />
         <br />
         <div className="product-details">
-          <Tabs
-            defaultActiveKey="desc"
-            id="justify-tab-example"
-            className="mb-3"
-            variant="tabs"
-          >
+          <Tabs defaultActiveKey="desc" className="mb-3" variant="tabs">
             <Tab eventKey="desc" title="Description">
               <div
                 className="content card"
@@ -321,7 +320,7 @@ const Product = ({ addToCart, setPageName, loader }) => {
                   }}
                 />
                 <p className="card-text">
-                  <i class="bi bi-star-fill text-warning fs-5"></i> {rating}{" "}
+                  <i className="bi bi-star-fill text-warning fs-5"></i> {rating}{" "}
                   stars
                 </p>
                 <br />

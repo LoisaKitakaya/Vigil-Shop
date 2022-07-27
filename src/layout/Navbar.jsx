@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 import "../css/layout.css";
 
@@ -23,22 +23,37 @@ const NavbarComponent = ({ cartItems }) => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent2">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <NavLink
+                to={"/account"}
+                className={({ isActive }) =>
+                  isActive ? "active nav-link" : "nav-link"
+                }
+              >
                 <i className="bi bi-person"></i> Account
-              </a>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
-                <i className="bi bi-box-arrow-in-right"></i> Sign in
-              </a>
+              <NavLink
+                to={"/auth"}
+                className={({ isActive }) =>
+                  isActive ? "active nav-link" : "nav-link"
+                }
+              >
+                <i className="bi bi-box-arrow-in-right"></i> Log in
+              </NavLink>
             </li>
             <li className="nav-item">
-              <Link to={"/cart"} className="nav-link text-warning">
-                Cart <i class="bi bi-cart-check text-warning"></i>{" "}
+              <NavLink
+                to={"/cart"}
+                className={({ isActive }) =>
+                  isActive ? "active nav-link" : "nav-link"
+                }
+              >
+                Cart <i className="bi bi-cart-check"></i>{" "}
                 <span className="badge text-bg-warning">
                   {cartItems.length}
                 </span>
-              </Link>
+              </NavLink>
             </li>
           </ul>
           <form className="d-flex" role="search">

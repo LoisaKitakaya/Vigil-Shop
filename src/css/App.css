@@ -61,7 +61,8 @@
 }
 
 .product-description,
-.cart-container {
+.cart-container,
+.auth-container {
   margin: 1rem;
 }
 
@@ -73,7 +74,7 @@
 }
 
 .product-details {
-  margin: 1rem;
+  margin: 0 1rem;
 }
 
 table caption {

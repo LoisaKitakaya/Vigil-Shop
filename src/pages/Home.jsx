@@ -60,61 +60,61 @@ const Home = ({ loader }) => {
             >
               All products
             </Link>
-            <div class="dropdown dropdown-center">
+            <div className="dropdown dropdown-center">
               <button
-                class="btn btn-sm btn-outline-secondary dropdown-toggle"
+                className="btn btn-sm btn-outline-secondary dropdown-toggle"
                 type="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
                 Categories
               </button>
-              <ul class="dropdown-menu text-center">
+              <ul className="dropdown-menu text-center">
                 <li>
-                  <a class="dropdown-item" href="#">
+                  <a className="dropdown-item" href="#">
                     Another action
                   </a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#">
+                  <a className="dropdown-item" href="#">
                     Something else here
                   </a>
                 </li>
                 <li>
-                  <hr class="dropdown-divider" />
+                  <hr className="dropdown-divider" />
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#">
+                  <a className="dropdown-item" href="#">
                     Separated link
                   </a>
                 </li>
               </ul>
             </div>
-            <div class="dropdown dropdown-center">
+            <div className="dropdown dropdown-center">
               <button
-                class="btn btn-sm btn-outline-secondary dropdown-toggle"
+                className="btn btn-sm btn-outline-secondary dropdown-toggle"
                 type="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
                 Brands
               </button>
-              <ul class="dropdown-menu text-center">
+              <ul className="dropdown-menu text-center">
                 <li>
-                  <a class="dropdown-item" href="#">
+                  <a className="dropdown-item" href="#">
                     Another action
                   </a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#">
+                  <a className="dropdown-item" href="#">
                     Something else here
                   </a>
                 </li>
                 <li>
-                  <hr class="dropdown-divider" />
+                  <hr className="dropdown-divider" />
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#">
+                  <a className="dropdown-item" href="#">
                     Separated link
                   </a>
                 </li>

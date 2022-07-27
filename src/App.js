@@ -9,6 +9,7 @@ import Product from "./pages/Product";
 import AllProducts from "./pages/AllProducts";
 import Categories from "./pages/Categories";
 import Brands from "./pages/Brands";
+import UserAuth from "./pages/Authentication";
 
 import "./css/App.css";
 import loader from "./assets/loader1.gif";
@@ -64,7 +65,7 @@ const App = () => {
   return (
     <div className="App">
       {/* Navigation */}
-      <NavbarComponent cartItems={cartItems} />
+      <NavbarComponent cartItems={cartItems} setPageName={setPageName} />
       {/* Navigation */}
 
       {/* Routes */}
@@ -99,6 +100,16 @@ const App = () => {
         <Route
           path="/brand/:slug"
           element={<Brands pageName={pageName} loader={loader} />}
+        />
+        <Route
+          path="/auth"
+          element={
+            <UserAuth
+              loader={loader}
+              pageName={pageName}
+              setPageName={setPageName}
+            />
+          }
         />
       </Routes>
       {/* Routes */}
