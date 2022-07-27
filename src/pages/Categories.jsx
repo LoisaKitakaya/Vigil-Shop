@@ -18,7 +18,7 @@ const GET_PRODUCTS_BY_CATEGORY = gql`
   }
 `;
 
-const Categories = ({pageName}) => {
+const Categories = ({ pageName, loader }) => {
   pageTitle("Vigil Shop | Categories");
 
   const slug = useParams();
@@ -28,8 +28,27 @@ const Categories = ({pageName}) => {
   });
   console.log(data);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return `Error! ${error}`;
+  if (loading)
+    return (
+      <div className="App-sub-container-2">
+        <div className="load-and-error">
+          <img src={loader} alt="loader" />
+        </div>
+        <br />
+        <br />
+      </div>
+    );
+
+  if (error)
+    return (
+      <div className="App-sub-container-2">
+        <div className="load-and-error">
+          <h1>Error: {error.message}</h1>
+        </div>
+        <br />
+        <br />
+      </div>
+    );
 
   return (
     <div className="App-sub-container">

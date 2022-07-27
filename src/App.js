@@ -11,6 +11,7 @@ import Categories from "./pages/Categories";
 import Brands from "./pages/Brands";
 
 import "./css/App.css";
+import loader from "./assets/loader1.gif";
 
 const App = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -68,11 +69,15 @@ const App = () => {
 
       {/* Routes */}
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home loader={loader} />} />
         <Route
           path="/product/:slug"
           element={
-            <Product addToCart={handleAdd} setPageName={handlePageName} />
+            <Product
+              addToCart={handleAdd}
+              setPageName={handlePageName}
+              loader={loader}
+            />
           }
         />
         <Route
@@ -86,12 +91,15 @@ const App = () => {
             />
           }
         />
-        <Route path="/allproducts" element={<AllProducts />} />
+        <Route path="/allproducts" element={<AllProducts loader={loader} />} />
         <Route
           path="/category/:slug"
-          element={<Categories pageName={pageName} />}
+          element={<Categories pageName={pageName} loader={loader} />}
         />
-        <Route path="/brand/:slug" element={<Brands pageName={pageName} />} />
+        <Route
+          path="/brand/:slug"
+          element={<Brands pageName={pageName} loader={loader} />}
+        />
       </Routes>
       {/* Routes */}
 

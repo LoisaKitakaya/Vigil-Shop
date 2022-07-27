@@ -15,14 +15,33 @@ const GET_PRODUCTS = gql`
   }
 `;
 
-const AllProducts = () => {
+const AllProducts = ({ loader }) => {
   pageTitle("Vigil Shop | All products");
 
   const { loading, error, data } = useQuery(GET_PRODUCTS);
   console.log(data);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return `Error! ${error}`;
+  if (loading)
+    return (
+      <div className="App-sub-container-2">
+        <div className="load-and-error">
+          <img src={loader} alt="loader" />
+        </div>
+        <br />
+        <br />
+      </div>
+    );
+
+  if (error)
+    return (
+      <div className="App-sub-container-2">
+        <div className="load-and-error">
+          <h1>Error: {error.message}</h1>
+        </div>
+        <br />
+        <br />
+      </div>
+    );
 
   return (
     <div className="App-sub-container">

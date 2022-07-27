@@ -55,3 +55,14 @@
 .banner-container .btn {
   margin-right: 2rem;
 }
+
+.load-and-error {
+  height: 95vh;
+  display: flex;
+}
+
+.load-and-error img,
+.load-and-error h1 {
+  width: fit-content;
+  margin: auto;
+}

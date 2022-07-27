@@ -6,6 +6,13 @@
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 200 200'%3E%3Cpolygon fill='%23DCEFFA' fill-opacity='0.5' points='100 0 0 100 100 100 100 200 200 100 200 0'/%3E%3C/svg%3E");
 }
 
+.App-sub-container-2 {
+  min-height: 95vh !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  background-color: #fefefe;
+}
+
 .home-title {
   padding: 0 0 0 1rem !important;
 }
