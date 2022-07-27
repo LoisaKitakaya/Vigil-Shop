@@ -101,16 +101,7 @@ const App = () => {
           path="/brand/:slug"
           element={<Brands pageName={pageName} loader={loader} />}
         />
-        <Route
-          path="/auth"
-          element={
-            <UserAuth
-              loader={loader}
-              pageName={pageName}
-              setPageName={setPageName}
-            />
-          }
-        />
+        <Route path="/auth" element={<UserAuth loader={loader} />} />
       </Routes>
       {/* Routes */}
 

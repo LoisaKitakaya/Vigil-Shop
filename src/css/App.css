@@ -165,3 +165,10 @@ table tr {
 .prod-nav-container .btn {
   margin-right: 1rem;
 }
+
+.toast-position {
+  position: fixed !important;
+  bottom: 0 !important;
+  right: 0 !important;
+  transition-delay: 600ms !important;
+}

@@ -7,7 +7,7 @@ import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 
 import pageTitle from "../components/PageTitle";
-import ReviewsContainer from "../layout/ReviewsContainer";
+import ReviewsContainer from "../components/ReviewsContainer";
 
 const GET_PRODUCT = gql`
   query GET_PRODUCT($slug: String!) {
@@ -330,7 +330,7 @@ const Product = ({ addToCart, setPageName, loader }) => {
                     name="productreview"
                     placeholder="Leave a comment here"
                   ></textarea>
-                  <label htmlFor="floatingTextarea">Comments</label>
+                  <label htmlhtmlFor="floatingTextarea">Comments</label>
                 </div>
                 <br />
                 <button type="submit" className="btn btn-secondary">
