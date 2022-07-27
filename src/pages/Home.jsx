@@ -48,7 +48,13 @@ const Home = ({ addToCart }) => {
                     <hr className="divider" />
                     <p className="card-text">
                       <strong>
-                        Price: <em>{item.price} $</em>
+                        Price:{" "}
+                        <em>
+                          {item.price.toLocaleString(navigator.language, {
+                            minimumFractionDigits: 2,
+                          })}{" "}
+                          KES
+                        </em>
                       </strong>
                     </p>
                     <Link

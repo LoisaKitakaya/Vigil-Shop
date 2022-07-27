@@ -36,10 +36,10 @@ const Cart = ({ cartItems, clear, addItem, removeItem }) => {
               <h1>
                 <strong>
                   Total:{" "}
-                  {calculateTotal.toLocaleString("en-IN", {
-                    maximumSignificantDigits: 2,
+                  {calculateTotal.toLocaleString(navigator.language, {
+                    minimumFractionDigits: 2,
                   })}{" "}
-                  $
+                  KES
                 </strong>
               </h1>
             </caption>
@@ -52,8 +52,7 @@ const Cart = ({ cartItems, clear, addItem, removeItem }) => {
               <tr className="text-center">
                 <th scope="col">Product</th>
                 <th scope="col">quantity</th>
-                <th scope="col">price ($)</th>
-                <th scope="col">Total ($)</th>
+                <th scope="col">price</th>
               </tr>
             </thead>
             <tbody className="table-group-divider">
@@ -111,11 +110,11 @@ const Cart = ({ cartItems, clear, addItem, removeItem }) => {
                         </div>
                       </td>
                       <td className="text-center">
-                        <div className="other-td">{item.price}</div>
-                      </td>
-                      <td className="text-center">
                         <div className="other-td">
-                          {item.price * item.quantity}
+                          {item.price.toLocaleString(navigator.language, {
+                            minimumFractionDigits: 2,
+                          })}{" "}
+                          KES
                         </div>
                       </td>
                     </tr>

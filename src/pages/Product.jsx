@@ -65,6 +65,20 @@ const Product = ({ addToCart }) => {
   return (
     <div className="App-sub-container">
       <div className="this-container">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <Link to={"/"}>Home</Link>
+            </li>
+            <li class="breadcrumb-item">
+              <Link to={"/allproducts"}>All products</Link>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+              {data.singleProduct.name}
+            </li>
+          </ol>
+        </nav>
+        <hr className="divider" />
         <h3 className="home-title">{data.singleProduct.name}</h3>
         <hr className="divider" />
         <div className="display-container-2">
@@ -143,7 +157,14 @@ const Product = ({ addToCart }) => {
               </p>
               <p className="card-text">
                 <strong>
-                  Price: <em>{data.singleProduct.price} $</em>
+                  Price:{" "}
+                  <em>
+                    {data.singleProduct.price.toLocaleString(
+                      navigator.language,
+                      { minimumFractionDigits: 2 }
+                    )}{" "}
+                    KES
+                  </em>
                 </strong>
               </p>
               <hr className="divider" />
