@@ -134,8 +134,8 @@ const Review = ({ loader, productName }) => {
             <small>Just now</small>
           </Toast.Header>
           <Toast.Body>
-            <i class="bi bi-check-circle-fill"></i> Your review has been added
-            successfully.
+            <i className="bi bi-check-circle-fill"></i> Your review has been
+            added successfully.
           </Toast.Body>
         </Toast>
       </ToastContainer>

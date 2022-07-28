@@ -178,8 +178,8 @@ const Register = ({ loader }) => {
             <small>Just now</small>
           </Toast.Header>
           <Toast.Body>
-            <i class="bi bi-check-circle-fill"></i> Account creation success.
-            You can now log in.
+            <i className="bi bi-check-circle-fill"></i> Account creation
+            success. You can now log in.
           </Toast.Body>
         </Toast>
       </ToastContainer>

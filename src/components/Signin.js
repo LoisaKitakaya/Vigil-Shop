@@ -125,8 +125,8 @@ const Signin = ({ loader }) => {
             <small>Just now</small>
           </Toast.Header>
           <Toast.Body>
-            <i class="bi bi-check-circle-fill"></i> Success. You are now logged
-            in. Redirecting...
+            <i className="bi bi-check-circle-fill"></i> Success. You are now
+            logged in. Redirecting...
           </Toast.Body>
         </Toast>
       </ToastContainer>
