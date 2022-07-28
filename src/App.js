@@ -70,7 +70,10 @@ const App = () => {
 
       {/* Routes */}
       <Routes>
-        <Route path="/" element={<Home loader={loader} />} />
+        <Route
+          path="/"
+          element={<Home loader={loader} setPageName={handlePageName} />}
+        />
         <Route
           path="/product/:slug"
           element={
@@ -92,14 +95,29 @@ const App = () => {
             />
           }
         />
-        <Route path="/allproducts" element={<AllProducts loader={loader} />} />
+        <Route
+          path="/allproducts"
+          element={<AllProducts loader={loader} setPageName={handlePageName} />}
+        />
         <Route
           path="/category/:slug"
-          element={<Categories pageName={pageName} loader={loader} />}
+          element={
+            <Categories
+              pageName={pageName}
+              loader={loader}
+              setPageName={handlePageName}
+            />
+          }
         />
         <Route
           path="/brand/:slug"
-          element={<Brands pageName={pageName} loader={loader} />}
+          element={
+            <Brands
+              pageName={pageName}
+              loader={loader}
+              setPageName={handlePageName}
+            />
+          }
         />
         <Route path="/auth" element={<UserAuth loader={loader} />} />
       </Routes>

@@ -2,6 +2,7 @@ import { useQuery, gql } from "@apollo/client";
 import { Link } from "react-router-dom";
 
 import pageTitle from "../components/PageTitle";
+import Filters from "../layout/Filters";
 
 const GET_PRODUCTS = gql`
   query GET_ALL_PRODUCTS {
@@ -15,7 +16,7 @@ const GET_PRODUCTS = gql`
   }
 `;
 
-const AllProducts = ({ loader }) => {
+const AllProducts = ({ loader, setPageName }) => {
   pageTitle("Vigil Shop | All products");
 
   const { loading, error, data } = useQuery(GET_PRODUCTS);
@@ -59,68 +60,7 @@ const AllProducts = ({ loader }) => {
         <hr className="divider" />
         <div className="prod-navigation">
           <h3 className="home-title">All products</h3>
-          <div className="prod-nav-container">
-            <div className="dropdown dropdown-center">
-              <button
-                className="btn btn-sm btn-outline-secondary dropdown-toggle"
-                type="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Categories
-              </button>
-              <ul className="dropdown-menu text-center">
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Another action
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Something else here
-                  </a>
-                </li>
-                <li>
-                  <hr className="dropdown-divider" />
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Separated link
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div className="dropdown dropdown-center">
-              <button
-                className="btn btn-sm btn-outline-secondary dropdown-toggle"
-                type="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Brands
-              </button>
-              <ul className="dropdown-menu text-center">
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Another action
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Something else here
-                  </a>
-                </li>
-                <li>
-                  <hr className="dropdown-divider" />
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Separated link
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
+          <Filters setPageName={setPageName} />
         </div>
         <hr className="divider" />
         <div className="display-container">

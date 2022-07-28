@@ -2,6 +2,7 @@ import { useQuery, gql } from "@apollo/client";
 import { Link } from "react-router-dom";
 
 import pageTitle from "../components/PageTitle";
+import Filters from "../layout/Filters";
 import IntroBanner from "../layout/IntroBanner";
 
 const GET_PRODUCTS = gql`
@@ -16,7 +17,7 @@ const GET_PRODUCTS = gql`
   }
 `;
 
-const Home = ({ loader }) => {
+const Home = ({ loader, setPageName }) => {
   pageTitle("Vigil Shop | Home");
 
   const { loading, error, data } = useQuery(GET_PRODUCTS);
@@ -60,66 +61,7 @@ const Home = ({ loader }) => {
             >
               All products
             </Link>
-            <div className="dropdown dropdown-center">
-              <button
-                className="btn btn-sm btn-outline-secondary dropdown-toggle"
-                type="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Categories
-              </button>
-              <ul className="dropdown-menu text-center">
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Another action
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Something else here
-                  </a>
-                </li>
-                <li>
-                  <hr className="dropdown-divider" />
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Separated link
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div className="dropdown dropdown-center">
-              <button
-                className="btn btn-sm btn-outline-secondary dropdown-toggle"
-                type="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Brands
-              </button>
-              <ul className="dropdown-menu text-center">
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Another action
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Something else here
-                  </a>
-                </li>
-                <li>
-                  <hr className="dropdown-divider" />
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Separated link
-                  </a>
-                </li>
-              </ul>
-            </div>
+            <Filters setPageName={setPageName} />
           </div>
         </div>
         <hr className="divider" />
