@@ -256,6 +256,7 @@ const Product = ({ addToCart, setPageName, loader, setErrorRedirect }) => {
       <br />
       <ToastContainer className="p-3 toast-position text-light">
         <Toast
+          onClose={() => setShow(false)}
           show={show}
           delay={3000}
           autohide

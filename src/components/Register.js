@@ -157,7 +157,13 @@ const Register = ({ loader }) => {
         {/* toasts */}
       </form>
       <ToastContainer className="p-3 toast-position text-light">
-        <Toast show={show} delay={3000} autohide bg="success">
+        <Toast
+          onClose={() => setShow(false)}
+          show={show}
+          delay={3000}
+          autohide
+          bg="success"
+        >
           <Toast.Body>
             <i className="bi bi-check-circle-fill"></i> Account creation
             success. You can now log in.

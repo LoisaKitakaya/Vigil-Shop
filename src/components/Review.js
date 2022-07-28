@@ -113,6 +113,7 @@ const Review = ({ loader, productName, setErrorRedirect }) => {
       </form>
       <ToastContainer className="p-3 toast-position text-light">
         <Toast
+          onClose={() => setShow(false)}
           show={show}
           delay={3000}
           autohide
