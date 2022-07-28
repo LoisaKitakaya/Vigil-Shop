@@ -1,5 +1,4 @@
 import { gql, useMutation } from "@apollo/client";
-import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 import Toast from "react-bootstrap/Toast";
@@ -16,10 +15,8 @@ const TOKEN_AUTH = gql`
   }
 `;
 
-const Signin = ({ loader }) => {
+const Signin = ({ loader, errorRedirect }) => {
   const [show, setShow] = useState(false);
-
-  let navigate = useNavigate();
 
   const [tokenAuth, { data, loading, error }] = useMutation(TOKEN_AUTH);
 
@@ -31,25 +28,33 @@ const Signin = ({ loader }) => {
     localStorage.setItem("refreshToken", data.tokenAuth.refreshToken);
   }
 
+  if (errorRedirect)
+    return (
+      <div
+        className="alert alert-danger text-center toast-position-redirect"
+        role="alert"
+      >
+        <h4>{errorRedirect}</h4>
+      </div>
+    );
+
   if (loading)
     return (
-      <div className="App-sub-container-2">
-        <div className="load-and-error">
-          <img src={loader} alt="loader" />
-        </div>
-        <br />
-        <br />
+      <div className="text-center App-sub-container-2">
+        <img src={loader} alt="loader" />
       </div>
     );
 
   if (error)
     return (
-      <div className="App-sub-container-2">
-        <div className="load-and-error">
-          <h1>Error: {error.message}</h1>
-        </div>
-        <br />
-        <br />
+      <div className="alert alert-danger text-center" role="alert">
+        <h4>Error: {error.message}</h4>
+        <button
+          className="btn btn-outline-primary btn-sm"
+          onClick={() => window.location.reload(false)}
+        >
+          Try again
+        </button>
       </div>
     );
 
@@ -68,8 +73,6 @@ const Signin = ({ loader }) => {
           });
 
           setShow(true);
-
-          setTimeout(() => navigate("/allproducts", { replace: true }), 3000);
         }}
       >
         <br />
@@ -108,25 +111,10 @@ const Signin = ({ loader }) => {
         </div>
       </form>
       <ToastContainer className="p-3 toast-position text-light">
-        <Toast
-          onClose={() => setShow(false)}
-          show={show}
-          delay={3000}
-          autohide
-          bg="success"
-        >
-          <Toast.Header>
-            <img
-              src="holder.js/20x20?text=%20"
-              className="rounded me-2"
-              alt=""
-            />
-            <strong className="me-auto">Success</strong>
-            <small>Just now</small>
-          </Toast.Header>
+        <Toast show={show} delay={3000} autohide bg="success">
           <Toast.Body>
             <i className="bi bi-check-circle-fill"></i> Success. You are now
-            logged in. Redirecting...
+            logged in.
           </Toast.Body>
         </Toast>
       </ToastContainer>

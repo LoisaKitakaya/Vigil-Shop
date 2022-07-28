@@ -1,9 +1,12 @@
 import { useQuery, gql } from "@apollo/client";
 import { Link, useParams } from "react-router-dom";
+import { useState } from "react";
 
 import Carousel from "react-bootstrap/Carousel";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
+import Toast from "react-bootstrap/Toast";
+import ToastContainer from "react-bootstrap/ToastContainer";
 
 import Review from "../components/Review";
 import pageTitle from "../components/PageTitle";
@@ -48,7 +51,9 @@ const GET_PRODUCT = gql`
   }
 `;
 
-const Product = ({ addToCart, setPageName, loader }) => {
+const Product = ({ addToCart, setPageName, loader, setErrorRedirect }) => {
+  const [show, setShow] = useState(false);
+
   pageTitle("Vigil Shop | Product");
 
   const slug = useParams();
@@ -203,7 +208,11 @@ const Product = ({ addToCart, setPageName, loader }) => {
             <div>
               <button
                 className="btn btn-dark container-fluid"
-                onClick={() => addToCart(data.singleProduct)}
+                onClick={() => {
+                  addToCart(data.singleProduct);
+
+                  setShow(true);
+                }}
               >
                 Add to cart <i className="bi bi-cart-plus"></i>
               </button>
@@ -234,13 +243,30 @@ const Product = ({ addToCart, setPageName, loader }) => {
               <ReviewsContainer reviews={data.singleProduct.productReview} />
             </Tab>
             <Tab eventKey="form" title="Write review">
-              <Review loader={loader} productName={data.singleProduct.name} />
+              <Review
+                loader={loader}
+                productName={data.singleProduct.name}
+                setErrorRedirect={setErrorRedirect}
+              />
             </Tab>
           </Tabs>
         </div>
       </div>
       <br />
       <br />
+      <ToastContainer className="p-3 toast-position text-light">
+        <Toast
+          show={show}
+          delay={3000}
+          autohide
+          bg="success"
+        >
+          <Toast.Body>
+            <i className="bi bi-check-circle-fill"></i> Product has been added
+            to cart.
+          </Toast.Body>
+        </Toast>
+      </ToastContainer>
     </div>
   );
 };

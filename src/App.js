@@ -17,6 +17,7 @@ import loader from "./assets/loader1.gif";
 const App = () => {
   const [cartItems, setCartItems] = useState([]);
   const [pageName, setPageName] = useState("");
+  const [errorRedirect, setErrorRedirect] = useState("");
 
   const handleAdd = (product) => {
     const productExist = cartItems.find((item) => item.id === product.id);
@@ -81,6 +82,7 @@ const App = () => {
               addToCart={handleAdd}
               setPageName={handlePageName}
               loader={loader}
+              setErrorRedirect={setErrorRedirect}
             />
           }
         />
@@ -119,7 +121,10 @@ const App = () => {
             />
           }
         />
-        <Route path="/auth" element={<UserAuth loader={loader} />} />
+        <Route
+          path="/auth"
+          element={<UserAuth loader={loader} errorRedirect={errorRedirect} />}
+        />
       </Routes>
       {/* Routes */}
 

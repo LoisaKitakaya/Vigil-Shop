@@ -15,20 +15,11 @@ const Filters = ({ setPageName }) => {
         <ul className="dropdown-menu">
           <li>
             <Link
-              to={"/category/dome"}
-              className="dropdown-item"
-              onClick={() => setPageName("Dome")}
-            >
-              Dome
-            </Link>
-          </li>
-          <li>
-            <Link
               to={"/category/bullet"}
               className="dropdown-item"
               onClick={() => setPageName("Bullet")}
             >
-              Bullet
+              Bullet cameras
             </Link>
           </li>
           <li>
@@ -37,7 +28,7 @@ const Filters = ({ setPageName }) => {
               className="dropdown-item"
               onClick={() => setPageName("C-Mount")}
             >
-              C-Mount
+              C-Mount cameras
             </Link>
           </li>
           <li>
@@ -46,7 +37,7 @@ const Filters = ({ setPageName }) => {
               className="dropdown-item"
               onClick={() => setPageName("Day & Night")}
             >
-              Day {"&"} Night
+              Day {"&"} Night cameras
             </Link>
           </li>
           <li>
@@ -55,7 +46,7 @@ const Filters = ({ setPageName }) => {
               className="dropdown-item"
               onClick={() => setPageName("Pan Tilt Zoom")}
             >
-              Pan Tilt Zoom
+              Pan Tilt Zoom cameras
             </Link>
           </li>
           <li>
@@ -64,7 +55,7 @@ const Filters = ({ setPageName }) => {
               className="dropdown-item"
               onClick={() => setPageName("High Definition")}
             >
-              High Definition
+              High Definition cameras
             </Link>
           </li>
           <li>
@@ -73,7 +64,7 @@ const Filters = ({ setPageName }) => {
               className="dropdown-item"
               onClick={() => setPageName("Night vision")}
             >
-              Night Vision
+              Night Vision cameras
             </Link>
           </li>
           <li>
@@ -82,7 +73,7 @@ const Filters = ({ setPageName }) => {
               className="dropdown-item"
               onClick={() => setPageName("Network/IP")}
             >
-              Network/IP
+              Network/IP cameras
             </Link>
           </li>
           <li>
@@ -91,7 +82,16 @@ const Filters = ({ setPageName }) => {
               className="dropdown-item"
               onClick={() => setPageName("Wireless")}
             >
-              Wireless
+              Wireless cameras
+            </Link>
+          </li>
+          <li>
+            <Link
+              to={"/category/dome"}
+              className="dropdown-item"
+              onClick={() => setPageName("Dome")}
+            >
+              Dome cameras
             </Link>
           </li>
           <li>
@@ -100,7 +100,7 @@ const Filters = ({ setPageName }) => {
               className="dropdown-item"
               onClick={() => setPageName("Spy")}
             >
-              Spy
+              Spy cameras
             </Link>
           </li>
         </ul>
@@ -117,6 +117,15 @@ const Filters = ({ setPageName }) => {
         <ul className="dropdown-menu">
           <li>
             <Link
+              to={"/brand/canon"}
+              className="dropdown-item"
+              onClick={() => setPageName("Canon")}
+            >
+              Canon
+            </Link>
+          </li>
+          <li>
+            <Link
               to={"/brand/hikvision"}
               className="dropdown-item"
               onClick={() => setPageName("Hikvision")}
@@ -126,11 +135,20 @@ const Filters = ({ setPageName }) => {
           </li>
           <li>
             <Link
-              to={"/brand/canon"}
+              to={"/brand/geovision"}
               className="dropdown-item"
-              onClick={() => setPageName("Canon")}
+              onClick={() => setPageName("GeoVision")}
             >
-              Canon
+              GeoVision
+            </Link>
+          </li>
+          <li>
+            <Link
+              to={"/brand/lorex-technology"}
+              className="dropdown-item"
+              onClick={() => setPageName("Lorex Technology")}
+            >
+              Lorex Technology
             </Link>
           </li>
           <li>
@@ -162,33 +180,6 @@ const Filters = ({ setPageName }) => {
           </li>
           <li>
             <Link
-              to={"/brand/swann"}
-              className="dropdown-item"
-              onClick={() => setPageName("Swann")}
-            >
-              Swann
-            </Link>
-          </li>
-          <li>
-            <Link
-              to={"/brand/lorex-technology"}
-              className="dropdown-item"
-              onClick={() => setPageName("Lorex Technology")}
-            >
-              Lorex Technology
-            </Link>
-          </li>
-          <li>
-            <Link
-              to={"/brand/geovision"}
-              className="dropdown-item"
-              onClick={() => setPageName("GeoVision")}
-            >
-              GeoVision
-            </Link>
-          </li>
-          <li>
-            <Link
               to={"/brand/samsung"}
               className="dropdown-item"
               onClick={() => setPageName("Samsung")}
@@ -203,6 +194,15 @@ const Filters = ({ setPageName }) => {
               onClick={() => setPageName("Amcrest")}
             >
               Amcrest
+            </Link>
+          </li>
+          <li>
+            <Link
+              to={"/brand/swann"}
+              className="dropdown-item"
+              onClick={() => setPageName("Swann")}
+            >
+              Swann
             </Link>
           </li>
         </ul>

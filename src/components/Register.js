@@ -41,23 +41,21 @@ const Register = ({ loader }) => {
 
   if (loading)
     return (
-      <div className="App-sub-container-2">
-        <div className="load-and-error">
-          <img src={loader} alt="loader" />
-        </div>
-        <br />
-        <br />
+      <div className="text-center App-sub-container-2">
+        <img src={loader} alt="loader" />
       </div>
     );
 
   if (error)
     return (
-      <div className="App-sub-container-2">
-        <div className="load-and-error">
-          <h1>Error: {error.message}</h1>
-        </div>
-        <br />
-        <br />
+      <div className="alert alert-danger text-center" role="alert">
+        <h4>Error: {error.message}</h4>
+        <button
+          className="btn btn-outline-primary btn-sm"
+          onClick={() => window.location.reload(false)}
+        >
+          Try again
+        </button>
       </div>
     );
 
@@ -80,8 +78,6 @@ const Register = ({ loader }) => {
           });
 
           setShow(true);
-
-          setTimeout(() => window.location.reload(false), 3000);
         }}
       >
         <br />
@@ -161,22 +157,7 @@ const Register = ({ loader }) => {
         {/* toasts */}
       </form>
       <ToastContainer className="p-3 toast-position text-light">
-        <Toast
-          onClose={() => setShow(false)}
-          show={show}
-          delay={3000}
-          autohide
-          bg="success"
-        >
-          <Toast.Header>
-            <img
-              src="holder.js/20x20?text=%20"
-              className="rounded me-2"
-              alt=""
-            />
-            <strong className="me-auto">Success</strong>
-            <small>Just now</small>
-          </Toast.Header>
+        <Toast show={show} delay={3000} autohide bg="success">
           <Toast.Body>
             <i className="bi bi-check-circle-fill"></i> Account creation
             success. You can now log in.

@@ -1,4 +1,5 @@
 import { gql, useMutation } from "@apollo/client";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 import Toast from "react-bootstrap/Toast";
@@ -24,9 +25,11 @@ const ADD_REVIEW = gql`
   }
 `;
 
-const Review = ({ loader, productName }) => {
+const Review = ({ loader, productName, setErrorRedirect }) => {
   const [show, setShow] = useState(false);
   const [rating, setRating] = useState(1);
+
+  let navigate = useNavigate();
 
   const [addReview, { data, loading, error }] = useMutation(ADD_REVIEW);
 
@@ -36,25 +39,17 @@ const Review = ({ loader, productName }) => {
 
   if (loading)
     return (
-      <div className="App-sub-container-2">
-        <div className="load-and-error">
-          <img src={loader} alt="loader" />
-        </div>
-        <br />
-        <br />
+      <div className="text-center App-sub-container-2">
+        <img src={loader} alt="loader" />
       </div>
     );
 
-  if (error)
-    return (
-      <div className="App-sub-container-2">
-        <div className="load-and-error">
-          <h1>Error: {error.message}</h1>
-        </div>
-        <br />
-        <br />
-      </div>
+  if (error) {
+    navigate("/auth", { replace: true });
+    setErrorRedirect(
+      "Can't perform some actions if not authenticated. Log in to get authenticated."
     );
+  }
 
   return (
     <div>
@@ -73,7 +68,7 @@ const Review = ({ loader, productName }) => {
 
           setShow(true);
 
-          setTimeout(() => window.location.reload(false), 3000);
+          setTimeout(() => window.location.reload(), 1500);
         }}
       >
         <div className="mb-3">
@@ -118,21 +113,11 @@ const Review = ({ loader, productName }) => {
       </form>
       <ToastContainer className="p-3 toast-position text-light">
         <Toast
-          onClose={() => setShow(false)}
           show={show}
           delay={3000}
           autohide
           bg="success"
         >
-          <Toast.Header>
-            <img
-              src="holder.js/20x20?text=%20"
-              className="rounded me-2"
-              alt=""
-            />
-            <strong className="me-auto">Success</strong>
-            <small>Just now</small>
-          </Toast.Header>
           <Toast.Body>
             <i className="bi bi-check-circle-fill"></i> Your review has been
             added successfully.

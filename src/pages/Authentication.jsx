@@ -7,7 +7,7 @@ import pageTitle from "../components/PageTitle";
 import Signin from "../components/Signin";
 import Register from "../components/Register";
 
-const UserAuth = ({ loader }) => {
+const UserAuth = ({ loader, errorRedirect }) => {
   pageTitle("Vigil Shop | User auth");
 
   return (
@@ -31,7 +31,10 @@ const UserAuth = ({ loader }) => {
         <div className="auth-container">
           <Tabs defaultActiveKey="login" className="mb-3" variant="tabs">
             <Tab eventKey="login" title="Log in">
-              <Signin loader={loader} />
+              <Signin
+                loader={loader}
+                errorRedirect={errorRedirect}
+              />
             </Tab>
             <Tab eventKey="register" title="Register">
               <Register loader={loader} />
