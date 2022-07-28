@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Footer = () => {
   return (
     <div>
@@ -25,10 +27,16 @@ const Footer = () => {
             >
               <i className="bi bi-twitter fs-6 text-light"></i>
             </a>
-            <a href="#" className="contact-icons top-links">
+            <a
+              href="https://twitter.com/FreedomLoisa"
+              className="contact-icons top-links"
+            >
               <i className="bi bi-slack fs-6 text-light"></i>
             </a>
-            <a href="#" className="contact-icons top-links">
+            <a
+              href="https://twitter.com/FreedomLoisa"
+              className="contact-icons top-links"
+            >
               <i className="bi bi-linkedin fs-6 text-light"></i>
             </a>
           </div>
@@ -41,16 +49,19 @@ const Footer = () => {
             <strong>
               <p>Store</p>
             </strong>
-            <a href="#" className="nav-link">
+            <Link to={"/about"} className="nav-link">
               About us
-            </a>
-            <a href="#" className="nav-link">
+            </Link>
+            <Link to={"/findstore"} className="nav-link">
               Find store
-            </a>
-            <a href="#" className="nav-link">
+            </Link>
+            <Link to={"/howtoshop"} className="nav-link">
               How to shop
-            </a>
-            <a href="#" className="nav-link">
+            </Link>
+            <a
+              href="https://vigilsurveillance.netlify.app/"
+              className="nav-link"
+            >
               Company site
             </a>
           </div>
@@ -58,35 +69,35 @@ const Footer = () => {
             <strong>
               <p>Support</p>
             </strong>
-            <a href="#" className="nav-link">
+            <Link to={'/payment'} className="nav-link">
               Payment
-            </a>
-            <a href="#" className="nav-link">
+            </Link>
+            <Link to={'/help'} className="nav-link">
               Help center
-            </a>
-            <a href="#" className="nav-link">
+            </Link>
+            <Link to={'/reportproduct'} className="nav-link">
               Report a product
-            </a>
-            <a href="#" className="nav-link">
+            </Link>
+            <Link to={'/returns&refunds'} className="nav-link">
               Returns {"&"} refunds
-            </a>
+            </Link>
           </div>
           <div className="col-auto">
             <strong>
               <p>Information</p>
             </strong>
-            <a href="#" className="nav-link">
+            <Link to={'/shippinginfo'} className="nav-link">
               Shipping info
-            </a>
-            <a href="#" className="nav-link">
+            </Link>
+            <Link to={'/privacypolicy'} className="nav-link">
               Privacy policy
-            </a>
-            <a href="#" className="nav-link">
+            </Link>
+            <Link to={'/T&C'} className="nav-link">
               Terms {"&"} conditions
-            </a>
-            <a href="#" className="nav-link">
+            </Link>
+            <Link to={'/bulkpurchase'} className="nav-link">
               Corporate {"&"} bulk purchase
-            </a>
+            </Link>
           </div>
           <div className="col-4">
             <strong>
