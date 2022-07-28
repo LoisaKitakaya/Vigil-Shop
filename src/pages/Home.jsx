@@ -38,7 +38,11 @@ const Home = ({ loader, setPageName }) => {
     return (
       <div className="App-sub-container-2">
         <div className="load-and-error">
-          <h1>Error: {error.message}</h1>
+          <div className="alert alert-danger text-center" role="alert">
+            <h1>Ooops! Something went wrong!</h1>
+            <hr />
+            <h4>Error: {error.message}</h4>
+          </div>
         </div>
         <br />
         <br />

@@ -57,9 +57,10 @@
 }
 
 .load-and-error {
-  /* height: 95vh; */
+  height: 90vh;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .load-and-error img,
