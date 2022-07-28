@@ -1,4 +1,5 @@
 import { gql, useMutation } from "@apollo/client";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 import Toast from "react-bootstrap/Toast";
@@ -18,10 +19,13 @@ const TOKEN_AUTH = gql`
 const Signin = ({ loader }) => {
   const [show, setShow] = useState(false);
 
+  let navigate = useNavigate();
+
   const [tokenAuth, { data, loading, error }] = useMutation(TOKEN_AUTH);
 
   if (data) {
-    console.log(data);
+    localStorage.removeItem("token");
+    localStorage.removeItem("refreshToken");
 
     localStorage.setItem("token", data.tokenAuth.token);
     localStorage.setItem("refreshToken", data.tokenAuth.refreshToken);
@@ -64,6 +68,8 @@ const Signin = ({ loader }) => {
           });
 
           setShow(true);
+
+          setTimeout(() => navigate("/allproducts", { replace: true }), 3000);
         }}
       >
         <br />
@@ -105,22 +111,22 @@ const Signin = ({ loader }) => {
         <Toast
           onClose={() => setShow(false)}
           show={show}
-          delay={4000}
+          delay={3000}
           autohide
           bg="success"
         >
-          {/* <Toast.Header>
+          <Toast.Header>
             <img
               src="holder.js/20x20?text=%20"
               className="rounded me-2"
               alt=""
             />
-            <strong className="me-auto">Bootstrap</strong>
-            <small>11 mins ago</small>
-          </Toast.Header> */}
+            <strong className="me-auto">Success</strong>
+            <small>Just now</small>
+          </Toast.Header>
           <Toast.Body>
             <i class="bi bi-check-circle-fill"></i> Success. You are now logged
-            in.
+            in. Redirecting...
           </Toast.Body>
         </Toast>
       </ToastContainer>

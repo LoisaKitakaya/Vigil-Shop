@@ -30,6 +30,10 @@ const Review = ({ loader, productName }) => {
 
   const [addReview, { data, loading, error }] = useMutation(ADD_REVIEW);
 
+  if (data) {
+    console.log("Review posted successfully.");
+  }
+
   if (loading)
     return (
       <div className="App-sub-container-2">
@@ -68,6 +72,8 @@ const Review = ({ loader, productName }) => {
           });
 
           setShow(true);
+
+          setTimeout(() => window.location.reload(false), 3000);
         }}
       >
         <div className="mb-3">
@@ -101,6 +107,7 @@ const Review = ({ loader, productName }) => {
             className="form-control floating-textarea"
             name="productreview"
             placeholder="Leave a comment here"
+            required
           ></textarea>
           <label htmlFor="floatingTextarea">Comments</label>
         </div>
@@ -113,19 +120,19 @@ const Review = ({ loader, productName }) => {
         <Toast
           onClose={() => setShow(false)}
           show={show}
-          delay={4000}
+          delay={3000}
           autohide
           bg="success"
         >
-          {/* <Toast.Header>
+          <Toast.Header>
             <img
               src="holder.js/20x20?text=%20"
               className="rounded me-2"
               alt=""
             />
-            <strong className="me-auto">Bootstrap</strong>
-            <small>11 mins ago</small>
-          </Toast.Header> */}
+            <strong className="me-auto">Success</strong>
+            <small>Just now</small>
+          </Toast.Header>
           <Toast.Body>
             <i class="bi bi-check-circle-fill"></i> Your review has been added
             successfully.
