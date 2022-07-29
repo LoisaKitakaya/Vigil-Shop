@@ -1,7 +1,16 @@
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
+import Accordion from "react-bootstrap/Accordion";
+
 const Checkout = ({ cartItems, calculateTotal }) => {
+  const [shippingFee, setShippingFee] = useState(0);
+
   let navigate = useNavigate();
+
+  useEffect(() => {
+    setShippingFee(200);
+  }, []);
 
   return (
     <div className="App-sub-container">
@@ -37,7 +46,190 @@ const Checkout = ({ cartItems, calculateTotal }) => {
                 <h4>Shipping information</h4>
                 <div class="card">
                   <div class="card-body">
-                    This is some text within a card body.
+                    <Accordion defaultActiveKey="0">
+                      <Accordion.Item eventKey="0">
+                        <Accordion.Header>
+                          <strong>
+                            <em>Deliver to home or office</em>
+                          </strong>
+                        </Accordion.Header>
+                        <Accordion.Body>
+                          <form className="card tab-card">
+                            <p className="text-center text-muted">
+                              Most convenient option
+                            </p>
+                            <div className="form-floating mb-3">
+                              <input
+                                type="text"
+                                name="username"
+                                className="form-control"
+                                placeholder="e.g. JohnDoe"
+                                required
+                              />
+                              <label htmlFor="floatingInput">Username</label>
+                            </div>
+                            <div className="form-floating mb-3">
+                              <input
+                                type="email"
+                                name="email"
+                                className="form-control"
+                                placeholder="name@example.com"
+                                required
+                              />
+                              <label htmlFor="floatingInput">
+                                Email address
+                              </label>
+                            </div>
+                            <div className="form-floating mb-3">
+                              <input
+                                type="text"
+                                name="firstname"
+                                className="form-control"
+                                placeholder="e.g. John"
+                                required
+                              />
+                              <label htmlFor="floatingInput">First name</label>
+                            </div>
+                            <div className="form-floating mb-3">
+                              <input
+                                type="text"
+                                name="secondname"
+                                className="form-control"
+                                placeholder="e.g. Doe"
+                                required
+                              />
+                              <label htmlFor="floatingInput">Second name</label>
+                            </div>
+                            <div className="form-floating mb-3">
+                              <input
+                                type="password"
+                                name="password1"
+                                className="form-control"
+                                placeholder="************"
+                                required
+                              />
+                              <label htmlFor="floatingPassword">Password</label>
+                            </div>
+                            <div className="form-floating mb-3">
+                              <input
+                                type="password"
+                                name="password2"
+                                className="form-control"
+                                placeholder="************"
+                                required
+                              />
+                              <label htmlFor="floatingPassword">
+                                Confirm password
+                              </label>
+                            </div>
+                            <button
+                              type="submit"
+                              className="btn btn-outline-dark container-fluid"
+                            >
+                              Register
+                            </button>
+                            <br />
+                            <div className="form-text text-center">
+                              <em>
+                                We'll never share your information with anyone
+                                else. Your privacy is our priority.
+                              </em>
+                            </div>
+                          </form>
+                        </Accordion.Body>
+                      </Accordion.Item>
+                      <Accordion.Item eventKey="1">
+                        <Accordion.Header>
+                          <strong>
+                            <em>Collect from our store</em>
+                          </strong>
+                        </Accordion.Header>
+                        <Accordion.Body>
+                          <form className="card tab-card">
+                            <p className="text-center text-muted">
+                              But we also like visitors
+                            </p>
+                            <div className="form-floating mb-3">
+                              <input
+                                type="text"
+                                name="username"
+                                className="form-control"
+                                placeholder="e.g. JohnDoe"
+                                required
+                              />
+                              <label htmlFor="floatingInput">Username</label>
+                            </div>
+                            <div className="form-floating mb-3">
+                              <input
+                                type="email"
+                                name="email"
+                                className="form-control"
+                                placeholder="name@example.com"
+                                required
+                              />
+                              <label htmlFor="floatingInput">
+                                Email address
+                              </label>
+                            </div>
+                            <div className="form-floating mb-3">
+                              <input
+                                type="text"
+                                name="firstname"
+                                className="form-control"
+                                placeholder="e.g. John"
+                                required
+                              />
+                              <label htmlFor="floatingInput">First name</label>
+                            </div>
+                            <div className="form-floating mb-3">
+                              <input
+                                type="text"
+                                name="secondname"
+                                className="form-control"
+                                placeholder="e.g. Doe"
+                                required
+                              />
+                              <label htmlFor="floatingInput">Second name</label>
+                            </div>
+                            <div className="form-floating mb-3">
+                              <input
+                                type="password"
+                                name="password1"
+                                className="form-control"
+                                placeholder="************"
+                                required
+                              />
+                              <label htmlFor="floatingPassword">Password</label>
+                            </div>
+                            <div className="form-floating mb-3">
+                              <input
+                                type="password"
+                                name="password2"
+                                className="form-control"
+                                placeholder="************"
+                                required
+                              />
+                              <label htmlFor="floatingPassword">
+                                Confirm password
+                              </label>
+                            </div>
+                            <button
+                              type="submit"
+                              className="btn btn-outline-dark container-fluid"
+                            >
+                              Register
+                            </button>
+                            <br />
+                            <div className="form-text text-center">
+                              <em>
+                                We'll never share your information with anyone
+                                else. Your privacy is our priority.
+                              </em>
+                            </div>
+                          </form>
+                        </Accordion.Body>
+                      </Accordion.Item>
+                    </Accordion>
                   </div>
                 </div>
               </div>
@@ -45,37 +237,48 @@ const Checkout = ({ cartItems, calculateTotal }) => {
                 <h4>Summary</h4>
                 <div className="summary">
                   <ul class="list-group">
-                    <li class="list-group-item">An item</li>
-                    <li class="list-group-item">A second item</li>
-                    <li class="list-group-item">A third item</li>
-                    <li class="list-group-item">A fourth item</li>
-                    <li class="list-group-item">And a fifth one</li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                      Total:
+                      <span>{calculateTotal} KES</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                      Shipping fee:
+                      <span>{shippingFee} KES</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center bg-light">
+                      <strong>Sub total:</strong>
+                      <span>
+                        <strong>{calculateTotal + shippingFee} KES</strong>
+                      </span>
+                    </li>
                   </ul>
                 </div>
                 <hr className="divider" />
                 <h4>Items in cart</h4>
                 <div className="summary">
                   <ul class="list-group">
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                      A list item
-                      <span class="badge bg-warning text-dark rounded-pill">
-                        14
-                      </span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                      A second list item
-                      <span class="badge bg-warning text-dark rounded-pill">
-                        2
-                      </span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                      A third list item
-                      <span class="badge bg-warning text-dark rounded-pill">
-                        1
-                      </span>
-                    </li>
+                    {cartItems.map((item) => {
+                      const list = (
+                        <>
+                          <li
+                            class="list-group-item d-flex justify-content-between align-items-center"
+                            key={item.id}
+                          >
+                            <Link to={`/product/${item.slug}`}>
+                              {item.name}
+                            </Link>
+                            <span class="badge bg-warning text-dark rounded-pill">
+                              Qty: {item.quantity}
+                            </span>
+                          </li>
+                        </>
+                      );
+
+                      return list;
+                    })}
                   </ul>
                 </div>
+                <hr className="divider" />
               </div>
             </div>
           </div>

@@ -10,7 +10,7 @@ import ToastContainer from "react-bootstrap/ToastContainer";
 
 import Review from "../components/Review";
 import pageTitle from "../components/PageTitle";
-import ReviewsContainer from "../components/ReviewsContainer";
+import ReviewsContainer from "../layout/ReviewsContainer";
 import Filters from "../layout/Filters";
 
 const GET_PRODUCT = gql`
@@ -92,22 +92,20 @@ const Product = ({ addToCart, setPageName, loader, setErrorRedirect }) => {
   return (
     <div className="App-sub-container">
       <div className="this-container">
-        <nav aria-label="breadcrumb">
-          <ol className="breadcrumb">
-            <li className="breadcrumb-item">
-              <Link to={"/"}>Home</Link>
-            </li>
-            <li className="breadcrumb-item">
-              <Link to={"/allproducts"}>All products</Link>
-            </li>
-            <li className="breadcrumb-item active" aria-current="page">
-              {data.singleProduct.name}
-            </li>
-          </ol>
-        </nav>
-        <hr className="divider" />
         <div className="prod-navigation">
-          <h3 className="home-title">{data.singleProduct.name}</h3>
+          <nav aria-label="breadcrumb">
+            <ol className="breadcrumb">
+              <li className="breadcrumb-item">
+                <Link to={"/"}>Home</Link>
+              </li>
+              <li className="breadcrumb-item">
+                <Link to={"/allproducts"}>All products</Link>
+              </li>
+              <li className="breadcrumb-item active" aria-current="page">
+                {data.singleProduct.name}
+              </li>
+            </ol>
+          </nav>
           <Filters setPageName={setPageName} />
         </div>
         <hr className="divider" />
@@ -147,9 +145,7 @@ const Product = ({ addToCart, setPageName, loader, setErrorRedirect }) => {
           <div className="product-description">
             <div className="container-fluid">
               <h5 className="card-title">
-                <strong>
-                  Full name: <em>{data.singleProduct.fullName}</em>
-                </strong>
+                <strong>{data.singleProduct.fullName}</strong>
               </h5>
               <hr className="divider" />
               <p className="card-text text-success">

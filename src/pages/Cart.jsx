@@ -40,6 +40,12 @@ const Cart = ({ cartItems, clear, addItem, removeItem, calculateTotal }) => {
               <i className="bi bi-cart-x text-danger"></i> Cart is empty!{" "}
               <i className="bi bi-cart-x text-danger"></i>
             </h1>
+            <hr />
+            <h4 className="text-center">
+              <Link to={"/allproducts"} className="btn btn-secondary">
+                <i class="bi bi-cart"></i> Start shopping
+              </Link>
+            </h4>
           </div>
         </div>
         <br />
