@@ -49,7 +49,7 @@ const NavbarComponent = ({ cartItems }) => {
                   isActive ? "active nav-link" : "nav-link"
                 }
               >
-                Cart <i className="bi bi-cart-check"></i>{" "}
+                <i class="bi bi-cart"></i> Cart{" "}
                 <span className="badge text-bg-warning">
                   {cartItems.length}
                 </span>

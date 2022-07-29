@@ -62,8 +62,11 @@
 
 .product-description,
 .cart-container,
-.auth-container {
-  margin: 1rem;
+.auth-container,
+.checkout-container,
+.account-container,
+.p-1rem {
+  margin: 1rem !important;
 }
 
 .product-description {
@@ -177,4 +180,8 @@ table tr {
   width: 80% !important;
   top: 50 !important;
   margin: auto !important;
+}
+
+.account-container .card {
+  padding: 1rem 2rem !important;
 }

@@ -13,13 +13,13 @@ const IntroBanner = () => {
         </p>
         <br />
         <Link to={"/allproducts"} className="btn btn-dark">
-          Go to products <i className="bi bi-cart"></i>
+          <i className="bi bi-cart"></i> Go to products
         </Link>
         <a
           href="https://vigilsurveillance.netlify.app/"
           className="btn btn-dark"
         >
-          Go to main site <i className="bi bi-door-open"></i>
+          <i className="bi bi-door-open"></i> Go to main site
         </a>
       </div>
     </div>

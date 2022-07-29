@@ -218,7 +218,7 @@ const Product = ({ addToCart, setPageName, loader, setErrorRedirect }) => {
                   setShow(true);
                 }}
               >
-                Add to cart <i className="bi bi-cart-plus"></i>
+                <i className="bi bi-cart-plus"></i> Add to cart
               </button>
             </div>
           </div>

@@ -13,6 +13,7 @@ import UserAuth from "./pages/Authentication";
 
 import "./css/App.css";
 import loader from "./assets/loader1.gif";
+import Account from "./pages/Account";
 
 const App = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -124,6 +125,10 @@ const App = () => {
         <Route
           path="/auth"
           element={<UserAuth loader={loader} errorRedirect={errorRedirect} />}
+        />
+        <Route
+          path="/account"
+          element={<Account setPageName={handlePageName} />}
         />
       </Routes>
       {/* Routes */}
