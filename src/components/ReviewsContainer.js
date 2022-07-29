@@ -4,7 +4,7 @@ const ReviewsContainer = ({ reviews }) => {
       {reviews.map((item) => {
         const list = (
           <>
-            <div className="card review-card" key={item.id}>
+            <div className="card review-card bg-light" key={item.id}>
               <div className="card-body">
                 <p className="card-text">
                   <i className="bi bi-star-fill text-warning fs-5"></i>{" "}

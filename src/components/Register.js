@@ -62,7 +62,7 @@ const Register = ({ loader }) => {
   return (
     <div>
       <form
-        className="card review-form"
+        className="card review-form tab-card"
         onSubmit={(e) => {
           e.preventDefault();
 
@@ -80,9 +80,6 @@ const Register = ({ loader }) => {
           setShow(true);
         }}
       >
-        <br />
-        <h4 className="text-center">Create a new Vigil account</h4>
-        <br />
         <div className="form-floating mb-3">
           <input
             type="text"

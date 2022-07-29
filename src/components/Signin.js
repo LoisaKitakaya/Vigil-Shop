@@ -61,7 +61,7 @@ const Signin = ({ loader, errorRedirect }) => {
   return (
     <div>
       <form
-        className="card review-form"
+        className="card review-form tab-card"
         onSubmit={(e) => {
           e.preventDefault();
 
@@ -75,9 +75,6 @@ const Signin = ({ loader, errorRedirect }) => {
           setShow(true);
         }}
       >
-        <br />
-        <h4 className="text-center">Log in to your Vigil account</h4>
-        <br />
         <div className="form-floating mb-3">
           <input
             type="text"

@@ -54,7 +54,7 @@ const Review = ({ loader, productName, setErrorRedirect }) => {
   return (
     <div>
       <form
-        className="card review-form"
+        className="card review-form tab-card"
         onSubmit={(e) => {
           e.preventDefault();
 

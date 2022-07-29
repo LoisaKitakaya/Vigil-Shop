@@ -31,12 +31,13 @@
   width: 30%;
   margin: 1rem;
   transition-duration: 200ms;
-  box-shadow: 5px 5px 15px -5px #000000;
+  /* box-shadow: 5px 5px 15px -5px #000000; */
   transition-timing-function: linear;
 }
 
 .display-container .card:hover {
   transform: scale(1.015);
+  box-shadow: 2px 2px 10px -5px #000000;
 }
 
 .this-container {
@@ -53,7 +54,7 @@
 .display-container-2 .card {
   width: 50%;
   margin: 1rem;
-  box-shadow: 5px 5px 15px -5px #000000;
+  /* box-shadow: 5px 5px 15px -5px #000000; */
 }
 
 .display-container-2 .card img {
@@ -80,6 +81,10 @@
   margin: 0 1rem;
 }
 
+table {
+  border: 1px solid #212529 !important;
+}
+
 table caption {
   padding: 1rem 0.5rem;
 }
@@ -87,7 +92,7 @@ table caption {
 table .card-item-link {
   display: flex !important;
   align-items: center !important;
-  box-shadow: 2px 2px 10px -5px #000000;
+  /* box-shadow: 2px 2px 10px -5px #000000; */
   transition-duration: 200ms;
   transition-timing-function: linear;
   text-decoration: none !important;
@@ -96,6 +101,7 @@ table .card-item-link {
 
 table .card-item-link:hover {
   transform: scale(1.015);
+  box-shadow: 2px 2px 10px -5px #000000;
 }
 
 .this-td {
@@ -104,7 +110,7 @@ table .card-item-link:hover {
 
 .content {
   padding: 1rem;
-  box-shadow: 2px 2px 10px -5px #000000;
+  /* box-shadow: 5px 5px 15px -5px #000000; */
 }
 
 table tr {
@@ -128,14 +134,14 @@ table tr {
 }
 
 .review-card {
-  margin: 1rem auto;
-  box-shadow: 2px 2px 10px -5px #000000;
+  margin: 0 auto 1rem auto;
+  /* box-shadow: 5px 5px 15px -5px #000000; */
 }
 
 .review-form {
   padding: 1rem;
   margin: auto;
-  box-shadow: 2px 2px 10px -5px #000000;
+  /* box-shadow: 5px 5px 15px -5px #000000; */
 }
 
 .floating-textarea {
@@ -182,8 +188,26 @@ table tr {
 
 .account-container .card {
   padding: 1rem 2rem !important;
+  /* box-shadow: 5px 5px 15px -5px #000000; */
 }
 
 .mr-1rem {
   margin-right: 1rem;
+}
+
+.summary {
+  /* box-shadow: 5px 5px 15px -5px #000000; */
+  border-radius: 0.3rem;
+}
+
+.summary ul {
+  border-radius: 0.3rem !important;
+}
+
+.tab-card {
+  border: none !important;
+}
+
+.margin-left {
+  margin-left: 1.25rem;
 }

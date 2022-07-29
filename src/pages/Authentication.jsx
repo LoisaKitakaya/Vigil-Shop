@@ -34,12 +34,18 @@ const UserAuth = ({ loader, errorRedirect }) => {
           </button>
         </div>
         <hr className="divider" />
-        <div className="auth-container">
-          <Tabs defaultActiveKey="login" className="mb-3" variant="tabs">
-            <Tab eventKey="login" title="Log in">
+        <div className="auth-container card">
+          <Tabs
+            defaultActiveKey="login"
+            className="mb-3 card-header"
+            variant="tabs"
+          >
+            <Tab eventKey="login" title="Log in" className="card-body">
+              <h4 className="text-center">Log in to your Vigil account</h4>
               <Signin loader={loader} errorRedirect={errorRedirect} />
             </Tab>
-            <Tab eventKey="register" title="Register">
+            <Tab eventKey="register" title="Register" className="card-body">
+              <h4 className="text-center">Create a new Vigil account</h4>
               <Register loader={loader} />
             </Tab>
           </Tabs>

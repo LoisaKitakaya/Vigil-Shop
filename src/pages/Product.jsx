@@ -225,28 +225,37 @@ const Product = ({ addToCart, setPageName, loader, setErrorRedirect }) => {
         </div>
         <br />
         <br />
-        <div className="product-details">
-          <Tabs defaultActiveKey="desc" className="mb-3" variant="tabs">
-            <Tab eventKey="desc" title="Description">
+        <div className="product-details card">
+          <Tabs
+            defaultActiveKey="review"
+            className="mb-3 card-header"
+            variant="tabs"
+          >
+            <Tab eventKey="review" title="Reviews" className="card-body">
+              <ReviewsContainer reviews={data.singleProduct.productReview} />
+            </Tab>
+            <Tab eventKey="desc" title="Description" className="card-body">
+              <h4 className="margin-left">Product description</h4>
               <div
-                className="content card"
+                className="content card tab-card"
                 dangerouslySetInnerHTML={{
                   __html: data.singleProduct.description,
                 }}
               />
             </Tab>
-            <Tab eventKey="specs" title="Specifications">
+            <Tab eventKey="specs" title="Specifications" className="card-body">
+              <h4 className="margin-left">Product specifications</h4>
               <div
-                className="content card"
+                className="content card tab-card"
                 dangerouslySetInnerHTML={{
                   __html: data.singleProduct.specifications,
                 }}
               />
             </Tab>
-            <Tab eventKey="review" title="See reviews">
-              <ReviewsContainer reviews={data.singleProduct.productReview} />
-            </Tab>
-            <Tab eventKey="form" title="Write review">
+            <Tab eventKey="form" title="Write review" className="card-body">
+              <h4 className="margin-left">
+                What do you think about this product?
+              </h4>
               <Review
                 loader={loader}
                 productName={data.singleProduct.name}

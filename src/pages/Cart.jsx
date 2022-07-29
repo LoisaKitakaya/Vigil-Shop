@@ -75,7 +75,7 @@ const Cart = ({ cartItems, clear, addItem, removeItem, calculateTotal }) => {
         </div>
         <hr className="divider" />
         <div className="cart-container">
-          <table className="table table-warning table-hover">
+          <table className="table table-warning">
             <caption>
               <h1>
                 <strong>
