@@ -55,17 +55,17 @@ const Home = ({ loader, setPageName }) => {
       <IntroBanner />
       {/* component */}
       <div className="this-container">
-        <hr className="divider" />
+        <br />
         <div className="prod-navigation">
           <h3 className="home-title">New Products</h3>
           <div className="prod-nav-container">
+            <Filters setPageName={setPageName} />
             <Link
               to={"/allproducts"}
               className="btn btn-sm btn-outline-secondary"
             >
               All products
             </Link>
-            <Filters setPageName={setPageName} />
           </div>
         </div>
         <hr className="divider" />

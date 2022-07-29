@@ -10,10 +10,11 @@ import AllProducts from "./pages/AllProducts";
 import Categories from "./pages/Categories";
 import Brands from "./pages/Brands";
 import UserAuth from "./pages/Authentication";
+import Account from "./pages/Account";
 
 import "./css/App.css";
 import loader from "./assets/loader1.gif";
-import Account from "./pages/Account";
+import Checkout from "./pages/Checkout";
 
 const App = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -56,6 +57,11 @@ const App = () => {
     console.log(cartItems);
   };
 
+  const calculateTotal = cartItems.reduce(
+    (price, item) => price + item.quantity * item.price,
+    0
+  );
+
   const handleClear = () => {
     setCartItems([]);
   };
@@ -95,6 +101,7 @@ const App = () => {
               clear={handleClear}
               addItem={handleAdd}
               removeItem={handleRemove}
+              calculateTotal={calculateTotal}
             />
           }
         />
@@ -129,6 +136,12 @@ const App = () => {
         <Route
           path="/account"
           element={<Account setPageName={handlePageName} />}
+        />
+        <Route
+          path="/checkout"
+          element={
+            <Checkout cartItems={cartItems} calculateTotal={calculateTotal} />
+          }
         />
       </Routes>
       {/* Routes */}

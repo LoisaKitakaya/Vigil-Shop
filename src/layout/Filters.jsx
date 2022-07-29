@@ -1,8 +1,16 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Filters = ({ setPageName }) => {
+  let navigate = useNavigate();
+
   return (
     <div className="prod-nav-container">
+      <button
+        className="btn btn-sm btn-outline-secondary"
+        onClick={() => navigate(-1)}
+      >
+        <i class="bi bi-arrow-left-short"></i> Back
+      </button>
       <div className="dropdown dropdown-center">
         <button
           className="btn btn-sm btn-outline-secondary dropdown-toggle"

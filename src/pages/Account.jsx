@@ -1,28 +1,34 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import Col from "react-bootstrap/Col";
 import Nav from "react-bootstrap/Nav";
 import Row from "react-bootstrap/Row";
 import Tab from "react-bootstrap/Tab";
 
-const Account = ({ setPageName }) => {
+const Account = () => {
+  let navigate = useNavigate();
+
   return (
     <div className="App-sub-container">
       <div className="this-container">
-        <nav aria-label="breadcrumb">
-          <ol className="breadcrumb">
-            <li className="breadcrumb-item">
-              <Link to={"/"}>Home</Link>
-            </li>
-            <li className="breadcrumb-item active" aria-current="page">
-              Account
-            </li>
-          </ol>
-        </nav>
-        <hr className="divider" />
         <div className="prod-navigation">
-          <h3 className="home-title">Account</h3>
+          <nav aria-label="breadcrumb">
+            <ol className="breadcrumb">
+              <li className="breadcrumb-item">
+                <Link to={"/"}>Home</Link>
+              </li>
+              <li className="breadcrumb-item active" aria-current="page">
+                Account
+              </li>
+            </ol>
+          </nav>
           <div className="prod-nav-container">
+            <button
+              className="btn btn-sm btn-outline-secondary"
+              onClick={() => navigate(-1)}
+            >
+              <i class="bi bi-arrow-left-short"></i> Back
+            </button>
             <button className="btn btn-sm btn-danger">
               <i class="bi bi-box-arrow-left"></i> Log out
             </button>

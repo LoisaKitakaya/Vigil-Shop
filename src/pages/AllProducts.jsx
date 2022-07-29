@@ -51,19 +51,17 @@ const AllProducts = ({ loader, setPageName }) => {
   return (
     <div className="App-sub-container">
       <div className="this-container">
-        <nav aria-label="breadcrumb">
-          <ol className="breadcrumb">
-            <li className="breadcrumb-item">
-              <Link to={"/"}>Home</Link>
-            </li>
-            <li className="breadcrumb-item active" aria-current="page">
-              All products
-            </li>
-          </ol>
-        </nav>
-        <hr className="divider" />
         <div className="prod-navigation">
-          <h3 className="home-title">All products</h3>
+          <nav aria-label="breadcrumb">
+            <ol className="breadcrumb">
+              <li className="breadcrumb-item">
+                <Link to={"/"}>Home</Link>
+              </li>
+              <li className="breadcrumb-item active" aria-current="page">
+                All products
+              </li>
+            </ol>
+          </nav>
           <Filters setPageName={setPageName} />
         </div>
         <hr className="divider" />

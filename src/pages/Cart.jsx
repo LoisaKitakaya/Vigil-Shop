@@ -1,33 +1,34 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import pageTitle from "../components/PageTitle";
 
-const Cart = ({ cartItems, clear, addItem, removeItem }) => {
+const Cart = ({ cartItems, clear, addItem, removeItem, calculateTotal }) => {
   pageTitle("Vigil Shop | Cart");
 
-  const calculateTotal = cartItems.reduce(
-    (price, item) => price + item.quantity * item.price,
-    0
-  );
+  let navigate = useNavigate();
 
   if (cartItems.length === 0)
     return (
       <div className="App-sub-container">
         <div className="this-container">
-          <nav aria-label="breadcrumb">
-            <ol className="breadcrumb">
-              <li className="breadcrumb-item">
-                <Link to={"/"}>Home</Link>
-              </li>
-              <li className="breadcrumb-item active" aria-current="page">
-                Cart
-              </li>
-            </ol>
-          </nav>
-          <hr className="divider" />
           <div className="prod-navigation">
-            <h3 className="home-title">Cart</h3>
+            <nav aria-label="breadcrumb">
+              <ol className="breadcrumb">
+                <li className="breadcrumb-item">
+                  <Link to={"/"}>Home</Link>
+                </li>
+                <li className="breadcrumb-item active" aria-current="page">
+                  Cart
+                </li>
+              </ol>
+            </nav>
             <div className="prod-nav-container">
+              <button
+                className="btn btn-sm btn-outline-secondary"
+                onClick={() => navigate(-1)}
+              >
+                <i class="bi bi-arrow-left-short"></i> Back
+              </button>
               <button className="btn btn-sm btn-success disabled">
                 <i className="bi bi-cart-check"></i> Checkout
               </button>
@@ -49,20 +50,24 @@ const Cart = ({ cartItems, clear, addItem, removeItem }) => {
   return (
     <div className="App-sub-container">
       <div className="this-container">
-        <nav aria-label="breadcrumb">
-          <ol className="breadcrumb">
-            <li className="breadcrumb-item">
-              <Link to={"/"}>Home</Link>
-            </li>
-            <li className="breadcrumb-item active" aria-current="page">
-              Cart
-            </li>
-          </ol>
-        </nav>
-        <hr className="divider" />
         <div className="prod-navigation">
-          <h3 className="home-title">Cart</h3>
+          <nav aria-label="breadcrumb">
+            <ol className="breadcrumb">
+              <li className="breadcrumb-item">
+                <Link to={"/"}>Home</Link>
+              </li>
+              <li className="breadcrumb-item active" aria-current="page">
+                Cart
+              </li>
+            </ol>
+          </nav>
           <div className="prod-nav-container">
+            <button
+              className="btn btn-sm btn-outline-secondary"
+              onClick={() => navigate(-1)}
+            >
+              <i class="bi bi-arrow-left-short"></i> Back
+            </button>
             <Link to={"/checkout"} className="btn btn-sm btn-success">
               <i className="bi bi-cart-check"></i> Checkout
             </Link>
