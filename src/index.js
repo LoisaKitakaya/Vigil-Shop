@@ -19,7 +19,7 @@ import "bootstrap/dist/js/bootstrap.min.js";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
 const httpLink = createHttpLink({
-  uri: "http://127.0.0.1:8000/graphql/"
+  uri: "http://127.0.0.1:8000/graphql/",
 });
 
 const authLink = setContext((_, { headers }) => {

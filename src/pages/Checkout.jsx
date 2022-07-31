@@ -6,12 +6,15 @@ import DeliveryOrder from "../components/DeliveryOrder";
 import PickupOrder from "../components/PickupOrder";
 import pageTitle from "../components/PageTitle";
 
-const Checkout = ({ cartItems, calculateTotal, setErrorRedirect }) => {
+const Checkout = ({ cartItems, calculateTotal }) => {
   const [shippingFee, setShippingFee] = useState(0);
 
   pageTitle("Vigil | Checkout");
 
   let navigate = useNavigate();
+
+  console.log(cartItems);
+  console.log(typeof cartItems)
 
   useEffect(() => {
     setShippingFee(200);
@@ -59,10 +62,7 @@ const Checkout = ({ cartItems, calculateTotal, setErrorRedirect }) => {
                           </strong>
                         </Accordion.Header>
                         <Accordion.Body>
-                          <DeliveryOrder
-                            cartItems={cartItems}
-                            setErrorRedirect={setErrorRedirect}
-                          />
+                          <DeliveryOrder cartItems={cartItems} />
                         </Accordion.Body>
                       </Accordion.Item>
                       <Accordion.Item eventKey="1">
