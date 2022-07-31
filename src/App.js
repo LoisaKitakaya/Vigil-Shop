@@ -140,7 +140,11 @@ const App = () => {
         <Route
           path="/checkout"
           element={
-            <Checkout cartItems={cartItems} calculateTotal={calculateTotal} />
+            <Checkout
+              cartItems={cartItems}
+              calculateTotal={calculateTotal}
+              setErrorRedirect={setErrorRedirect}
+            />
           }
         />
       </Routes>

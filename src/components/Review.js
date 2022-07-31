@@ -39,17 +39,24 @@ const Review = ({ productName, setErrorRedirect }) => {
 
   if (loading)
     return (
-      <div class="d-flex justify-content-center">
-        <div class="spinner-border m-5 text-primary fs-4" role="status">
-          <span class="visually-hidden">Loading...</span>
+      <div className="d-flex justify-content-center">
+        <div className="spinner-border m-5 text-primary fs-4" role="status">
+          <span className="visually-hidden">Loading...</span>
         </div>
       </div>
     );
 
   if (error) {
-    navigate("/auth", { replace: true });
-    setErrorRedirect(
-      "Can't perform some actions if not authenticated. Log in to get authenticated."
+    return (
+      <div className="alert alert-danger text-center" role="alert">
+        <h4>Error: {error.message}</h4>
+        <button
+          className="btn btn-outline-primary btn-sm"
+          onClick={() => navigate("/auth", { replace: true })}
+        >
+          Log in
+        </button>
+      </div>
     );
   }
 

@@ -4,9 +4,12 @@ import { Link, useNavigate } from "react-router-dom";
 import Accordion from "react-bootstrap/Accordion";
 import DeliveryOrder from "../components/DeliveryOrder";
 import PickupOrder from "../components/PickupOrder";
+import pageTitle from "../components/PageTitle";
 
-const Checkout = ({ cartItems, calculateTotal }) => {
+const Checkout = ({ cartItems, calculateTotal, setErrorRedirect }) => {
   const [shippingFee, setShippingFee] = useState(0);
+
+  pageTitle("Vigil | Checkout");
 
   let navigate = useNavigate();
 
@@ -36,18 +39,18 @@ const Checkout = ({ cartItems, calculateTotal }) => {
               className="btn btn-sm btn-dark mr-1rem"
               onClick={() => navigate(-1)}
             >
-              <i class="bi bi-arrow-left-short"></i> Back
+              <i className="bi bi-arrow-left-short"></i> Back
             </button>
           </div>
         </div>
         <hr className="divider" />
         <div className="checkout-container">
-          <div class="container text-center">
-            <div class="row">
-              <div class="col-sm-8">
+          <div className="container text-center">
+            <div className="row">
+              <div className="col-sm-8">
                 <h4>Shipping information</h4>
-                <div class="card">
-                  <div class="card-body">
+                <div className="card">
+                  <div className="card-body">
                     <Accordion defaultActiveKey="0">
                       <Accordion.Item eventKey="0">
                         <Accordion.Header>
@@ -56,7 +59,10 @@ const Checkout = ({ cartItems, calculateTotal }) => {
                           </strong>
                         </Accordion.Header>
                         <Accordion.Body>
-                          <DeliveryOrder />
+                          <DeliveryOrder
+                            cartItems={cartItems}
+                            setErrorRedirect={setErrorRedirect}
+                          />
                         </Accordion.Body>
                       </Accordion.Item>
                       <Accordion.Item eventKey="1">
@@ -73,22 +79,38 @@ const Checkout = ({ cartItems, calculateTotal }) => {
                   </div>
                 </div>
               </div>
-              <div class="col-sm-4">
+              <div className="col-sm-4">
                 <h4>Summary</h4>
                 <div className="summary">
-                  <ul class="list-group">
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                  <ul className="list-group">
+                    <li className="list-group-item d-flex justify-content-between align-items-center">
                       Total:
-                      <span>{calculateTotal} KES</span>
+                      <span>
+                        {calculateTotal.toLocaleString(navigator.language, {
+                          minimumFractionDigits: 2,
+                        })}{" "}
+                        KES
+                      </span>
                     </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <li className="list-group-item d-flex justify-content-between align-items-center">
                       Shipping fee:
-                      <span>{shippingFee} KES</span>
+                      <span>
+                        {shippingFee.toLocaleString(navigator.language, {
+                          minimumFractionDigits: 2,
+                        })}{" "}
+                        KES
+                      </span>
                     </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center bg-light">
+                    <li className="list-group-item d-flex justify-content-between align-items-center bg-light">
                       <strong>Sub total:</strong>
                       <span>
-                        <strong>{calculateTotal + shippingFee} KES</strong>
+                        <strong>
+                          {(calculateTotal + shippingFee).toLocaleString(
+                            navigator.language,
+                            { minimumFractionDigits: 2 }
+                          )}{" "}
+                          KES
+                        </strong>
                       </span>
                     </li>
                   </ul>
@@ -96,18 +118,18 @@ const Checkout = ({ cartItems, calculateTotal }) => {
                 <hr className="divider" />
                 <h4>Items in cart</h4>
                 <div className="summary">
-                  <ul class="list-group">
+                  <ul className="list-group">
                     {cartItems.map((item) => {
                       const list = (
                         <>
                           <li
-                            class="list-group-item d-flex justify-content-between align-items-center"
+                            className="list-group-item d-flex justify-content-between align-items-center"
                             key={item.id}
                           >
                             <Link to={`/product/${item.slug}`}>
                               {item.name}
                             </Link>
-                            <span class="badge bg-warning text-dark rounded-pill">
+                            <span className="badge bg-warning text-dark rounded-pill">
                               Qty: {item.quantity}
                             </span>
                           </li>

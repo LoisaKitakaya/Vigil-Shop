@@ -30,7 +30,7 @@ const UserAuth = ({ loader, errorRedirect }) => {
             className="btn btn-sm btn-dark mr-1rem"
             onClick={() => navigate(-1)}
           >
-            <i class="bi bi-arrow-left-short"></i> Back
+            <i className="bi bi-arrow-left-short"></i> Back
           </button>
         </div>
         <hr className="divider" />

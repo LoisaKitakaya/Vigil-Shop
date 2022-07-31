@@ -4,8 +4,11 @@ import Col from "react-bootstrap/Col";
 import Nav from "react-bootstrap/Nav";
 import Row from "react-bootstrap/Row";
 import Tab from "react-bootstrap/Tab";
+import pageTitle from "../components/PageTitle";
 
 const Account = () => {
+  pageTitle("Vigil | Account");
+
   let navigate = useNavigate();
 
   return (
@@ -27,10 +30,10 @@ const Account = () => {
               className="btn btn-sm btn-dark"
               onClick={() => navigate(-1)}
             >
-              <i class="bi bi-arrow-left-short"></i> Back
+              <i className="bi bi-arrow-left-short"></i> Back
             </button>
             <button className="btn btn-sm btn-danger">
-              <i class="bi bi-box-arrow-left"></i> Log out
+              <i className="bi bi-box-arrow-left"></i> Log out
             </button>
           </div>
         </div>

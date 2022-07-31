@@ -2,40 +2,40 @@ const PickupOrder = () => {
   return (
     <form className="card tab-card">
       <p className="text-center text-muted">We love visitors</p>
-      <div class="mb-3">
-        <label for="pin" class="form-label float-start">
+      <div className="mb-3">
+        <label for="pin" className="form-label float-start">
           Personal identification
         </label>
         <input
           type="text"
           name="pin"
-          class="form-control"
+          className="form-control"
           placeholder="e.g. National ID no or Passport no"
         />
       </div>
-      <div class="mb-3">
-        <label for="phone" class="form-label float-start">
+      <div className="mb-3">
+        <label for="phone" className="form-label float-start">
           Phone
         </label>
         <input
           type="text"
           name="phone"
-          class="form-control"
+          className="form-control"
           placeholder="e.g. +254 725 131 828"
         />
       </div>
-      <div class="mb-3">
-        <label for="misc" class="form-label float-start">
+      <div className="mb-3">
+        <label for="misc" className="form-label float-start">
           Message for the seller
         </label>
         <textarea
-          class="form-control"
+          className="form-control"
           rows="8"
           placeholder="Comments/extra voluntary information"
         ></textarea>
       </div>
       <button type="submit" className="btn btn-outline-dark container-fluid">
-        Register
+        Create order
       </button>
       <br />
       <div className="form-text text-center">

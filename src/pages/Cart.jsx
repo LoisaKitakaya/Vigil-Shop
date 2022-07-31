@@ -27,7 +27,7 @@ const Cart = ({ cartItems, clear, addItem, removeItem, calculateTotal }) => {
                 className="btn btn-sm btn-dark"
                 onClick={() => navigate(-1)}
               >
-                <i class="bi bi-arrow-left-short"></i> Back
+                <i className="bi bi-arrow-left-short"></i> Back
               </button>
               <button className="btn btn-sm btn-success disabled">
                 <i className="bi bi-cart-check"></i> Checkout
@@ -43,7 +43,7 @@ const Cart = ({ cartItems, clear, addItem, removeItem, calculateTotal }) => {
             <hr />
             <h4 className="text-center">
               <Link to={"/allproducts"} className="btn btn-secondary">
-                <i class="bi bi-cart"></i> Start shopping
+                <i className="bi bi-cart"></i> Start shopping
               </Link>
             </h4>
           </div>
@@ -72,7 +72,7 @@ const Cart = ({ cartItems, clear, addItem, removeItem, calculateTotal }) => {
               className="btn btn-sm btn-dark"
               onClick={() => navigate(-1)}
             >
-              <i class="bi bi-arrow-left-short"></i> Back
+              <i className="bi bi-arrow-left-short"></i> Back
             </button>
             <Link to={"/checkout"} className="btn btn-sm btn-success">
               <i className="bi bi-cart-check"></i> Checkout
