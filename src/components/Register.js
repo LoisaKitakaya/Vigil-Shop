@@ -41,8 +41,10 @@ const Register = ({ loader }) => {
 
   if (loading)
     return (
-      <div className="text-center App-sub-container-2">
-        <img src={loader} alt="loader" />
+      <div class="d-flex justify-content-center">
+        <div class="spinner-border m-5 text-dark fs-4" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
       </div>
     );
 

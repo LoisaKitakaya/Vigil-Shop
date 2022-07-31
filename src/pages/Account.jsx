@@ -24,7 +24,7 @@ const Account = () => {
           </nav>
           <div className="prod-nav-container">
             <button
-              className="btn btn-sm btn-outline-secondary"
+              className="btn btn-sm btn-dark"
               onClick={() => navigate(-1)}
             >
               <i class="bi bi-arrow-left-short"></i> Back

@@ -6,14 +6,14 @@ const Filters = ({ setPageName }) => {
   return (
     <div className="prod-nav-container">
       <button
-        className="btn btn-sm btn-outline-secondary"
+        className="btn btn-sm btn-dark"
         onClick={() => navigate(-1)}
       >
         <i class="bi bi-arrow-left-short"></i> Back
       </button>
       <div className="dropdown dropdown-center">
         <button
-          className="btn btn-sm btn-outline-secondary dropdown-toggle"
+          className="btn btn-sm btn-dark dropdown-toggle"
           type="button"
           data-bs-toggle="dropdown"
           aria-expanded="false"
@@ -115,7 +115,7 @@ const Filters = ({ setPageName }) => {
       </div>
       <div className="dropdown dropdown-center">
         <button
-          className="btn btn-sm btn-outline-secondary dropdown-toggle"
+          className="btn btn-sm btn-dark dropdown-toggle"
           type="button"
           data-bs-toggle="dropdown"
           aria-expanded="false"

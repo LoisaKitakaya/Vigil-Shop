@@ -27,7 +27,7 @@ const UserAuth = ({ loader, errorRedirect }) => {
             </ol>
           </nav>
           <button
-            className="btn btn-sm btn-outline-secondary mr-1rem"
+            className="btn btn-sm btn-dark mr-1rem"
             onClick={() => navigate(-1)}
           >
             <i class="bi bi-arrow-left-short"></i> Back

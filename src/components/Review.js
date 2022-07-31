@@ -25,7 +25,7 @@ const ADD_REVIEW = gql`
   }
 `;
 
-const Review = ({ loader, productName, setErrorRedirect }) => {
+const Review = ({ productName, setErrorRedirect }) => {
   const [show, setShow] = useState(false);
   const [rating, setRating] = useState(1);
 
@@ -39,8 +39,10 @@ const Review = ({ loader, productName, setErrorRedirect }) => {
 
   if (loading)
     return (
-      <div className="text-center App-sub-container-2">
-        <img src={loader} alt="loader" />
+      <div class="d-flex justify-content-center">
+        <div class="spinner-border m-5 text-primary fs-4" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
       </div>
     );
 
@@ -68,7 +70,7 @@ const Review = ({ loader, productName, setErrorRedirect }) => {
 
           setShow(true);
 
-          setTimeout(() => window.location.reload(), 1500);
+          setTimeout(() => window.location.reload(), 2000);
         }}
       >
         <div className="mb-3">

@@ -74,6 +74,11 @@
 }
 
 .top-margin .active {
-  background-color: #dee2e6 !important;
-  color: #212529 !important;
+  background-color: #343a40 !important;
+  color: #f8f9fa !important;
+}
+
+.spinner-border {
+  width: 4rem !important;
+  height: 4rem !important;
 }

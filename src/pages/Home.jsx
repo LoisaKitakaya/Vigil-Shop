@@ -62,7 +62,7 @@ const Home = ({ loader, setPageName }) => {
             <Filters setPageName={setPageName} />
             <Link
               to={"/allproducts"}
-              className="btn btn-sm btn-outline-secondary"
+              className="btn btn-sm btn-dark"
             >
               All products
             </Link>

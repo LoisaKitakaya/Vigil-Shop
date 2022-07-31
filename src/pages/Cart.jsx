@@ -18,13 +18,13 @@ const Cart = ({ cartItems, clear, addItem, removeItem, calculateTotal }) => {
                   <Link to={"/"}>Home</Link>
                 </li>
                 <li className="breadcrumb-item active" aria-current="page">
-                  Cart
+                  Shopping cart
                 </li>
               </ol>
             </nav>
             <div className="prod-nav-container">
               <button
-                className="btn btn-sm btn-outline-secondary"
+                className="btn btn-sm btn-dark"
                 onClick={() => navigate(-1)}
               >
                 <i class="bi bi-arrow-left-short"></i> Back
@@ -63,13 +63,13 @@ const Cart = ({ cartItems, clear, addItem, removeItem, calculateTotal }) => {
                 <Link to={"/"}>Home</Link>
               </li>
               <li className="breadcrumb-item active" aria-current="page">
-                Cart
+                Shopping cart
               </li>
             </ol>
           </nav>
           <div className="prod-nav-container">
             <button
-              className="btn btn-sm btn-outline-secondary"
+              className="btn btn-sm btn-dark"
               onClick={() => navigate(-1)}
             >
               <i class="bi bi-arrow-left-short"></i> Back

@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import Accordion from "react-bootstrap/Accordion";
+import DeliveryOrder from "../components/DeliveryOrder";
+import PickupOrder from "../components/PickupOrder";
 
 const Checkout = ({ cartItems, calculateTotal }) => {
   const [shippingFee, setShippingFee] = useState(0);
@@ -22,7 +24,7 @@ const Checkout = ({ cartItems, calculateTotal }) => {
                 <Link to={"/"}>Home</Link>
               </li>
               <li className="breadcrumb-item">
-                <Link to={"/cart"}>Cart</Link>
+                <Link to={"/cart"}>Shopping cart</Link>
               </li>
               <li className="breadcrumb-item active" aria-current="page">
                 Checkout
@@ -31,7 +33,7 @@ const Checkout = ({ cartItems, calculateTotal }) => {
           </nav>
           <div className="prod-nav-container">
             <button
-              className="btn btn-sm btn-outline-secondary mr-1rem"
+              className="btn btn-sm btn-dark mr-1rem"
               onClick={() => navigate(-1)}
             >
               <i class="bi bi-arrow-left-short"></i> Back
@@ -54,88 +56,7 @@ const Checkout = ({ cartItems, calculateTotal }) => {
                           </strong>
                         </Accordion.Header>
                         <Accordion.Body>
-                          <form className="card tab-card">
-                            <p className="text-center text-muted">
-                              Most convenient option
-                            </p>
-                            <div className="form-floating mb-3">
-                              <input
-                                type="text"
-                                name="username"
-                                className="form-control"
-                                placeholder="e.g. JohnDoe"
-                                required
-                              />
-                              <label htmlFor="floatingInput">Username</label>
-                            </div>
-                            <div className="form-floating mb-3">
-                              <input
-                                type="email"
-                                name="email"
-                                className="form-control"
-                                placeholder="name@example.com"
-                                required
-                              />
-                              <label htmlFor="floatingInput">
-                                Email address
-                              </label>
-                            </div>
-                            <div className="form-floating mb-3">
-                              <input
-                                type="text"
-                                name="firstname"
-                                className="form-control"
-                                placeholder="e.g. John"
-                                required
-                              />
-                              <label htmlFor="floatingInput">First name</label>
-                            </div>
-                            <div className="form-floating mb-3">
-                              <input
-                                type="text"
-                                name="secondname"
-                                className="form-control"
-                                placeholder="e.g. Doe"
-                                required
-                              />
-                              <label htmlFor="floatingInput">Second name</label>
-                            </div>
-                            <div className="form-floating mb-3">
-                              <input
-                                type="password"
-                                name="password1"
-                                className="form-control"
-                                placeholder="************"
-                                required
-                              />
-                              <label htmlFor="floatingPassword">Password</label>
-                            </div>
-                            <div className="form-floating mb-3">
-                              <input
-                                type="password"
-                                name="password2"
-                                className="form-control"
-                                placeholder="************"
-                                required
-                              />
-                              <label htmlFor="floatingPassword">
-                                Confirm password
-                              </label>
-                            </div>
-                            <button
-                              type="submit"
-                              className="btn btn-outline-dark container-fluid"
-                            >
-                              Register
-                            </button>
-                            <br />
-                            <div className="form-text text-center">
-                              <em>
-                                We'll never share your information with anyone
-                                else. Your privacy is our priority.
-                              </em>
-                            </div>
-                          </form>
+                          <DeliveryOrder />
                         </Accordion.Body>
                       </Accordion.Item>
                       <Accordion.Item eventKey="1">
@@ -145,88 +66,7 @@ const Checkout = ({ cartItems, calculateTotal }) => {
                           </strong>
                         </Accordion.Header>
                         <Accordion.Body>
-                          <form className="card tab-card">
-                            <p className="text-center text-muted">
-                              But we also like visitors
-                            </p>
-                            <div className="form-floating mb-3">
-                              <input
-                                type="text"
-                                name="username"
-                                className="form-control"
-                                placeholder="e.g. JohnDoe"
-                                required
-                              />
-                              <label htmlFor="floatingInput">Username</label>
-                            </div>
-                            <div className="form-floating mb-3">
-                              <input
-                                type="email"
-                                name="email"
-                                className="form-control"
-                                placeholder="name@example.com"
-                                required
-                              />
-                              <label htmlFor="floatingInput">
-                                Email address
-                              </label>
-                            </div>
-                            <div className="form-floating mb-3">
-                              <input
-                                type="text"
-                                name="firstname"
-                                className="form-control"
-                                placeholder="e.g. John"
-                                required
-                              />
-                              <label htmlFor="floatingInput">First name</label>
-                            </div>
-                            <div className="form-floating mb-3">
-                              <input
-                                type="text"
-                                name="secondname"
-                                className="form-control"
-                                placeholder="e.g. Doe"
-                                required
-                              />
-                              <label htmlFor="floatingInput">Second name</label>
-                            </div>
-                            <div className="form-floating mb-3">
-                              <input
-                                type="password"
-                                name="password1"
-                                className="form-control"
-                                placeholder="************"
-                                required
-                              />
-                              <label htmlFor="floatingPassword">Password</label>
-                            </div>
-                            <div className="form-floating mb-3">
-                              <input
-                                type="password"
-                                name="password2"
-                                className="form-control"
-                                placeholder="************"
-                                required
-                              />
-                              <label htmlFor="floatingPassword">
-                                Confirm password
-                              </label>
-                            </div>
-                            <button
-                              type="submit"
-                              className="btn btn-outline-dark container-fluid"
-                            >
-                              Register
-                            </button>
-                            <br />
-                            <div className="form-text text-center">
-                              <em>
-                                We'll never share your information with anyone
-                                else. Your privacy is our priority.
-                              </em>
-                            </div>
-                          </form>
+                          <PickupOrder />
                         </Accordion.Body>
                       </Accordion.Item>
                     </Accordion>
