@@ -17,7 +17,7 @@ const GET_PRODUCT = gql`
   query GET_PRODUCT($slug: String!) {
     singleProduct(slug: $slug) {
       id
-      name
+      productName
       fullName
       slug
       price
@@ -28,11 +28,11 @@ const GET_PRODUCT = gql`
       description
       specifications
       productCategory {
-        name
+        categoryName
         slug
       }
       productBrand {
-        name
+        brandName
         slug
       }
       productinventorySet {
@@ -43,7 +43,7 @@ const GET_PRODUCT = gql`
         user {
           username
         }
-        name
+        itemName
         review
         rating
       }
@@ -102,7 +102,7 @@ const Product = ({ addToCart, setPageName, loader, setErrorRedirect }) => {
                 <Link to={"/allproducts"}>All products</Link>
               </li>
               <li className="breadcrumb-item active" aria-current="page">
-                {data.singleProduct.name}
+                {data.singleProduct.productName}
               </li>
             </ol>
           </nav>
@@ -167,10 +167,10 @@ const Product = ({ addToCart, setPageName, loader, setErrorRedirect }) => {
                       className="text-dark"
                       to={`/category/${data.singleProduct.productCategory.slug}`}
                       onClick={() =>
-                        setPageName(data.singleProduct.productCategory.name)
+                        setPageName(data.singleProduct.productCategory.categoryName)
                       }
                     >
-                      {data.singleProduct.productCategory.name}
+                      {data.singleProduct.productCategory.categoryName}
                     </Link>
                   </em>
                 </strong>
@@ -183,10 +183,10 @@ const Product = ({ addToCart, setPageName, loader, setErrorRedirect }) => {
                       className="text-dark"
                       to={`/brand/${data.singleProduct.productBrand.slug}`}
                       onClick={() =>
-                        setPageName(data.singleProduct.productBrand.name)
+                        setPageName(data.singleProduct.productBrand.brandName)
                       }
                     >
-                      {data.singleProduct.productBrand.name}
+                      {data.singleProduct.productBrand.brandName}
                     </Link>
                   </em>
                 </strong>

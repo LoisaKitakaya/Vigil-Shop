@@ -8,7 +8,7 @@ const GET_PRODUCTS = gql`
   query GET_ALL_PRODUCTS {
     allProducts {
       id
-      name
+      productName
       slug
       price
       thumbnail

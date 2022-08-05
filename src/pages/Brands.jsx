@@ -8,12 +8,12 @@ const GET_PRODUCTS_BY_BRAND = gql`
   query GET_PRODUCTS_BY_BRAND($slug: String!) {
     singleBrand(slug: $slug) {
       id
-      name
+      productName
       slug
       price
       thumbnail
       productBrand {
-        name
+        brandName
       }
     }
   }

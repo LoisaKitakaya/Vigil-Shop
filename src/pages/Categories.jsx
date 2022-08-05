@@ -8,12 +8,12 @@ const GET_PRODUCTS_BY_CATEGORY = gql`
   query GET_PRODUCTS_BY_CATEGORY($slug: String!) {
     singleCategory(slug: $slug) {
       id
-      name
+      productName
       slug
       price
       thumbnail
       productCategory {
-        name
+        categoryName
       }
     }
   }

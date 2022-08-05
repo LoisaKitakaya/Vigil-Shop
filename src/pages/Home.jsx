@@ -9,7 +9,7 @@ const GET_PRODUCTS = gql`
   query GET_NEW_PRODUCTS {
     homeProducts(limit: 6) {
       id
-      name
+      productName
       slug
       price
       thumbnail

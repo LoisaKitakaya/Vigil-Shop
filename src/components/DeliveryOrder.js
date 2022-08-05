@@ -9,7 +9,7 @@ const CREATE_DELIVERY_ORDER = gql`
     $city: String!
     $address: String!
     $phone: String!
-    $items: [CartItemInput]!
+    $items: String!
     $total: Float!
   ) {
     createOrder(
@@ -32,7 +32,7 @@ const CREATE_DELIVERY_ORDER = gql`
           email
         }
         item {
-          name
+          productName
           thumbnail
           price
           quantity
@@ -76,6 +76,12 @@ const DeliveryOrder = ({ cartItems, calculateTotal }) => {
     );
   }
 
+  const testData = () => {
+    console.log(cartItems, typeof cartItems);
+    let cartInString = JSON.stringify(cartItems);
+    console.log(cartInString, typeof cartInString);
+  };
+
   return (
     <div>
       <form
@@ -88,14 +94,7 @@ const DeliveryOrder = ({ cartItems, calculateTotal }) => {
               city: e.target.city.value,
               address: e.target.address.value,
               phone: e.target.phone.value,
-              items: cartItems.map((item) => {
-                return {
-                  name: item.name,
-                  price: item.price,
-                  thumbnail: item.thumbnail,
-                  quantity: item.quantity,
-                };
-              }),
+              items: JSON.stringify(cartItems),
               total: calculateTotal,
             },
           });
@@ -150,7 +149,11 @@ const DeliveryOrder = ({ cartItems, calculateTotal }) => {
             placeholder="Comments/extra voluntary information"
           ></textarea>
         </div>
-        <button type="submit" className="btn btn-outline-dark container-fluid">
+        <button
+          type="submit"
+          className="btn btn-outline-dark container-fluid"
+          onClick={() => testData()}
+        >
           Create order
         </button>
         <br />

@@ -13,9 +13,6 @@ const Checkout = ({ cartItems, calculateTotal }) => {
 
   let navigate = useNavigate();
 
-  console.log(cartItems);
-  console.log(typeof cartItems)
-
   useEffect(() => {
     setShippingFee(200);
   }, []);
